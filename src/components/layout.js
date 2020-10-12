@@ -1,5 +1,10 @@
 import React from 'react'
+import Header from './header'
 
-export default () => {
-    return <div>Hello world!</div>
-}
+
+export default () => (
+    <div>
+        <Header />
+        Hello world!
+    </div>
+)
