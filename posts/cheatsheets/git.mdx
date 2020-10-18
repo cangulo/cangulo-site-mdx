@@ -1,0 +1,182 @@
+---
+templateKey: post
+postType: cheatsheet
+title: Git Cheatsheet
+date: 2020-06-09T15:04:10.000Z
+description: This post explains the git commands I use most as well as some customizations like githooks
+featuredpost: true
+featuredimage: ./resources/git/git-logo.png
+tags:
+  - git
+  - githooks
+  - alias
+available: true
+---
+
+## Git Commands
+
+| Command                            | Description                                                                                                                                                               |
+| :--------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `git checkout --track origin/NAME` | Create a local branch that tracks the remote one                                                                                                                          |
+| `git checkout -`                   | Checkout the previous branch, this can be useful if you go from your feature branch to dev, you update it, and you want to come back to your feature branch to rebase dev |
+
+<!-- TODO: list how to undo change in only one file using: -->
+<!-- git show some_commit_sha1 |-|- some_file.c | git apply -R  (remove |) -->
+<!-- https://stackoverflow.com/questions/2620775/revert-changes-to-a-file-in-a-commit  -->
+<!-- TODO: list files in a commit: -->
+<!-- git diff-tree |-|-no-commit-id |-|-name-only -r bd61ad98 (remove |)  -->
+<!-- https://stackoverflow.com/questions/424071/how-to-list-all-the-files-in-a-commit -->
+<!-- TODO: Add all the things you have in your Onenote notebooks -->
+<!-- TODO add https://stackoverflow.com/questions/3701404/how-can-i-list-all-commits-that-changed-a-specific-file -->
+<!-- TODO: https://fettblog.eu/snippets/git/reverting-a-single-file/ -->
+
+## How to configure an Alias
+
+### Using Command Line:
+
+using Command line: 
+
+
+| Command                                             | Example                                 |
+| --------------------------------------------------- | --------------------------------------- |
+| `git config --global alias.[AliasName] [AliasValue` | `git config --global alias.co checkout` |
+
+### Configuring the git config file
+
+1. Open your `.gitconfig` file, it is located at your home folder
+2. In a new line, add the tag `[alias]`
+3. In the next lines add your alias following the format `[TAB space]AliasName = AliasValue`. 
+
+Please note this config file is space/tab sensitive so be sure no spaces are added at the end of each line
+
+```bash
+[alias]
+	b = branch
+```
+
+Next are my personal alias:
+<!-- ## Advanced Alias -->
+
+<!-- You can define alias that receives parameters as next -->
+<!-- TODO: Explain -->
+
+## Alias configured
+
+```bash
+[alias]
+	b = branch
+	bd = branch -D
+	co = checkout
+	cob = checkout -b
+	cor = checkout --track
+	cp = cherry-pick
+	cp-c = cherry-pick --continue
+	cp-a = cherry-pick --abort
+	re = rebase -i
+	re-a = rebase --abort
+	st = status
+	l = "!f() { git log --oneline -n ${1-15}; }; f"
+	lg = "!f() { git log --oneline --grep=${1-No Argument Provided}; }; f"
+	settings = config --global --edit
+```
+
+<!-- TODO: Add a alias to push and open the PR link automatically -->
+<!-- you pass a boolean parameter depending depending on which the PR link will be open  -->
+
+The `l` and `lg` are alias with input parameters defined as Bash functions
+
+## Githooks
+<!-- TODO: Define an article and create in tutorials -->
+<!-- TODO: Define a cheatsheet here -->
+<!-- TODO: Add a git hoook to open the PR link when you do a push -->
+<!-- https://stackoverflow.com/questions/49969134/how-to-add-message-with-link-to-new-pull-request-page-after-pushing-branch-to-gi -->
+
+### Problem
+
+Perform actions before or after any commit, let's say, automatize actions following the git workflow. \
+In my case, I want to make sure that all my markdown files has any code reference updated. For that, I execute a bash file called `update_sh_code_in_md_files.sh`.
+
+### Solution
+
+Create a githook that is executed before doing a commit.
+
+
+By default, git create the next set of samples in  `.git/hooks`.
+
+```bash
+applypatch-msg.sample
+commit-msg.sample
+fsmonitor-watchman.sample
+post-update.sample
+pre-applypatch.sample
+pre-commit.sample
+prepare-commit-msg.sample
+pre-push.sample
+pre-rebase.sample
+pre-receive.sample
+update.sample
+```
+
+If a common policy for pre-commit needs to be updated to the repository the `pre-commit` should be located outside the `.git` folder, this will ensure the folder will be tracked in git. Then, we have to configure git to use that path as the source for hooks, this could be done as next:
+
+```bash
+git config --local core.hooksPath ./githooks
+```
+
+In case we want to set a global policy, it could be done with the same command but adding `--global` as parameter. In my case, all my repositories contains markdown files with reference to code that I want to update 
+
+
+```bash
+git config --global core.hooksPath ./githooks
+```
+
+If the hook is set as *global* the configuration file modified will be  `.gitconfig `, at the home user directory. \
+On the other hand, if it is *local*, the file modified will be `.config` in  the `.git` folder of the repository.
+
+Next are the lines to be added in the file:
+<!-- CODE_START ./resources/git/githooks/gitconfig-with-hooks bash -->
+```bash
+[core]
+	hooksPath = /home/carlos/Documents/github_repositories/cheatsheet/GitCheatsheet/resources/githooks/
+```
+<!-- CODE_END -->
+
+
+
+### Example Pre Commit file example
+<!-- TODO: Get the list of files to be modified and add them to the commit as follow -->
+<!-- to avoid have them as separate (second) commit when modified -->
+<!-- git add /home/carlos/Documents/github_repositories/cheatsheet/BashCheatSheet/BashCheatSheet.md -->
+
+<!-- CODE_START ./resources/git/githooks/pre-commit bash -->
+```bash
+#!/bin/sh
+
+echo "### PRE-COMMIT GLOBAL PROCESS"
+
+/home/carlos/Documents/github_repositories/bashScripts/markdown_helpers/update_code_in_docs/update_sh_code_in_md_files.sh
+executionResult=$?
+
+if [ $executionResult -eq 0 ]; then
+    echo "###      RESULT OK"
+else
+    echo "###      RESULT NOT OK"
+fi
+
+echo "### PRE-COMMIT GLOBAL PROCESS END"
+exit $executionResult
+```
+<!-- CODE_END -->
+
+<p align="center">
+  <a href="./resources/git/githooks/pre-commit"><i>pre-commit file</i></a>
+</p>
+
+ ## References
+
+[githooks official docs](https://git-scm.com/docs/githooks)  
+
+[How do I modify my Git Bash profile in Windows?](https://superuser.com/questions/602872/how-do-i-modify-my-git-bash-profile-in-windows)  
+ 
+<!-- TODO: https://kurtdowswell.com/software-development/git-bash-aliases/  -->
+<!-- TODO: https://jondavidjohn.com/git-aliases-parameters/  -->

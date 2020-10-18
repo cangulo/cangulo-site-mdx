@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "### PRE-COMMIT GLOBAL PROCESS"
+
+/home/carlos/Documents/github_repositories/bashScripts/markdown_helpers/update_code_in_docs/update_sh_code_in_md_files.sh
+executionResult=$?
+
+if [ $executionResult -eq 0 ]; then
+    echo "###      RESULT OK"
+else
+    echo "###      RESULT NOT OK"
+fi
+
+echo "### PRE-COMMIT GLOBAL PROCESS END"
+exit $executionResult

@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from './header'
+import Footer from './footer'
 
 
-export default () => (
+export default ({ children }) => (
     <div>
         <Header />
-        Hello world!
+        {children}
+        <Footer />
     </div>
 )

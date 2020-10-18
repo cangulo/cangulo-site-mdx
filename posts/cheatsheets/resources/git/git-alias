@@ -1,0 +1,15 @@
+[alias]
+	b = branch
+	bd = branch -D
+	co = checkout
+	cob = checkout -b
+	cor = checkout --track
+	cp = cherry-pick
+	cp-c = cherry-pick --continue
+	cp-a = cherry-pick --abort
+	re = rebase -i
+	re-a = rebase --abort
+	st = status
+	l = "!f() { git log --oneline -n ${1-15}; }; f"
+	lg = "!f() { git log --oneline --grep=${1-No Argument Provided}; }; f"
+	settings = config --global --edit

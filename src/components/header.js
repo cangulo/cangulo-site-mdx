@@ -24,5 +24,4 @@ export default () =>
                 </Form>
             </Navbar.Collapse>
         </Navbar>
-        <span>Header</span>
     </div>)
