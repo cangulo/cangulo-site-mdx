@@ -1,25 +1,24 @@
 const { createFilePath } = require('gatsby-source-filesystem')
 const path = require('path')
-// const { postType } = require('./src/models/postType')
 
-// function getPostType(slug) {
-//    if (slug.split('/', 1)[0].toLowerCase().includes('')) {
-
-//    } else {
-
-//    }
-//    return postType.blog
-// }
+function getPostType(slug) {
+   return slug.split('/', 2)[1].toLowerCase()
+}
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
    if (node.internal.type === "Mdx") {
       const { createNodeField } = actions
       const slug = createFilePath({ node, getNode })
-      // const getPostType =
+      const postType = getPostType(slug)
       createNodeField({
          node,
          name: 'slug',
          value: slug,
+      })
+      createNodeField({
+         node,
+         name: 'postType',
+         value: postType,
       })
    }
 }
@@ -36,6 +35,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
            id
            fields {
              slug
+             postType
            }
          }
        }
@@ -54,9 +54,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
    const posts = result.data.allMdx.edges
 
    // you'll call `createPage` for each result
-   posts.forEach(({ node }, index) => {
-      console.log('FOREACH')
-      console.log(node)
+   posts.forEach(({ node }) => {
       createPage({
          // This is the slug you created before
          // (or `node.frontmatter.slug`)
@@ -65,7 +63,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
          component: path.resolve(`./src/templates/post/post-layout.js`),
          // You can use the values in this context in
          // our page layout component
-         context: { id: node.id },
+         context: {
+            id: node.id,
+            postType: node.fields.postType
+         },
       })
    })
 }

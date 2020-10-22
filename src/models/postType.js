@@ -3,3 +3,4 @@ export const postType = {
     meetups: 'meetups',
     cheatsheets: 'cheatsheets'
 }
+

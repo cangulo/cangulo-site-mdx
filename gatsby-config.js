@@ -11,22 +11,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `cheatsheets`,
-        path: `${__dirname}/posts/cheatsheets`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `blog`,
-        path: `${__dirname}/posts/blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `meetups`,
-        path: `${__dirname}/posts/meetups`,
+        name: `posts`,
+        path: `${__dirname}/posts/`,
       },
     },
     `gatsby-plugin-mdx`
