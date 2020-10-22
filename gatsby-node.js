@@ -1,12 +1,21 @@
 const { createFilePath } = require('gatsby-source-filesystem')
 const path = require('path')
+// const { postType } = require('./src/models/postType')
+
+// function getPostType(slug) {
+//    if (slug.split('/', 1)[0].toLowerCase().includes('')) {
+
+//    } else {
+
+//    }
+//    return postType.blog
+// }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-   if (node.internal.type === 'Mdx') {
+   if (node.internal.type === "Mdx") {
       const { createNodeField } = actions
       const slug = createFilePath({ node, getNode })
-      console.log(node)
-      console.log(`slug on CreateNode`)
+      // const getPostType =
       createNodeField({
          node,
          name: 'slug',
