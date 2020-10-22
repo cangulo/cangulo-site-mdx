@@ -24,15 +24,15 @@ available: true
 | `alias` | `alias NAME=VALUE`                | `VALUE` should include characters escaped                                                                                                                                 |
 | `cheat` | `cheat COMMAND`                   | `COMMAND` you would like to get a cheatsheet                                                                                                                              |
 | `grep`  | `[COMMAND] \| grep [WORD]`        | Filters the output lines of `[COMMAND]` that contains `[WORD]`                                                                                                            |
-| `grep`  | `[COMMAND] \| grep -E [Regex]`    | Filters the output lines of `[COMMAND]` by the `[Regex]` <br>Check this  [cheatsheet for Regex](RegexCheatSheet.md)                                                       |
+| `grep`  | `[COMMAND] \| grep -E [Regex]`    | Filters the output lines of `[COMMAND]` by the `[Regex]` BRRRRRCheck this  [cheatsheet for Regex](RegexCheatSheet.md)                                                       |
 | `grep`  | `[COMMAND] \| grep -v [WORD]`     | `-v` filters the not matching lines                                                                                                                                       |
 | `trail` | `[COMMAND] \| trail -n [NUM]`     | filters the previous command output to the latest `[NUM]` lines                                                                                                           |
 | `touch` | `touch [FILE]`                    | creates the file `[FILE]`                                                                                                                                                 |
-| `tee`   | `[COMMAND] \| tee [FILE]`         | Overwrites the `[FILE]` content with the `[COMMAND]` output (**stdout**).<br>To Include the **stderr** concatenate `&` after `\|`                                         |
-| `tee`   | `[COMMAND] \| tee -a [FILE]`      | Appends the `[COMMAND]` output (**stdout**) to the `[FILE]` content.<br>To Include the **stderr** concatenate `&` after `\|`                                              |
+| `tee`   | `[COMMAND] \| tee [FILE]`         | Overwrites the `[FILE]` content with the `[COMMAND]` output (**stdout**).BRRRRRTo Include the **stderr** concatenate `&` after `\|`                                         |
+| `tee`   | `[COMMAND] \| tee -a [FILE]`      | Appends the `[COMMAND]` output (**stdout**) to the `[FILE]` content.BRRRRRTo Include the **stderr** concatenate `&` after `\|`                                              |
 | `vim`   | `vim [FILE]`                      | [Vim Cheatsheet](https://vim.rtorr.com)                                                                                                                                   |
-| `vim`   | `[COMMAND] \| vim -`              | Sends `[COMMAND]` output directly into **vim**. To copy a line to the system clipboard you should:<br>1. Go to the line<br>2. Type `:y+`                                  |
-| `vim`   | copy a text line in the clipboard | 1. Verify you have vim-gnome and copyQ (try to install it both with `sudo apt-get install`<br>2. Enter in vim <br>3. Go to the line<br>4. Type `:y+` 5. Paste it anywhere |
+| `vim`   | `[COMMAND] \| vim -`              | Sends `[COMMAND]` output directly into **vim**. To copy a line to the system clipboard you should:BRRRRR1. Go to the lineBRRRRR2. Type `:y+`                                  |
+| `vim`   | copy a text line in the clipboard | 1. Verify you have vim-gnome and copyQ (try to install it both with `sudo apt-get install`BRRRRR2. Enter in vim BRRRRR3. Go to the lineBRRRRR4. Type `:y+` 5. Paste it anywhere |
 | `more`  | `[COMMAND] \| more -[N]`          | Display only the `[N]` lines of the `[COMMAND]` output and allows you to navigate line be line by pressing `[ENTER]` or `[N]` lines by pressing `[SPACE]`                 |
 | `more`  | `[COMMAND] \| more -[N] -d`       | Display only the `[N]` lines of the `[COMMAND]` output and display instructions to navigate through the text                                                              |
 | `less`  |                                   |                                                                                                                                                                           |
@@ -48,11 +48,11 @@ There are two standard [outputs](https://en.wikipedia.org/wiki/Standard_streams#
 
 | Example                | Remark                                                                                                                                                                                  |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `[COMMAND] > [FILE]`   | **Overwrites** the `[FILE]` content  with the `[COMMAND]` **stdout**. <br>It only works if the `[COMMAND]` is executed successfully                                                     |
-| `[COMMAND] >> [FILE]`  | **Appends** the `[COMMAND]` **stdout** to the `[FILE]` content. <br>It only works if the `[COMMAND]` is executed successfully                                                           |
+| `[COMMAND] > [FILE]`   | **Overwrites** the `[FILE]` content  with the `[COMMAND]` **stdout**. BRRRRRIt only works if the `[COMMAND]` is executed successfully                                                     |
+| `[COMMAND] >> [FILE]`  | **Appends** the `[COMMAND]` **stdout** to the `[FILE]` content. BRRRRRIt only works if the `[COMMAND]` is executed successfully                                                           |
 | `[COMMAND] &> [FILE]`  | **Overwrites** the `[FILE]` content  with the `[COMMAND]` **stdout** and **stderr**                                                                                                     |
 | `[COMMAND] >> [FILE]`  | **Appends** the `[COMMAND]` **stdout** and **stderr** to the `[FILE]` content                                                                                                           |
-| `[COMMAND] 2> [FILE]`  | Display the `[COMMAND]` **stdout** in the terminal and overwrites the `[FILE]` content with the **stderr**.<br>Please note if there is no error the `[FILE]` content would result empty |
+| `[COMMAND] 2> [FILE]`  | Display the `[COMMAND]` **stdout** in the terminal and overwrites the `[FILE]` content with the **stderr**.BRRRR Please note if there is no error the `[FILE]` content would result empty |
 | `[COMMAND] 2>> [FILE]` | Display the `[COMMAND]` **stdout** in the terminal and append the **stderr**  to the `[FILE]` content                                                                                   |
 
 ### Text Modifiers
@@ -163,8 +163,8 @@ Next is the list of alias I use:
 | -------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `hist`   | `history \| tail -n 20 \| grep -v \"hist\" `                         | List the last 20 commands and remove the ones that has the `hist` word                                                 |
 | `clear`  | `cls`                                                                | Clean the terminal                                                                                                     |
-| `gedit`  | `io.elementary.code`                                                 | Open any file with the Elementary text editor<br>**(Only works on Elementary OS)**                                     |
-| `open_f` | `currentFolder=$(pwd);`<br>`io.elementary.files $currentFolder -n &` | Open a new windows (`-n` of the Elementary file explorer in the current directory<br>**(Only works on Elementary OS)** |
+| `gedit`  | `io.elementary.code`                                                 | Open any file with the Elementary text editorBRRRRR**(Only works on Elementary OS)**                                     |
+| `open_f` | `currentFolder=$(pwd);`BRRRRR`io.elementary.files $currentFolder -n &` | Open a new windows (`-n` of the Elementary file explorer in the current directoryBRRRRR**(Only works on Elementary OS)** |
 | `copy`   | `xclip -sel clipboard`                                               | Copy text to the system clipboard                                                                                      |
 | `past`   | `xclip -sel clipboard -o`                                            | Read text from the system clipboard                                                                                    |
 

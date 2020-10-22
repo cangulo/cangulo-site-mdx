@@ -6,8 +6,8 @@ import { postType } from '../models/postType'
 export default () => (
     <div>
         <Layout>
-            <h1>Cheatsheets</h1>
-            <PostList postType={postType.cheatsheets} />
+            <h1>Meetups</h1>
+            <PostList postType={postType.meetups} />
         </Layout>
     </div>
 )
