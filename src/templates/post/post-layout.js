@@ -16,7 +16,7 @@ export default function PageTemplate({ data: { mdx } }) {
          <PostHeader
             title={mdx.frontmatter.title}
             date={mdx.frontmatter.date}
-            img={mdx.frontmatter.img}
+            featuredimage={mdx.frontmatter.img}
          />
          {/* {mdx.fields.postType === postType.blog && <h2>Blog</h2>}
          {mdx.fields.postType === postType.cheatsheets && <h2>Cheatsheets</h2>}
@@ -39,6 +39,13 @@ query BlogPostQuery($id: String) {
        title
        date(formatString: "DD/MM/YYYY")
        tags
+       img  {
+         childImageSharp {
+               fluid(maxWidth: 120, quality: 100) {
+                ...GatsbyImageSharpFluid
+               }
+            }
+         }
        references
      }
      fields {

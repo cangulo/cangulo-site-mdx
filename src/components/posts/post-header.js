@@ -1,12 +1,24 @@
 import React from 'react';
-import CustomImg from '../custom-img';
+import { Col, Container, Jumbotron, Row } from 'react-bootstrap';
+import PreviewCompatibleImage from '../custom-img';
 
-export default ({ title, subtitle, date, imgId, logo }) => (
-    <section >
-        <h1 >{title}</h1>
-        {date ?? <h2>{subtitle}</h2>}
-        {date ?? <i><p>{date}</p></i>}
-        {imgId ?? <CustomImg imgId={imgId} />}
-    </section>
-
+const PostHeader = ({ title, subtitle, date, featuredimage }) => (
+    <Container fluid style={{ paddingBlock:'40px' , backgroundColor: '#e9ecef'}}>
+        <Row>
+            <Col sm={10}>
+                <h1 >{title}</h1>
+                {subtitle ?? <h2>{subtitle}</h2>}
+                {date ?? <i><p>{date}</p></i>}
+            </Col>
+            <Col sm={2}>
+                {featuredimage && (
+                    <PreviewCompatibleImage
+                        image={featuredimage}
+                        alt={title}
+                    />)}
+            </Col>
+        </Row>
+    </Container>
 )
+
+export default PostHeader

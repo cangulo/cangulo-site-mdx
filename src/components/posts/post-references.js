@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ references }) => {
+const PostReferences = ({ references }) => {
     return (
         <section >
             <h2>References</h2>
@@ -14,3 +14,5 @@ export default ({ references }) => {
         </section>
     )
 }
+
+export default PostReferences

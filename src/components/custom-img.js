@@ -1,17 +1,10 @@
-import React from 'react';
+import React from 'react'
+import Img from 'gatsby-image'
 
-export default ({ imgId }) => {
-    console.log(imgId)
-    return (
-        <section >
-        </section>
-    )
-}
+const PreviewCompatibleImage = ({ image, alt }) => (
+    <div style={{ width: '100px',float:"right" }}>
+        <Img fluid={image.childImageSharp.fluid} alt={alt} />
+    </div>
+)
 
-
-// childImageSharp {
-//     fluid(maxWidth: 120, quality: 100) {
-//       ...GatsbyImageSharpFluid
-//       }
-//     }
-//   }
+export default PreviewCompatibleImage
