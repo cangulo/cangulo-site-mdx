@@ -6,37 +6,45 @@ import { Link } from "gatsby"
 import Layout from '../../components/layout'
 import { postType } from '../../models/postType'
 import PostHeader from "../../components/posts/post-header"
+import PostTags from "../../components/posts/post-tags"
+import PostReferences from "../../components/posts/post-references"
 const shortcodes = { Link } // Provide common components here
 
 export default function PageTemplate({ data: { mdx } }) {
-   console.log(mdx.fields.postType === postType.cheatsheets);
    return (
       <Layout>
-         <PostHeader 
+         <PostHeader
             title={mdx.frontmatter.title}
-             />
-         {mdx.fields.postType === postType.blog && <h2>Blog</h2>}
+            date={mdx.frontmatter.date}
+            img={mdx.frontmatter.img}
+         />
+         {/* {mdx.fields.postType === postType.blog && <h2>Blog</h2>}
          {mdx.fields.postType === postType.cheatsheets && <h2>Cheatsheets</h2>}
-         {mdx.fields.postType === postType.meetups && <h2>Meetups</h2>}
+         {mdx.fields.postType === postType.meetups && <h2>Meetups</h2>} */}
          <MDXProvider components={shortcodes}>
             <MDXRenderer>{mdx.body}</MDXRenderer>
          </MDXProvider>
+         <PostTags tags={mdx.frontmatter.tags} />
+         <PostReferences references={mdx.frontmatter.references} />
       </Layout>
    )
 }
 
 export const pageQuery = graphql`
-  query BlogPostQuery($id: String) {
-    mdx(id: { eq: $id }) {
-      id
-      body
-      frontmatter {
-        title
-      }
-      fields {
-         slug
-         postType
-       }
-    }
-  }
+query BlogPostQuery($id: String) {
+   mdx(id: {eq: $id}) {
+     id
+     body
+     frontmatter {
+       title
+       date(formatString: "DD/MM/YYYY")
+       tags
+       references
+     }
+     fields {
+       slug
+       postType
+     }
+   }
+ } 
 `
