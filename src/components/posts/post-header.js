@@ -3,22 +3,26 @@ import { Col, Container, Jumbotron, Row } from 'react-bootstrap';
 import PreviewCompatibleImage from '../custom-img';
 
 const PostHeader = ({ title, subtitle, date, featuredimage }) => (
-    <Container fluid style={{ paddingBlock:'40px' , backgroundColor: '#e9ecef'}}>
-        <Row>
-            <Col sm={10}>
-                <h1 >{title}</h1>
-                {subtitle ?? <h2>{subtitle}</h2>}
-                {date ?? <i><p>{date}</p></i>}
-            </Col>
-            <Col sm={2}>
-                {featuredimage && (
-                    <PreviewCompatibleImage
-                        image={featuredimage}
-                        alt={title}
-                    />)}
-            </Col>
-        </Row>
-    </Container>
+    <Jumbotron fluid>
+        <Container fluid>
+            <Row>
+                <Col xs={12} md={8}>
+                    <h1 >{title}</h1>
+                    {subtitle && <h2>{subtitle}</h2>}
+                    {date && <i><p>{date}</p></i>}
+                </Col>
+                <Col s={6} md={4}>
+                    <div style={{ float: "right" }}>
+                        {featuredimage && (
+                            <PreviewCompatibleImage
+                                image={featuredimage}
+                                alt={title}
+                            />)}
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+    </Jumbotron>
 )
 
 export default PostHeader

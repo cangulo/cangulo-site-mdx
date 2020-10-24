@@ -10,11 +10,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       const { createNodeField } = actions
       const slug = createFilePath({ node, getNode })
       const postType = getPostType(slug)
-      createNodeField({
-         node,
-         name: 'slug',
-         value: slug,
-      })
+      // createNodeField({
+      //    node,
+      //    name: 'slug',
+      //    value: slug,
+      // })
       createNodeField({
          node,
          name: 'postType',
@@ -28,19 +28,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
    const { createPage } = actions
 
    const result = await graphql(`
-   query {
-     allMdx {
-       edges {
-         node {
-           id
-           fields {
-             slug
-             postType
-           }
-         }
-       }
-     }
-   }
+   {
+      allMdx {
+        edges {
+          node {
+            id
+            slug
+            fields {
+              postType
+            }
+          }
+        }
+      }
+    }
  `)
 
    if (result.errors) {
@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       createPage({
          // This is the slug you created before
          // (or `node.frontmatter.slug`)
-         path: node.fields.slug,
+         path: node.slug,
          // This component will wrap our MDX content
          component: path.resolve(`./src/templates/post/post-layout.js`),
          // You can use the values in this context in

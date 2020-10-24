@@ -24,8 +24,8 @@ export default function PageTemplate({ data: { mdx } }) {
          <MDXProvider components={shortcodes}>
             <MDXRenderer>{mdx.body}</MDXRenderer>
          </MDXProvider>
-         <PostTags tags={mdx.frontmatter.tags} />
-         <PostReferences references={mdx.frontmatter.references} />
+         {mdx.frontmatter.tags && <PostTags tags={mdx.frontmatter.tags} />}
+         {mdx.frontmatter.references && <PostReferences references={mdx.frontmatter.references} />}
       </Layout>
    )
 }
@@ -49,7 +49,6 @@ query BlogPostQuery($id: String) {
        references
      }
      fields {
-       slug
        postType
      }
    }
