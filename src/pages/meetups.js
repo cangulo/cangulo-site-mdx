@@ -4,10 +4,8 @@ import PostList from '../components/posts/post-list'
 import { postType } from '../models/postType'
 
 export default () => (
-    <div>
-        <Layout>
-            <h1>Meetups</h1>
-            <PostList postType={postType.meetups} />
-        </Layout>
-    </div>
+    <Layout>
+        <h1>Meetups</h1>
+        <PostList postType={postType.meetups} />
+    </Layout>
 )

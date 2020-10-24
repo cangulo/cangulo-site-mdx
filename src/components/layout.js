@@ -1,19 +1,25 @@
 import React from 'react'
 import Header from './header'
 import Footer from './footer'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 
 
-export default ({ children }) => (
+const Layout = ({ children }) => (
     <div>
         <Header />
-        <Row>
-            <Col></Col>
-            <Col xs={10}>
-                {children}
-            </Col>
-            <Col></Col>
-        </Row>
+
+        <Container fluid>
+            <Row>
+                <Col />
+                <Col md={11}>
+                    {children}
+                </Col>
+                <Col />
+            </Row>
+        </Container>
         <Footer />
+
     </div>
 )
+
+export default Layout

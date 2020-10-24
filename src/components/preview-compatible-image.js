@@ -1,8 +1,8 @@
 import React from 'react'
 import Img from 'gatsby-image'
 
-const PreviewCompatibleImage = ({ image, alt }) => (
-    <div style={{ width: '120px' }}>
+const PreviewCompatibleImage = ({ image, alt, width }) => (
+    <div style={{ width: width ?? '120px' }}>
         <Img fluid={image.childImageSharp.fluid} alt={alt} />
     </div>
 )

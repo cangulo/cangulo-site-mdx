@@ -6,12 +6,12 @@ const PostHeader = ({ title, subtitle, date, featuredimage }) => (
     <Jumbotron fluid>
         <Container fluid>
             <Row>
-                <Col xs={12} md={8}>
+                <Col md={10} >
                     <h1 >{title}</h1>
                     {subtitle && <h2>{subtitle}</h2>}
                     {date && <i><p>{date}</p></i>}
                 </Col>
-                <Col s={6} md={4}>
+                <Col md={2} >
                     <div style={{ float: "right" }}>
                         {featuredimage && (
                             <PreviewCompatibleImage
