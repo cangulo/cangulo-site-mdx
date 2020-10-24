@@ -1,10 +1,11 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import PreviewCompatibleImage from '../preview-compatible-image';
 
-const PostCard = ({ title, date, description }) => (
+const PostCard = ({ title, date, description, img }) => (
     <Card>
         {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
-        {/* TODO, set image */}
+        <PreviewCompatibleImage image={img} alt={title} />
         <Card.Body>
             <Card.Title>{title}</Card.Title>
             {date && <Card.Subtitle className="mb-2 text-muted">{date}</Card.Subtitle>}

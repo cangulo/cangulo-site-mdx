@@ -15,6 +15,13 @@ export default ({ postType }) => (
               title
               description
               date(formatString: "DD/MM/YYYY")
+              img {
+                childImageSharp {
+                  fluid(maxWidth: 120, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
             fields {
               postType
@@ -22,7 +29,7 @@ export default ({ postType }) => (
           }
         }
       }
-    }
+    }    
     `}
 
     render={data => (
@@ -33,7 +40,8 @@ export default ({ postType }) => (
             <PostCard
               title={node.frontmatter.title}
               date={node.frontmatter.date}
-              description={node.frontmatter.description} />
+              description={node.frontmatter.description}
+              img={node.frontmatter.img} />
           ))}
       </CardDeck>
     )}

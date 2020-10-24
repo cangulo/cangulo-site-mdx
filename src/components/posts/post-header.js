@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Jumbotron, Row } from 'react-bootstrap';
-import PreviewCompatibleImage from '../custom-img';
+import PreviewCompatibleImage from '../preview-compatible-image';
 
 const PostHeader = ({ title, subtitle, date, featuredimage }) => (
     <Jumbotron fluid>
