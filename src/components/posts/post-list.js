@@ -33,7 +33,7 @@ export default ({ postType }) => (
     `}
     render={data => (
       <Container fluid>
-        <Row sm={2}>
+        <Row sm={2} md={3}>
           {data.allMdx.edges
             .filter(({ node }) => node.fields.postType === postType)
             .map(({ node }) => (
