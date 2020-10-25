@@ -3,20 +3,12 @@ import { Button, Card, Col, Container, Row } from "react-bootstrap"
 import PreviewCompatibleImage from "../preview-compatible-image"
 
 const PostCard = ({ title, date, description, img, link }) => (
-  <Card
-    style={{
-      minWidth: "300px",
-      maxWidth: "500px",
-      minHeight: "200px",
-      maxHeight: "300px",
-      marginBottom: "20px",
-    }}
-  >
+  <Card>
     {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
     <Card.Body>
       <Container fluid>
         <Row>
-          <Col sm={5} md={5} lg={5} xl={4}>
+          <Col md="auto">
             <PreviewCompatibleImage image={img} alt={title} width={"100px"} />
           </Col>
           <Col>

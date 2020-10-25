@@ -1,0 +1,30 @@
+---
+title: C# Language Cheatsheet
+description: "This cheatsheet has the quick reference notes I use the most "
+img: ./resources/csharp/csharp-logo.png
+tags:
+  - c#
+  - csharp
+  - language-notes
+---
+
+## When creating generic interfaces
+
+| Modifiers           | Restriction                                                                        | Reference                                     |
+| ------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------- |
+| `out` Covariance    | **force** interface methods to **return** the **type** attached in the definition. | [Creating Variant Generic Interfaces (C#)][1] |
+| `in` Contravariance | **force** interface methods to accept the type attached as **parameters** type.    | [Creating Variant Generic Interfaces (C#)][1] |
+
+* Covariance allows interface methods to have more derived return types than that defined by the generic type parameters. 
+* Contravariance allows interface methods to have argument types that are less derived than that specified by the generic parameters
+
+[This](https://www.youtube.com/watch?v=VHDYx7oPE84) pluralsight video explains it clearly
+
+[1]:https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/creating-variant-generic-interfaces
+
+
+<!-- TODO Check the next methods -->
+<!-- https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/ -->
+<!-- https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces -->
+<!-- https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-delegates -->
+<!-- https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/creating-variant-generic-interfaces -->
