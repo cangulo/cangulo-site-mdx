@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby'
-import { CardDeck } from 'react-bootstrap';
+import { CardDeck, Col, Container, Row } from 'react-bootstrap';
 import PostCard from './post-card';
 
 export default ({ postType }) => (
@@ -41,7 +41,8 @@ export default ({ postType }) => (
               title={node.frontmatter.title}
               date={node.frontmatter.date}
               description={node.frontmatter.description}
-              img={node.frontmatter.img} />
+              img={node.frontmatter.img}
+              link={node.slug} />
           ))}
       </CardDeck>
     )}

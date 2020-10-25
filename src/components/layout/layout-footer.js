@@ -1,5 +1,7 @@
 import React from 'react'
 
-export default () => {
+const LayoutFooter = () => {
     return <div>Carlos Angulo Footer</div>
 }
+
+export default LayoutFooter

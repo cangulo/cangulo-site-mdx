@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { Link } from "gatsby"
-import Layout from '../../components/layout'
+import Layout from '../../components/layout/layout'
 import { postType } from '../../models/postType'
 import PostHeader from "../../components/posts/post-header"
 import PostTags from "../../components/posts/post-tags"
