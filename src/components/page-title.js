@@ -5,6 +5,9 @@ import { Container, Jumbotron } from 'react-bootstrap';
 
 const PageTitle = ({ title, subtitle, imgRelativePath }) => {
 
+    if (!title) {
+        return ''
+    }
     let jumboCustomStyles = {};
     if (imgRelativePath) {
         jumboCustomStyles["backgroundImage"] = `url(${imgRelativePath})`
@@ -46,11 +49,11 @@ const PageTitle = ({ title, subtitle, imgRelativePath }) => {
     return (
         <Jumbotron className="text-center" style={jumboCustomStyles} fluid>
             <Container style={containerCustomStyles} >
-                    <div style={divCustomStyles}>
+                <div style={divCustomStyles}>
 
-                        <h1 style={textH1Styles} >{title}</h1>
-                        {subtitle && <h4 style={textH2Styles} >{subtitle}</h4>}
-                    </div>
+                    <h1 style={textH1Styles} >{title}</h1>
+                    {subtitle && <h4 style={textH2Styles} >{subtitle}</h4>}
+                </div>
             </Container>
         </Jumbotron>
     )
