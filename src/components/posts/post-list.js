@@ -1,6 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import { CardDeck, Row, Col, Container } from "react-bootstrap"
+import { Row, Col, Container } from "react-bootstrap"
 import PostCard from "./post-card"
 
 export default ({ postType }) => (

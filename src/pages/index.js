@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React from "react"
 import AboutMeArea from "../components/aboutme"
 import Layout from "../components/layout/layout"
