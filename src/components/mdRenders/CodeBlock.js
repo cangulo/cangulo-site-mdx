@@ -2,6 +2,7 @@ import React from "react"
 import Highlight, { defaultProps } from "prism-react-renderer"
 import vsDark from "prism-react-renderer/themes/vsDark"
 import rangeParser from "parse-numeric-range"
+import _ from "lodash"
 
 // Create a closure that determines if we have
 // to highlight the given index
@@ -16,10 +17,19 @@ const calculateLinesToHighlight = meta => {
   }
 }
 
+const highlightLineIsEnabled = meta => {
+  const RE = /{([\d,-]+)}/
+  return RE.test(meta)
+}
+
+const shouldHighlightLine = index => {}
+
 export default ({ children, className, metastring }) => {
   // Pull the className
   const language = className.replace(/language-/, "") || ""
+  const existsLineToHighLine = highlightLineIsEnabled(metastring)
   const shouldHighlightLine = calculateLinesToHighlight(metastring)
+
   return (
     <Highlight
       {...defaultProps}
@@ -27,23 +37,33 @@ export default ({ children, className, metastring }) => {
       language={language}
       theme={vsDark}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style }}>
-          {tokens.map((line, index) => {
-            const lineProps = getLineProps({ line, key: index })
-            if (shouldHighlightLine(index)) {
-              lineProps.className = `${lineProps.className} highlight-line`
-            }
-            return (
-              <div key={index} {...lineProps}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            )
-          })}
-        </pre>
-      )}
+      {({ className, style, tokens, getLineProps, getTokenProps }) => {
+        return (
+          <pre className={className} style={{ ...style }}>
+            {tokens.map((line, index) => {
+              if (tokens.length > index + 1) {
+                const lineProps = getLineProps({ line, key: index })
+
+                if (existsLineToHighLine) {
+                  if (shouldHighlightLine(index)) {
+                    lineProps.className = `${lineProps.className} highlighted-line`
+                  } else {
+                    lineProps.className = `${lineProps.className} not-highlighted-line`
+                  }
+                }
+
+                return (
+                  <div key={index} {...lineProps}>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
+                )
+              }
+            })}
+          </pre>
+        )
+      }}
     </Highlight>
   )
 }

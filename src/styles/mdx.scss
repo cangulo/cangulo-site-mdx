@@ -1,19 +1,28 @@
 .gatsby-highlight {
   background-color: #011627; /* my previous background color */
   overflow: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  // padding-bottom: 10px;
 }
 .gatsby-highlight pre[class*="language-"] {
   background-color: transparent;
   float: left;
   min-width: 100%;
+  margin-bottom: 0;
 }
 
-.highlight-line {
+.highlighted-line {
   background-color: rgb(53, 59, 69);
   display: block;
-  // margin-right: -1em;
-  // margin-left: -1em;
   padding-right: 1em;
   padding-left: 0.75em;
   border-left: 0.3em solid #f99;
+}
+
+.not-highlighted-line {
+  background-color: rgb(53, 59, 69);
+  display: block;
+  padding-right: 1em;
+  padding-left: 1.05em;
 }
