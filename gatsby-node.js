@@ -1,39 +1,40 @@
-const { createFilePath } = require('gatsby-source-filesystem')
-const path = require('path')
+const { createFilePath } = require("gatsby-source-filesystem")
+const _ = require("lodash")
+const path = require("path")
+
+const postTypes = ["blog", "meetups", "cheatsheets"]
 
 function getPostType(slug) {
-   return slug.split('/', 2)[1].toLowerCase()
+  return slug.split("/", 2)[1].toLowerCase()
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-   if (node.internal.type === "Mdx") {
-      const { createNodeField } = actions
-      const slug = createFilePath({ node, getNode })
-      const postType = getPostType(slug)
-      // createNodeField({
-      //    node,
-      //    name: 'slug',
-      //    value: slug,
-      // })
-      createNodeField({
-         node,
-         name: 'postType',
-         value: postType,
-      })
-   }
+  if (node.internal.type === "Mdx") {
+    const { createNodeField } = actions
+    const slug = createFilePath({ node, getNode })
+    const postType = getPostType(slug)
+    createNodeField({
+      node,
+      name: "postType",
+      value: postType,
+    })
+  }
 }
 
 // Create post pages programmatically
 exports.createPages = async ({ graphql, actions, reporter }) => {
-   const { createPage } = actions
+  const { createPage } = actions
 
-   const result = await graphql(`
-   {
+  const result = await graphql(`
+    {
       allMdx {
         edges {
           node {
             id
             slug
+            frontmatter {
+              tags
+            }
             fields {
               postType
             }
@@ -41,29 +42,46 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       }
     }
- `)
+  `)
 
-   if (result.errors) {
-      reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
-   }
+  if (result.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
+  }
 
-   // Create blog post pages.
-   const posts = result.data.allMdx.edges
+  // Create blog post pages.
+  const nodes = result.data.allMdx.edges
+  //   const posts = nodes.filter(x => x.fields.tags.includes( ))
+  const posts = nodes.filter(x => _.includes(postTypes, x.node.fields.postType))
 
-   // you'll call `createPage` for each result
-   posts.forEach(({ node }) => {
-      createPage({
-         // This is the slug you created before
-         // (or `node.frontmatter.slug`)
-         path: node.slug,
-         // This component will wrap our MDX content
-         component: path.resolve(`./src/templates/post/post-layout.js`),
-         // You can use the values in this context in
-         // our page layout component
-         context: {
-            id: node.id,
-            postType: node.fields.postType
-         },
-      })
-   })
+  // Create Post Pages
+
+  posts.forEach(({ node }) => {
+    createPage({
+      path: node.slug,
+      component: path.resolve(`./src/templates/post-layout.js`),
+      context: {
+        id: node.id,
+        postType: node.fields.postType,
+      },
+    })
+  })
+
+  let tags = []
+  posts
+    .map(x => x.node.frontmatter.tags)
+    .forEach(tagArray => {
+      tags = tags.concat(tagArray)
+    })
+
+  tags = _.uniq(tags).filter(x => x !== null)
+
+  tags.forEach(tag => {
+    createPage({
+      path: `tags/${tag}`,
+      component: path.resolve(`./src/templates/post-list-per-tags.js`),
+      context: {
+        tag: tag,
+      },
+    })
+  })
 }

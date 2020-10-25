@@ -2,10 +2,7 @@ import React from "react"
 import Highlight, { defaultProps } from "prism-react-renderer"
 import vsDark from "prism-react-renderer/themes/vsDark"
 import rangeParser from "parse-numeric-range"
-import _ from "lodash"
 
-// Create a closure that determines if we have
-// to highlight the given index
 const calculateLinesToHighlight = meta => {
   const RE = /{([\d,-]+)}/
   if (RE.test(meta)) {

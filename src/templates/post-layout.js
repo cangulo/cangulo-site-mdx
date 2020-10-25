@@ -2,11 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import Layout from "../../components/layout/layout"
-import PostHeader from "../../components/posts/post-header"
-import PostTags from "../../components/posts/post-tags"
-import PostReferences from "../../components/posts/post-references"
-import CodeBlock from "../../components/mdRenders/CodeBlock"
+import Layout from "../components/layout/layout"
+import PostHeader from "../components/posts/post-header"
+import PostTags from "../components/posts/post-tags"
+import PostReferences from "../components/posts/post-references"
+import CodeBlock from "../components/mdRenders/CodeBlock"
 
 const shortcodes = {
   pre: props => <div className="gatsby-highlight" {...props} />,
