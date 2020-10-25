@@ -20,7 +20,6 @@ const PostCard = ({ title, date, description, img, link }) => (
             <hr></hr>
 
             <Card.Text>{description}</Card.Text>
-            {console.log(link)}
             <Card.Link href={`/${link}`}>
               <Button variant="primary">Read it</Button>
             </Card.Link>
