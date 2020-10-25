@@ -1,0 +1,48 @@
+.jumbotronStyles {
+  text-align: center;
+  background-position: top left;
+  background-attachment: fixed;
+}
+.containerTitles {
+  display: flex;
+  height: 150px;
+  line-height: 1;
+  justify-content: space-around;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.textWithBackground {
+  box-shadow: rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px;
+  background-color: rgb(255, 68, 0);
+  color: white;
+  line-height: 1;
+  padding: 0.25em;
+  font-weight: 700 !important;
+}
+
+// h1,
+// h2,
+// h3 {
+//   font-size: 100%;
+//   font-weight: 400;
+// }
+
+// .content {
+//     background-color: #fafafa;
+//     padding: 20px;
+//     .header {
+//         color: red;
+//      }
+//      .error-message {
+//         font-size: 20px;
+//         color: gray;
+//      }
+//  }
+
+//  <div className={styles.content}>
+//  <h1 className={styles.header}>Page not found</h1>
+//  <p className={styles.errorMessage}>
+//    The page you are looking for does not exists.
+//  </p>
+// </div>
