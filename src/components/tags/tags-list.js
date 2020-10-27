@@ -1,4 +1,4 @@
-import { StaticQuery } from "gatsby"
+import {  StaticQuery } from "gatsby"
 import React from "react"
 import styles from "./tags-list.module.scss"
 import TagCard from "./tag-card"
@@ -12,10 +12,17 @@ const TagsList = ({ maxTagsToList }) => {
     <StaticQuery
       query={graphql`
         query TopTagsAndPostsNumber {
-          allMdx(limit: 10) {
+          allMdx {
             group(field: frontmatter___tags) {
               fieldValue
               totalCount
+              edges {
+                node {
+                  frontmatter {
+                    title
+                  }
+                }
+              }
             }
           }
         }

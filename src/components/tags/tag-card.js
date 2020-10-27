@@ -9,9 +9,11 @@ const TagCard = ({ tagName, numPostsTagged }) => (
     <Link to={`/tags/${_.kebabCase(tagName)}/`}>
       <Button variant="primary">
         {tagName}
-        <Badge variant="light" className={styles.tagBadge}>
-          {numPostsTagged}
-        </Badge>
+        {numPostsTagged && (
+          <Badge variant="light" className={styles.tagBadge}>
+            {numPostsTagged}
+          </Badge>
+        )}
       </Button>
     </Link>
   </div>
