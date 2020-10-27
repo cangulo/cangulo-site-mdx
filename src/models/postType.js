@@ -1,6 +1,5 @@
 export const postType = {
-    blog: 'blog',
-    meetups: 'meetups',
-    cheatsheets: 'cheatsheets'
+  blog: "blog",
+  meetups: "meetups",
+  cheatsheets: "cheatsheets",
 }
-

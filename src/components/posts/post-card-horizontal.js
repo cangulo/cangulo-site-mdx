@@ -1,8 +1,8 @@
 import React from "react"
-import { Button, Card, Col, Container, Row } from "react-bootstrap"
+import { Button, Card, Col, Container, Media, Row } from "react-bootstrap"
 import PreviewCompatibleImage from "../preview-compatible-image"
 
-const PostCard = ({ title, date, description, img, link }) => (
+const PostCardHorizontal = ({ title, date, description, img, link }) => (
   <Card>
     <Card.Body>
       <Container fluid>
@@ -28,4 +28,4 @@ const PostCard = ({ title, date, description, img, link }) => (
   </Card>
 )
 
-export default PostCard
+export default PostCardHorizontal
