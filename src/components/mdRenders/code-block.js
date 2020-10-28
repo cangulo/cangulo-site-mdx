@@ -19,9 +19,7 @@ const highlightLineIsEnabled = meta => {
   return RE.test(meta)
 }
 
-const shouldHighlightLine = index => {}
-
-export default ({ children, className, metastring }) => {
+const CodeBlock = ({ children, className, metastring }) => {
   // Pull the className
   const language = className.replace(/language-/, "") || ""
   const existsLineToHighLine = highlightLineIsEnabled(metastring)
@@ -64,3 +62,5 @@ export default ({ children, className, metastring }) => {
     </Highlight>
   )
 }
+
+export default CodeBlock

@@ -1,17 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout/layout"
 import PostHeader from "../components/posts/post-header"
 import PostTags from "../components/posts/post-tags"
 import PostReferences from "../components/posts/post-references"
-import CodeBlock from "../components/mdRenders/CodeBlock"
-
-const shortcodes = {
-  pre: props => <div className="gatsby-highlight" {...props} />,
-  code: CodeBlock,
-} // Provide common components here
+import MdxProvider from "../components/mdRenders/mdx-provider"
 
 export default function PageTemplate({ data: { mdx } }) {
   return (
@@ -22,13 +15,9 @@ export default function PageTemplate({ data: { mdx } }) {
         date={mdx.frontmatter.date}
         featuredimage={mdx.frontmatter.img}
       />
-      <MDXProvider components={shortcodes}>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-      </MDXProvider>
-      {mdx.frontmatter.tags && <PostTags tags={mdx.frontmatter.tags} />}
-      {mdx.frontmatter.references && (
-        <PostReferences references={mdx.frontmatter.references} />
-      )}
+      <MdxProvider mdxContent={mdx.body} />
+      <PostTags tags={mdx.frontmatter?.tags} />
+      <PostReferences references={mdx.frontmatter?.references} />
     </Layout>
   )
 }
