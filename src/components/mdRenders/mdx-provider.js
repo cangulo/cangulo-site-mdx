@@ -5,7 +5,6 @@ import CodeBlock from "./mdx-renders/code-block"
 import ImgRender from "./mdx-renders/img-render"
 import AlertRender from "./mdx-components/alert-render"
 import ImgWithCaptionRender from "./mdx-components/img-with-caption-render"
-// import ImgComplexRender from "./mdx-components/img-complex-render"
 import CaptionRender from "./mdx-components/caption.render"
 
 const shortcodes = {
@@ -17,6 +16,7 @@ const shortcodes = {
   ImgRender,
   CaptionRender,
   // ImgComplexRender,
+  // CodeDownloader,
 }
 
 const MdxProvider = ({ mdxContent }) => (
