@@ -8,6 +8,15 @@ function getPostType(slug) {
   return slug.split("/", 2)[1].toLowerCase()
 }
 
+function getPostSerie(slug) {
+  return _.startCase(
+    slug
+      .split("/")
+      .filter(x => x.toLowerCase().includes("serie"))[0]
+      .split("-serie")[0]
+  )
+}
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === "Mdx") {
     const { createNodeField } = actions
@@ -18,6 +27,17 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: "postType",
       value: postType,
     })
+
+    if (postType === "blog") {
+      const postSerie = getPostSerie(slug)
+      if (postSerie) {
+        createNodeField({
+          node,
+          name: "postSerie",
+          value: postSerie,
+        })
+      }
+    }
   }
 }
 
@@ -37,6 +57,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
             fields {
               postType
+              postSerie
             }
           }
         }

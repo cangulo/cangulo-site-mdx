@@ -1,5 +1,5 @@
 import React from "react"
-import { Col, Badge, Container, Row } from "react-bootstrap"
+import { Col, Container, Row } from "react-bootstrap"
 import Layout from "../components/layout/layout"
 import PostCardVertical from "../components/posts/post-card-vertical"
 import { graphql } from "gatsby"

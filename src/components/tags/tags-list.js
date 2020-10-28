@@ -1,4 +1,4 @@
-import { StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 import React from "react"
 import styles from "./tags-list.module.scss"
 import TagCard from "./tag-card"
@@ -17,13 +17,6 @@ const TagsList = ({ maxTagsToList, showBrowseAll }) => {
             group(field: frontmatter___tags) {
               fieldValue
               totalCount
-              edges {
-                node {
-                  frontmatter {
-                    title
-                  }
-                }
-              }
             }
           }
         }
