@@ -1,12 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const CaptionRender = ({ label, link, props }) => {
+const CaptionRender = ({ link, label }) => {
   if (link) {
-    const urlToFile = link.includes("http") ? link : link
-    console.log(props)
-    // const urlToFile2
-    //raw.githubusercontent.com/cangulo/cangulo-site-mdx/master/
+    const baseGitUrl =
+      "https://raw.githubusercontent.com/cangulo/cangulo-site-mdx/master/"
+    const urlToFile = link.includes("http") ? link : baseGitUrl.concat(link)
 
     https: return (
       <Link to={urlToFile}>
@@ -17,3 +16,5 @@ const CaptionRender = ({ label, link, props }) => {
     return <p style={{ textAlign: "center" }}>{label ?? `Link to the file`}</p>
   }
 }
+
+export default CaptionRender
