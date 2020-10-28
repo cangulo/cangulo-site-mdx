@@ -10,7 +10,7 @@ import CaptionRender from "./mdx-components/caption.render"
 const shortcodes = {
   pre: props => <div className="gatsby-highlight" {...props} />,
   code: CodeBlock,
-  img: ImgRender,
+  // img: ImgRender,
   AlertRender,
   ImgWithCaptionRender,
   ImgRender,
