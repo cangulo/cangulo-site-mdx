@@ -1,28 +1,39 @@
-import React from 'react';
-import { Col, Container, Jumbotron, Row } from 'react-bootstrap';
-import PreviewCompatibleImage from '../preview-compatible-image';
+import React from "react"
+import { Col, Container, Jumbotron, Row } from "react-bootstrap"
+import PreviewCompatibleImage from "../preview-compatible-image"
+import _ from "lodash"
+import { Link } from "gatsby"
 
-const PostHeader = ({ title, subtitle, date, featuredimage }) => (
-    <Jumbotron fluid>
-        <Container fluid>
-            <Row>
-                <Col md={10} >
-                    <h1 >{title}</h1>
-                    {subtitle && <h2>{subtitle}</h2>}
-                    {date && <i><p>{date}</p></i>}
-                </Col>
-                <Col md={2} >
-                    <div style={{ float: "right" }}>
-                        {featuredimage && (
-                            <PreviewCompatibleImage
-                                image={featuredimage}
-                                alt={title}
-                            />)}
-                    </div>
-                </Col>
-            </Row>
-        </Container>
-    </Jumbotron>
+const PostHeader = ({ title, subtitle, collection, date, featuredimage }) => (
+  <Jumbotron fluid>
+    <Container fluid>
+      <Row>
+        <Col md={10}>
+          <h1>{title}</h1>
+          {subtitle && <h2>{subtitle}</h2>}
+          {date && (
+            <i>
+              <p>{date}</p>
+            </i>
+          )}
+          {collection && (
+            <Link to={`/collections/${collection}`}>
+              <i>
+                <h5>{`Serie ${_.startCase(collection)}`}</h5>
+              </i>
+            </Link>
+          )}
+        </Col>
+        <Col md={2}>
+          <div style={{ float: "right" }}>
+            {featuredimage && (
+              <PreviewCompatibleImage image={featuredimage} alt={title} />
+            )}
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  </Jumbotron>
 )
 
 export default PostHeader

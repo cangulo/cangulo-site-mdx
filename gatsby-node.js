@@ -11,7 +11,7 @@ function getPostType(slug) {
 function getPostCollection(slug) {
   return slug
     .split("/")
-    .filter(x => x.toLowerCase().includes("serie"))[0]
+    .filter(x => x.toLowerCase().includes("-serie"))[0]
     ?.replace("-serie", "")
 }
 
