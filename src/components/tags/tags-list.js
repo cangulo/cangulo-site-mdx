@@ -1,8 +1,8 @@
 import { graphql, StaticQuery } from "gatsby"
 import React from "react"
 import styles from "./tags-list.module.scss"
-import TagCard from "./tag-card"
-import TagCardBrowseAll from "./tag-card-browse-all"
+import Card from "../cards/card"
+import CardBrowseAll from "../cards/card-browse-all"
 
 const TagsList = ({ maxTagsToList, showBrowseAll }) => {
   const sortTagsBytotalCount = tags => {
@@ -30,12 +30,11 @@ const TagsList = ({ maxTagsToList, showBrowseAll }) => {
         return (
           <div className={styles.container}>
             {tagsSliced.map(tag => (
-              <TagCard
-                tagName={tag.fieldValue}
-                numPostsTagged={tag.totalCount}
-              />
+              <Card tagName={tag.fieldValue} numPostsTagged={tag.totalCount} />
             ))}
-            {showBrowseAll && <TagCardBrowseAll />}
+            {showBrowseAll && (
+              <CardBrowseAll link={`/tags`} label={`Browse All`} />
+            )}
           </div>
         )
       }}

@@ -6,6 +6,7 @@ import TagsList from "../components/tags/tags-list"
 import { postType } from "../models/postType"
 import { orientationList } from "../models/orientationList"
 import HeaderLink from "../components/headers/header-link"
+import CollectionsList from "../components/series/collection-list"
 
 export default () => (
   <Layout title="Posts" imgRelativePath="../blog.jpg">
@@ -23,8 +24,8 @@ export default () => (
           <HeaderLink to={`/tags`} title={"Tags"} />
           <TagsList maxTagsToList={10} showBrowseAll={true} />
 
-          <HeaderLink to={`/tags`} title={"Collections"} />
-          <TagsList maxTagsToList={10} showBrowseAll={true} />
+          <HeaderLink to={`/collections`} title={"Collections"} />
+          <CollectionsList maxCollectionsToList={10} showBrowseAll={true} />
         </Col>
       </Row>
     </Container>

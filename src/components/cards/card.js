@@ -2,9 +2,9 @@ import React from "react"
 import { Badge, Button } from "react-bootstrap"
 import _ from "lodash"
 import { Link } from "gatsby"
-import styles from "./tag-card.module.scss"
+import styles from "./card.module.scss"
 
-const TagCard = ({ tagName, numPostsTagged }) => (
+const Card = ({ tagName, numPostsTagged }) => (
   <div className={styles.container}>
     <Link to={`/tags/${_.kebabCase(tagName)}/`}>
       <Button variant="primary">
@@ -19,4 +19,4 @@ const TagCard = ({ tagName, numPostsTagged }) => (
   </div>
 )
 
-export default TagCard
+export default Card
