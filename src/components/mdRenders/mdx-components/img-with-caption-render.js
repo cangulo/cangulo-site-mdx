@@ -1,6 +1,6 @@
 import React from "react"
 import CaptionRender from "./caption.render"
-import ImgRender from "../mdx-renders/img-render"
+import ImgRender from "./img-render"
 
 const ImgWithCaptionRender = ({ src, label }) => {
   console.log(src)
