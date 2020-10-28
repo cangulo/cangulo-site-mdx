@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Microsoft OneNote
+Exec=vivaldi --app="https://www.onenote.com/notebooks"
+Icon=/home/carlos/.local/share/applications/customs_app_launchers/web_apps/onenote.png
+Categories=Office;
+Keywords=Office;Onenote;Notes;Note

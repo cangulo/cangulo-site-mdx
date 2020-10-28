@@ -1,0 +1,17 @@
+# Header 1
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+## Code Areas
+
+```cs
+int x = 2;
+```
+
+```ts
+const x = 2;
+```
+
+**Images**
+
+![I was told there would be good code documentation](./img/i-was-told-docs.jpg)

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=xkill
+GenericName=Bash Command Execution
+Exec=xkill
+Comment=Execute xkill command, you will be able to close any windows by clicking on it
+Icon=/home/carlos/.local/share/applications/customs_app_launchers/system/resources/xkill-icon.svg
+Type=Application
+Categories=System
+Keywords=Command;kill;close

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Web Whatsapp
+GenericName=Whatsapp Web Interface
+# Exec empty for now
+Exec=
+Comment=Open the Web Whatsapp page
+Icon=/home/carlos/.local/share/applications/customs_app_launchers/web_apps/web-whatsapp.png
+Type=Application
+Categories=Network
+Keywords=Whatsapp;Chat;WebWhatsapp;

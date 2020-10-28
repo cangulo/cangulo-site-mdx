@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Web Whatsapp
+GenericName=Whatsapp Web Interface
+Exec=vivaldi --app="https://web.whatsapp.com/"
+Comment=Open the Web Whatsapp page in Vivaldi as a web application
+Icon=/home/carlos/.local/share/applications/customs_app_launchers/web_apps/web-whatsapp.png
+Type=Application
+Categories=Network
+Keywords=Whatsapp;Chat;WebWhatsapp;

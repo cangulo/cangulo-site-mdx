@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=CheatSheet Repository
+GenericName=VS Code custom execution
+Exec=code /home/carlos/Documents/github_repositories/cheatsheet
+Comment=Open VS Code in my cheatsheet folder
+Icon=/home/carlos/.local/share/applications/customs_app_launchers/vs_code_repositories/com.visualstudio.code.png
+Type=Application
+Categories=Development
+Keywords=VScode;VS code;Repository;Repo;cheatsheet
