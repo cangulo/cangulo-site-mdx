@@ -1,9 +1,10 @@
-import {  StaticQuery } from "gatsby"
+import { StaticQuery } from "gatsby"
 import React from "react"
 import styles from "./tags-list.module.scss"
 import TagCard from "./tag-card"
+import TagCardBrowseAll from "./tag-card-browse-all"
 
-const TagsList = ({ maxTagsToList }) => {
+const TagsList = ({ maxTagsToList, showBrowseAll }) => {
   const sortTagsBytotalCount = tags => {
     return tags.sort((x, y) => (x.totalCount < y.totalCount ? 1 : -1))
   }
@@ -41,6 +42,7 @@ const TagsList = ({ maxTagsToList }) => {
                 numPostsTagged={tag.totalCount}
               />
             ))}
+            {showBrowseAll && <TagCardBrowseAll />}
           </div>
         )
       }}

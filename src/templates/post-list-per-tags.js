@@ -1,7 +1,8 @@
 import React from "react"
-import { Col, Container, Row } from "react-bootstrap"
+import { Col, Badge, Container, Row } from "react-bootstrap"
 import Layout from "../components/layout/layout"
-import PostCard from "../components/posts/post-card"
+import PostCardVertical from "../components/posts/post-card-vertical"
+import { graphql } from "gatsby"
 
 export default function PageTemplate({ data, pageContext }) {
   const tag = pageContext.tag
@@ -11,7 +12,7 @@ export default function PageTemplate({ data, pageContext }) {
         <Row sm={2} md={3}>
           {data.allMdx.edges.map(({ node }) => (
             <Col style={{ padding: "15px" }}>
-              <PostCard
+              <PostCardVertical
                 title={node.frontmatter.title}
                 date={node.frontmatter.date}
                 description={node.frontmatter.description}

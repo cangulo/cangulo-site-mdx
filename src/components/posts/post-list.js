@@ -1,11 +1,10 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import { Row, Col, Container } from "react-bootstrap"
-import PostCard from "./post-card"
-import PostCardVertical from "./post-card-horizontal"
 import { orientationList } from "../../models/orientationList"
+import PostGridList from "./post-list-oriented/post-list-grid"
+import PostRowList from "./post-list-oriented/post-list-rows"
 
-const PostList = ({ postType, orientation, postPerColumn }) => (
+const PostList = ({ postType, orientation, numColumns, limit }) => (
   <StaticQuery
     query={graphql`
       {
@@ -34,48 +33,14 @@ const PostList = ({ postType, orientation, postPerColumn }) => (
       }
     `}
     render={data => {
+      const posts = data.allMdx.edges
+        .filter(({ node }) => node.fields.postType === postType)
+        .map(x => x.node)
+      const postsSliced = posts.slice(0, limit ?? posts.length)
       if (orientation === orientationList.vertical) {
-        return (
-          <Container fluid>
-            <Row>
-              <Col>
-                {data.allMdx.edges
-                  .filter(({ node }) => node.fields.postType === postType)
-                  .map(({ node }) => (
-                    <div style={{ marginBottom: "20px" }}>
-                      <PostCardVertical
-                        title={node.frontmatter.title}
-                        date={node.frontmatter.date}
-                        description={node.frontmatter.description}
-                        img={node.frontmatter.img}
-                        link={node.slug}
-                      />
-                    </div>
-                  ))}
-              </Col>
-            </Row>
-          </Container>
-        )
+        return <PostRowList posts={postsSliced} />
       } else {
-        return (
-          <Container fluid>
-            <Row xs={1} sm={2} lg={postPerColumn ?? 3}>
-              {data.allMdx.edges
-                .filter(({ node }) => node.fields.postType === postType)
-                .map(({ node }) => (
-                  <Col style={{ padding: "15px" }}>
-                    <PostCard
-                      title={node.frontmatter.title}
-                      date={node.frontmatter.date}
-                      description={node.frontmatter.description}
-                      img={node.frontmatter.img}
-                      link={node.slug}
-                    />
-                  </Col>
-                ))}
-            </Row>
-          </Container>
-        )
+        return <PostGridList posts={postsSliced} numColumns={numColumns} />
       }
     }}
   />
