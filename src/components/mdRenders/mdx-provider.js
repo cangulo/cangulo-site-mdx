@@ -1,11 +1,12 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import CodeBlock from "./code-block"
-import ImgRender from "./img-render"
-import AlertRender from "./alert-render"
-import ImgWithCaptionRender from "./img-with-caption-render"
-import CaptionRender from "./caption.render"
+import CodeBlock from "./mdx-renders/code-block"
+import ImgRender from "./mdx-renders/img-render"
+import AlertRender from "./mdx-components/alert-render"
+import ImgWithCaptionRender from "./mdx-components/img-with-caption-render"
+// import ImgComplexRender from "./mdx-components/img-complex-render"
+import CaptionRender from "./mdx-components/caption.render"
 
 const shortcodes = {
   pre: props => <div className="gatsby-highlight" {...props} />,
@@ -15,6 +16,7 @@ const shortcodes = {
   ImgWithCaptionRender,
   ImgRender,
   CaptionRender,
+  // ImgComplexRender,
 }
 
 const MdxProvider = ({ mdxContent }) => (

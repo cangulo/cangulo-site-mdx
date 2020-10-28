@@ -35,9 +35,9 @@ references:
 using Command line: 
 
 
-| Command                                             | Example                                 |
-| --------------------------------------------------- | --------------------------------------- |
-| `git config --global alias.[AliasName] [AliasValue` | `git config --global alias.co checkout` |
+| Command                                              | Example                                 |
+| ---------------------------------------------------- | --------------------------------------- |
+| `git config --global alias.[AliasName] [AliasValue]` | `git config --global alias.co checkout` |
 
 ### Configuring the git config file
 
@@ -78,6 +78,8 @@ Next are my personal alias:
 	lg = "!f() { git log --oneline --grep=${1-No Argument Provided}; }; f"
 	settings = config --global --edit
 ```
+
+<CaptionRender label="Check the file here" link="./resources/git/git-alias"  />
 
 <!-- TODO: Add a alias to push and open the PR link automatically -->
 <!-- you pass a boolean parameter depending depending on which the PR link will be open  -->
