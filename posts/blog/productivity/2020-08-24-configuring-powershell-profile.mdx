@@ -4,13 +4,20 @@ date: 2020-08-24T13:17:38.760Z
 description: In this post, I will explain how to set up shortcuts in the PowerShell Profile. This is useful to save time when we are executing routine actions like moving to one directory or running a script with a long path. Everything in this article works for PowerShell 5.1 and later. 
 img: ./resources/powershell-logo.png
 tags:
-  - windows10
-  - productivity
-  - hack
-  - powershell
----
-
+- windows10
+- productivity
+- hack
+- powershell
+references:
+- ['PowerShell Profiles Reference for PS 5.1','https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-5.1']
+- ['Profiles Files in PS 5.1','https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-5.1#the-profile-files']
+- ['Example 4: Create an alias to an executable file','https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-5.1#example-4--create-an-alias-to-an-executable-file']
+- ['Example 5: Create an alias for a command with parameters','https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-5.1#example-4--create-an-alias-to-an-executable-file']
+- ['How to sign PowerShell profile w/ self-signed certificate?','https://www.tenforums.com/general-support/107659-how-sign-powershell-profile-w-self-signed-certificate.html']
+- ['Signing PowerShell Scripts','https://www.hanselman.com/blog/SigningPowerShellScripts.aspx']
 --- 
+
+<AlertRender type="info">Hello from the mdx component</AlertRender>
 
 If you are a PowerShell (a.k.a. PS) user, I'm sure at some point you repeat some operations as to navigate to a specific folder once a day (e.g. your local GitHub repository). Maybe you run a script to clean or prepare your environment. Let's define those two scenarios as next:
 
@@ -27,10 +34,9 @@ There are different profiles levels, each one with one file and a different comb
 
 Check your  `$Profile` variable to know where your profile is stored. 
 
-<!-- <p  align="center">
-	<img  src=""  alt="Profile Variable">
-</p> -->
 ![Profile variables](./resources/2020-08-26-configuring-powershell-profile/Profile-variable.png)
+<CaptionRender label="Profile variables Render"/>
+<ImgRender src="./resources/2020-08-26-configuring-powershell-profile/Profile-variable.png" />
 
 # Shortcuts
 
@@ -78,9 +84,7 @@ New-Alias -Name startTaskManagerAPI -Value $localRepo\TaskManager\startTaskManag
 ```
 Open a new PS window. Maybe the next error will show up:
 
-<!-- <p  align="center">
-	<img  src="resources/2020-08-26-configuring-powershell-profile/digitally-signed-problem.png"  alt="Problem Signature Profile">
-</p> -->
+![Problem Signature Profile](./resources/2020-08-26-configuring-powershell-profile/digitally-signed-problem.png)
 
 That is because PS has an execution policy which only to accept signed scripts (`AllSigned`). We need to change it to `RemoteSigned` to verify the signature for remote scripts, but not locals. We have to do it using the next command:
 
@@ -93,15 +97,3 @@ That is because PS has an execution policy which only to accept signed scripts (
 And we're done! I hope this helps you to save time when using PS. Do you know any other tweak to be more productive? Feel free to share it in the comments!
 
 # References
-
-[PowerShell Profiles Reference for PS 5.1](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-5.1)
-
-[Profiles Files in PS 5.1](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-5.1#the-profile-files)
-
-[Example 4: Create an alias to an executable file](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-5.1#example-4--create-an-alias-to-an-executable-file)
-
-[Example 5: Create an alias for a command with parameters](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-5.1#example-4--create-an-alias-to-an-executable-file)
-
-[How to sign PowerShell profile w/ self-signed certificate?](https://www.tenforums.com/general-support/107659-how-sign-powershell-profile-w-self-signed-certificate.html)
-
-[Signing PowerShell Scripts](https://www.hanselman.com/blog/SigningPowerShellScripts.aspx)

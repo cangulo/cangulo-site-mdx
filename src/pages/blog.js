@@ -11,7 +11,7 @@ import CollectionsList from "../components/series/collection-list"
 export default () => (
   <Layout title="Posts" imgRelativePath="../blog.jpg">
     <Container fluid>
-      <Row fluid>
+      <Row>
         <Col xs={12} sm={12} md={8} lg={8}>
           {/* LIMIT POST NUMBER, add pagination */}
           <PostList

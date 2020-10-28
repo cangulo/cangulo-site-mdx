@@ -9,9 +9,13 @@ const PostTags = ({ tags }) => {
       <section>
         <h2>Tags</h2>
         <div style={{ marginTop: "10px" }}>
-          {tags.map(tag => (
-            <Badge pill variant="info" style={{ marginRight: "15px" }}>
-              {/* <div style={{ width: '100%', height: '200px', backgroundColor: '#fafafa', backgroundImage: 'Url(https://source.unsplash.com/960x200/?' + post.frontmatter.keywords + ')', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', marginBottom: '30px' }}></div> */}
+          {tags.map((tag, index) => (
+            <Badge
+              key={index}
+              pill
+              variant="info"
+              style={{ marginRight: "15px" }}
+            >
               <Link to={`/tags/${kebabCase(tag)}/`} style={{ color: "white" }}>
                 {tag}
               </Link>

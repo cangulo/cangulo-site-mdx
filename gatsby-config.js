@@ -18,20 +18,17 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
-    `gatsby-remark-relative-images`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
-          `gatsby-remark-relative-images`,
-          `gatsby-remark-images`,
-          // {
-          //   //
-          //   resolve: `gatsby-remark-images`,
-          //   options: {
-          //     maxWidth: 590,
-          //   },
-          // },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1500,
+              showCaptions: true,
+            },
+          },
         ],
       },
     },
