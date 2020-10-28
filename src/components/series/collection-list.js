@@ -3,6 +3,7 @@ import React from "react"
 import styles from "./collection-list.module.scss"
 import CardBrowseAll from "../cards/card-browse-all"
 import Card from "../cards/card"
+import _ from "lodash"
 
 const CollectionsList = ({ maxCollectionsToList, showBrowseAll }) => {
   const sortCollectionsBytotalCount = collections => {
@@ -29,8 +30,12 @@ const CollectionsList = ({ maxCollectionsToList, showBrowseAll }) => {
         )
         return (
           <div className={styles.container}>
-            {colsSliced.map(tag => (
-              <Card tagName={tag.fieldValue} numPostsTagged={tag.totalCount} />
+            {colsSliced.map(col => (
+              <Card
+                link={`/collections/${col.fieldValue}/`}
+                label={_.startCase(col.fieldValue)}
+                numPosts={col.totalCount}
+              />
             ))}
             {showBrowseAll && (
               <CardBrowseAll link={`/collections`} label={`Browse all`} />

@@ -14,10 +14,12 @@ const shortcodes = {
 } // Provide common components here
 
 export default function PageTemplate({ data: { mdx } }) {
+  console.log(mdx.fields)
   return (
     <Layout>
       <PostHeader
         title={mdx.frontmatter.title}
+        subtitle={mdx.fields.postSerie}
         date={mdx.frontmatter.date}
         featuredimage={mdx.frontmatter.img}
       />
@@ -52,6 +54,7 @@ export const pageQuery = graphql`
       }
       fields {
         postType
+        postSerie
       }
     }
   }

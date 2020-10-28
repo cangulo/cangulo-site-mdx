@@ -1,17 +1,16 @@
 import React from "react"
 import { Badge, Button } from "react-bootstrap"
-import _ from "lodash"
 import { Link } from "gatsby"
 import styles from "./card.module.scss"
 
-const Card = ({ tagName, numPostsTagged }) => (
+const Card = ({ link, label, numPosts }) => (
   <div className={styles.container}>
-    <Link to={`/tags/${_.kebabCase(tagName)}/`}>
+    <Link to={link}>
       <Button variant="primary">
-        {tagName}
-        {numPostsTagged && (
+        {label}
+        {numPosts && (
           <Badge variant="light" className={styles.tagBadge}>
-            {numPostsTagged}
+            {numPosts}
           </Badge>
         )}
       </Button>

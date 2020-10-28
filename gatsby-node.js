@@ -8,13 +8,11 @@ function getPostType(slug) {
   return slug.split("/", 2)[1].toLowerCase()
 }
 
-function getPostSerie(slug) {
-  return _.startCase(
-    slug
-      .split("/")
-      .filter(x => x.toLowerCase().includes("serie"))[0]
-      .split("-serie")[0]
-  )
+function getPostCollection(slug) {
+  return slug
+    .split("/")
+    .filter(x => x.toLowerCase().includes("serie"))[0]
+    ?.replace("-serie", "")
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -29,7 +27,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
 
     if (postType === "blog") {
-      const postSerie = getPostSerie(slug)
+      const postSerie = getPostCollection(slug)
       if (postSerie) {
         createNodeField({
           node,
@@ -82,17 +80,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: path.resolve(`./src/templates/post-layout.js`),
       context: {
         id: node.id,
-        postType: node.fields.postType,
       },
     })
   })
 
   let tags = []
   posts
+    .filter(
+      x =>
+        x.node.frontmatter.tags !== null && x.node.frontmatter.tags.length > 1
+    )
     .map(x => x.node.frontmatter.tags)
-    .forEach(tagArray => {
-      tags = tags.concat(tagArray)
-    })
+    .forEach(tagArray => (tags = tags.concat(tagArray)))
 
   tags = _.uniq(tags).filter(x => x !== null)
 
@@ -102,6 +101,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: path.resolve(`./src/templates/post-list-per-tags.js`),
       context: {
         tag: tag,
+      },
+    })
+  })
+
+  let postsCollectionsSlugs = []
+  posts
+    .filter(x => x.node.fields.postSerie !== null)
+    .map(x => x.node.fields.postSerie)
+    .forEach(serie => {
+      if (!postsCollectionsSlugs.includes(serie))
+        postsCollectionsSlugs.push(serie)
+    })
+
+  postsCollectionsSlugs.forEach(collection => {
+    createPage({
+      path: `collections/${collection}`,
+      component: path.resolve(`./src/templates/post-list-per-collection.js`),
+      context: {
+        collection: collection,
       },
     })
   })

@@ -1,18 +1,13 @@
 ---
-templateKey: post
-postType: article
 title: How to use the PowerShell Profile to be more productive
 date: 2020-08-24T13:17:38.760Z
 description: In this post, I will explain how to set up shortcuts in the PowerShell Profile. This is useful to save time when we are executing routine actions like moving to one directory or running a script with a long path. Everything in this article works for PowerShell 5.1 and later. 
-collection: Productivity
-featuredpost: false
-featuredimage: /static/img/logo/powershell-logo.png
+img: ./resources/powershell-logo.png
 tags:
   - windows10
   - productivity
   - hack
   - powershell
-available: true
 ---
 
 --- 
@@ -32,9 +27,9 @@ There are different profiles levels, each one with one file and a different comb
 
 Check your  `$Profile` variable to know where your profile is stored. 
 
-<p  align="center">
+<!-- <p  align="center">
 	<img  src="resources/2020-08-26-configuring-powershell-profile/Profile-variable.png"  alt="Profile Variable">
-</p>
+</p> -->
 
 # Shortcuts
 
@@ -82,17 +77,17 @@ New-Alias -Name startTaskManagerAPI -Value $localRepo\TaskManager\startTaskManag
 ```
 Open a new PS window. Maybe the next error will show up:
 
-<p  align="center">
+<!-- <p  align="center">
 	<img  src="resources/2020-08-26-configuring-powershell-profile/digitally-signed-problem.png"  alt="Problem Signature Profile">
-</p>
+</p> -->
 
 That is because PS has an execution policy which only to accept signed scripts (`AllSigned`). We need to change it to `RemoteSigned` to verify the signature for remote scripts, but not locals. We have to do it using the next command:
 
 `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`. Now we are good to go, open a new PS and try to execute the shortcuts we defined.
 
-<p  align="center">
+<!-- <p  align="center">
 	<img  src="resources/2020-08-26-configuring-powershell-profile/shortcuts-execution.png"  alt="Shortcuts execution">
-</p>
+</p> -->
 
 And we're done! I hope this helps you to save time when using PS. Do you know any other tweak to be more productive? Feel free to share it in the comments!
 
