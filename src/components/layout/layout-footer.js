@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react"
 
 const LayoutFooter = () => {
-    return <div>Carlos Angulo Footer</div>
+  return <div></div>
 }
 
 export default LayoutFooter

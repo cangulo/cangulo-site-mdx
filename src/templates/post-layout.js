@@ -1,12 +1,14 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout/layout"
 import PostHeader from "../components/posts/post-header"
 import PostTags from "../components/posts/post-tags"
 import PostReferences from "../components/posts/post-references"
 import MdxProvider from "../components/mdRenders/mdx-provider"
+import PaginationPost from "../components/pagination/pagination-post"
+import AboutMeArea from "../components/aboutme"
 
-export default function PageTemplate({ data: { mdx } }) {
+export default function PageTemplate({ data: { mdx }, pageContext }) {
   return (
     <Layout>
       <PostHeader
@@ -16,8 +18,16 @@ export default function PageTemplate({ data: { mdx } }) {
         featuredimage={mdx.frontmatter.img}
       />
       <MdxProvider mdxContent={mdx.body} />
+
       <PostTags tags={mdx.frontmatter?.tags} />
+      <hr></hr>
+      <AboutMeArea />
       <PostReferences references={mdx.frontmatter?.references} />
+      <hr></hr>
+      <PaginationPost
+        previousPostSlug={pageContext.nextPostSlug}
+        nextPostSlug={pageContext.previousPostSlug}
+      />
     </Layout>
   )
 }

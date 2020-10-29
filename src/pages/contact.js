@@ -1,10 +1,11 @@
 import React from "react"
-import Layout from '../components/layout/layout'
+import AboutMeArea from "../components/aboutme"
+import Layout from "../components/layout/layout"
 
 export default () => (
   <div>
-    <Layout
-      title="Contact"
-    />
+    <Layout title="Contact">
+      <AboutMeArea />
+    </Layout>
   </div>
 )

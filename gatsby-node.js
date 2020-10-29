@@ -77,13 +77,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const nodes = result.data.allMdx.edges
   const posts = nodes.filter(x => _.includes(postTypes, x.node.fields.postType))
 
-  posts.forEach(({ node }) => {
-    createPage({
-      path: node.slug,
-      component: path.resolve(`./src/templates/post-layout.js`),
-      context: {
-        id: node.id,
-      },
+  postTypes.map(postType => {
+    const postsAssociated = posts.filter(
+      x => x.node.fields.postType === postType
+    )
+    postsAssociated.forEach(({ node }, index) => {
+      createPage({
+        path: node.slug,
+        component: path.resolve(`./src/templates/post-layout.js`),
+        context: {
+          id: node.id,
+          nextPostSlug: postsAssociated[index + 1]?.node.slug,
+          previousPostSlug: postsAssociated[index - 1]?.node.slug,
+        },
+      })
     })
   })
 
