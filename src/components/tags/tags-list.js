@@ -30,11 +30,12 @@ const TagsList = ({ maxTagsToList, showBrowseAll }) => {
         )
         return (
           <div className={styles.container}>
-            {tagsSliced.map(tag => (
+            {tagsSliced.map((tag, index) => (
               <Card
                 link={`/tags/${_.kebabCase(tag.fieldValue)}/`}
                 label={tag.fieldValue}
                 numPosts={tag.totalCount}
+                key={index}
               />
             ))}
             {showBrowseAll && (

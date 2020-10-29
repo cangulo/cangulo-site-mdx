@@ -6,8 +6,8 @@ const PostRowList = ({ posts }) => (
   <Container fluid>
     <Row>
       <Col>
-        {posts.map(post => (
-          <div style={{ marginBottom: "20px" }}>
+        {posts.map((post, index) => (
+          <div style={{ marginBottom: "20px" }} key={index}>
             <PostCardVertical
               title={post.frontmatter.title}
               date={post.frontmatter.date}

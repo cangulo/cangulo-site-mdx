@@ -1,16 +1,11 @@
 ---
-templateKey: post
-postType: article
 title: Create a WebPage Shortcut in Elementary
 date: 2020-06-08T15:04:10.000Z
 description: This post explains how to create customs shortcuts for webpages in Elementary
-collection: Elementary
-featuredpost: false
-featuredimage: /img/elementary-logo.png
+img: ./resources/elementary-logo.png
 tags:
   - elementary
   - shortcuts-elementary
-available: false
 ---
 
 In my [previous article](./2020-06-07-create-app-shortcut.md), I explained how to create an app launcher in Elementary by defining a `.desktop` file with an `exec` property where we code the command to be executed. Here we are going to take advantage of that for creating shortcuts to web pages. 
@@ -22,13 +17,13 @@ Let's consider the next pages:
 ### Whatsapp Web
 
 <div align="center">
-  <img src="./resources/2020-06-08-create-webpages-shortcut/webwhatsapp_default_visualization.png">
+  <img src="./resources/2020-06-08-create-webpages-shortcut/webwhatsapp_default_visualization.png"/>
 </div>
 
 ### Microsoft OneNote
 
 <div align="center">
-  <img src="./resources/2020-06-08-create-webpages-shortcut/onenote_default_visualization.png">
+  <img src="./resources/2020-06-08-create-webpages-shortcut/onenote_default_visualization.png"/>
 </div>
 
 
@@ -37,7 +32,7 @@ Let's consider the next pages:
 To load the web pages mentioned you have to open the browser and navigate to the urls as next:
 
 <div align="center">
-  <img src="./resources/2020-06-08-create-webpages-shortcut/webwhastapp_load_manually.gif">
+  <img src="./resources/2020-06-08-create-webpages-shortcut/webwhastapp_load_manually.gif"/>
 </div>
 <p></p>
 
@@ -59,7 +54,7 @@ So, how can Chromium help us? well, we can create a shortcut for a web page quic
 The previous process and how to open the shortcut is in the next gif:
 
 <div align="center">
-  <img src="./resources/2020-06-08-create-webpages-shortcut/whatspp_shortcut_creation.gif">
+  <img src="./resources/2020-06-08-create-webpages-shortcut/whatspp_shortcut_creation.gif"/>
 </div>
 <p></p>
 
@@ -70,7 +65,7 @@ As a result, you don't have to worry about any `.desktop` file. The downside is 
 One last remark, note the next navigation options are available in the app bar.
 
 <p align="center">
-  <img src="./resources/2020-06-08-create-webpages-shortcut/chromium_webapp_options.png" alt="">
+  <img src="./resources/2020-06-08-create-webpages-shortcut/chromium_webapp_options.png" alt=""/>
 </p>
 
 ### Option 2:  Using a different web browser
@@ -106,7 +101,7 @@ vivaldi https://web.whatsapp.com
 However, this will open the browser as usual, or if this is already open, it will add a new tab with the URL provided. 
 
 <p align="center">
-  <img src="./resources/2020-06-08-create-webpages-shortcut/load_vivaldi_browser.gif" alt="Load Web Page using default Vivaldi Command">
+  <img src="./resources/2020-06-08-create-webpages-shortcut/load_vivaldi_browser.gif" alt="Load Web Page using default Vivaldi Command"/>
 </p>
 
 If you want to open any web page as a web app,  you should set the `[URL]` as an `--app` argument in the command:
@@ -118,7 +113,7 @@ vivaldi --app="https://web.whatsapp.com"
 The visualization for the Whatsapp page would be:
 
 <p align="center">
-  <img src="./resources/2020-06-08-create-webpages-shortcut/webwhatsapp_vivaldi_webapp_ui.png" alt="Web Whatsapp Visualization as Web App in Vivaldi">
+  <img src="./resources/2020-06-08-create-webpages-shortcut/webwhatsapp_vivaldi_webapp_ui.png" alt="Web Whatsapp Visualization as Web App in Vivaldi"/>
 </p>
 
 <p align="center">

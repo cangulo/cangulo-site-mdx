@@ -30,11 +30,12 @@ const CollectionsList = ({ maxCollectionsToList, showBrowseAll }) => {
         )
         return (
           <div className={styles.container}>
-            {colsSliced.map(col => (
+            {colsSliced.map((col, index) => (
               <Card
                 link={`/collections/${col.fieldValue}/`}
                 label={_.startCase(col.fieldValue)}
                 numPosts={col.totalCount}
+                key={index}
               />
             ))}
             {showBrowseAll && (

@@ -1,8 +1,15 @@
 const { createFilePath } = require("gatsby-source-filesystem")
 const _ = require("lodash")
 const path = require("path")
+const { paginate } = require("gatsby-awesome-pagination")
 
-const postTypes = ["blog", "meetups", "cheatsheets"]
+const pagesConfig = [
+  { postType: "blog", numPostPerPage: 5 },
+  { postType: "cheatsheets", numPostPerPage: 6 },
+  { postType: "meetups", numPostPerPage: 1 },
+]
+
+const postTypes = pagesConfig.map(x => x.postType)
 
 function getPostType(slug) {
   return slug.split("/", 2)[1].toLowerCase()
@@ -67,12 +74,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
   }
 
-  // Create blog post pages.
   const nodes = result.data.allMdx.edges
-  //   const posts = nodes.filter(x => x.fields.tags.includes( ))
   const posts = nodes.filter(x => _.includes(postTypes, x.node.fields.postType))
-
-  // Create Post Pages
 
   posts.forEach(({ node }) => {
     createPage({
@@ -123,4 +126,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
+
+  pagesConfig.map(({ postType, numPostPerPage }) =>
+    paginate({
+      createPage,
+      items: posts.filter(x => x.node.fields.postType === postType),
+      itemsPerPage: numPostPerPage,
+      pathPrefix: `/${postType}`,
+      component: path.resolve(`./src/templates/post-list-${postType}.js`),
+    })
+  )
 }

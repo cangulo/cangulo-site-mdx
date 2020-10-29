@@ -5,8 +5,8 @@ import PostCardForGrid from "../post-card-for-grid"
 const PostGridList = ({ posts, numColumns }) => (
   <Container fluid>
     <Row xs={1} sm={2} lg={numColumns ?? 3}>
-      {posts.map(post => (
-        <Col style={{ padding: "15px" }}>
+      {posts.map((post, index) => (
+        <Col style={{ padding: "15px" }} key={index}>
           <PostCardForGrid
             title={post.frontmatter.title}
             date={post.frontmatter.date}
