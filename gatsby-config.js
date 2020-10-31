@@ -1,7 +1,7 @@
 module.exports = {
   /* Your site config here */
   plugins: [
-    "gatsby-plugin-sass",
+    { resolve: "gatsby-plugin-sass", options: {} },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

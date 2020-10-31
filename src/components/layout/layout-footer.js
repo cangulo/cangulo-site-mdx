@@ -1,8 +1,9 @@
 import React from "react"
-import { Col, Container, Row } from "react-bootstrap"
+import { Col, Container, ListGroup, Nav, Navbar, Row } from "react-bootstrap"
+import styles from "./layout-footer.module.scss"
 
 const LayoutFooter = () => (
-  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+  <footer className={styles.footer}>
     <Container fluid>
       <Row>
         <Col xs={{ span: 3, offset: 1 }} md>

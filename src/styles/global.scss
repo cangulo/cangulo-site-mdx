@@ -1,12 +1,4 @@
-// $theme-colors: (
-//   "primary": #ff4136,
-//   "danger": #ff4136
-// );
-
+@import "./colors.scss";
 @import "./mdx.scss";
 @import "./table.scss";
 @import "~bootstrap/scss/bootstrap";
-
-// // Your variable overrides
-// $body-bg: #000;
-// $body-color: #111;

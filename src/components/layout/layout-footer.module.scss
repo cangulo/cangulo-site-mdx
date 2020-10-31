@@ -1,0 +1,14 @@
+@import "../../styles/colors.scss";
+
+.footer {
+  padding-top: 1.5rem !important;
+  margin-bottom: 3rem !important;
+  margin-top: 1.5rem !important;
+  border-top: 1px solid #dee2e6 !important;
+  background-color: $primary;
+  color: white;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.75);
+}
