@@ -8,7 +8,10 @@ import _ from "lodash"
 export default function PageTemplate({ data, pageContext }) {
   const collection = pageContext.collection
   return (
-    <Layout title={collection && `Collection ${_.startCase(collection)}`}>
+    <Layout
+      title={collection && `Collection ${_.startCase(collection)}`}
+      imgRelativePath="./collections.jpg"
+    >
       <Container fluid>
         <Row sm={2} md={3}>
           {data.allMdx.edges.map(({ node }) => (

@@ -7,7 +7,10 @@ import { graphql } from "gatsby"
 export default function PageTemplate({ data, pageContext }) {
   const tag = pageContext.tag
   return (
-    <Layout title={tag && `Posts tagged with ${tag}`}>
+    <Layout
+      title={tag && `Posts tagged with ${tag}`}
+      imgRelativePath="./page-tags.jpg"
+    >
       <Container fluid>
         <Row sm={2} md={3}>
           {data.allMdx.edges.map(({ node }) => (

@@ -1,5 +1,14 @@
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: "Carlos Angulo Blog",
+    description:
+      "This is my personal blog where you can find all my post as well as my cheatsheet. Feel free to contact me.",
+    // siteUrl: "http://cangulo.surge.sh/",
+    siteUrl: "http://localhost:8000/",
+    shareProfilePicture: "/img/profile-picture-preview-link.jpg",
+    twitterHandle: "@AnguloMascarell",
+    HyvorTalkWebsiteId: 1142,
+  },
   plugins: [
     { resolve: "gatsby-plugin-sass", options: {} },
     {

@@ -3,6 +3,10 @@ import { Container, Pagination, Row } from "react-bootstrap"
 import _ from "lodash"
 
 const PaginationList = ({ numberOfPages, pageNumber, preffixPath }) => {
+  if (numberOfPages === 1) {
+    return ""
+  }
+
   const pages = _.range(0, numberOfPages)
     .filter(x => x >= 0 && x < numberOfPages)
     .map(x => {

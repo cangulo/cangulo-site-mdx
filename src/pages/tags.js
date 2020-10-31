@@ -4,7 +4,7 @@ import TagsList from "../components/tags/tags-list"
 
 export default function PageTemplate() {
   return (
-    <Layout title="Tags" imgRelativePath="../page-tags.jpg">
+    <Layout title="Tags" imgRelativePath="./page-tags.jpg">
       <TagsList />
     </Layout>
   )
