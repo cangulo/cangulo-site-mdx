@@ -4,16 +4,16 @@ import styles from "./layout-footer.module.scss"
 
 const LayoutFooter = () => (
   <footer className={styles.footer}>
-    <Container fluid>
+    <Container fluid="xs">
       <Row>
-        <Col xs={{ span: 3, offset: 1 }} md>
+        <Col md={{ span: 3, offset: 1 }}>
           <ListGroup variant="flush" className={styles.customListgroup}>
             <ListGroup.Item href="/" variant="primary" action>
               <h5>Home</h5>
             </ListGroup.Item>
           </ListGroup>
         </Col>
-        <Col xs={{ span: 4 }} md>
+        <Col md={{ span: 4 }}>
           <ListGroup variant="flush">
             <ListGroup.Item className={styles.customListgroup}>
               <h5>Posts</h5>
@@ -29,7 +29,7 @@ const LayoutFooter = () => (
             </ListGroup.Item>
           </ListGroup>
         </Col>
-        <Col xs={{ span: 3 }} md>
+        <Col md={{ span: 3 }}>
           <ListGroup variant="flush" className={styles.customListgroup}>
             <ListGroup.Item href="/about" variant="primary" action>
               <h5>About</h5>
