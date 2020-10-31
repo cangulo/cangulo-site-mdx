@@ -1,5 +1,5 @@
 import React from "react"
-import { Col, Container, ListGroup, Nav, Navbar, Row } from "react-bootstrap"
+import { Col, Container, ListGroup, Row } from "react-bootstrap"
 import styles from "./layout-footer.module.scss"
 
 const LayoutFooter = () => (
@@ -7,45 +7,37 @@ const LayoutFooter = () => (
     <Container fluid>
       <Row>
         <Col xs={{ span: 3, offset: 1 }} md>
-          <h5>
-            <a style={{ color: "inherit" }} href="/">
-              Home
-            </a>
-          </h5>
+          <ListGroup variant="flush" className={styles.customListgroup}>
+            <ListGroup.Item href="/" variant="primary" action>
+              <h5>Home</h5>
+            </ListGroup.Item>
+          </ListGroup>
         </Col>
         <Col xs={{ span: 4 }} md>
-          <h5>Posts</h5>
-          <ul class="list-unstyled text-small">
-            <li>
-              <a class="text-muted" href="/cheatsheets">
-                Cheatsheets
-              </a>
-            </li>
-            <li>
-              <a class="text-muted" href="/blog">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a class="text-muted" href="/meetups">
-                Meetups
-              </a>
-            </li>
-          </ul>
+          <ListGroup variant="flush">
+            <ListGroup.Item className={styles.customListgroup}>
+              <h5>Posts</h5>
+            </ListGroup.Item>
+            <ListGroup.Item href="/cheatsheets" variant="primary" action>
+              Cheatsheets
+            </ListGroup.Item>
+            <ListGroup.Item href="/blog" variant="primary" action>
+              Blog
+            </ListGroup.Item>
+            <ListGroup.Item href="/meetups" variant="primary" action>
+              Meetups
+            </ListGroup.Item>
+          </ListGroup>
         </Col>
         <Col xs={{ span: 3 }} md>
-          <h5>
-            <a style={{ color: "inherit" }} href="/about">
-              About
-            </a>
-          </h5>
-          <ul class="list-unstyled text-small">
-            <li>
-              <a class="text-muted" href="/contact">
-                Contact
-              </a>
-            </li>
-          </ul>
+          <ListGroup variant="flush" className={styles.customListgroup}>
+            <ListGroup.Item href="/about" variant="primary" action>
+              <h5>About</h5>
+            </ListGroup.Item>
+            <ListGroup.Item href="/contact" variant="primary" action>
+              Contact
+            </ListGroup.Item>
+          </ListGroup>
         </Col>
       </Row>
     </Container>
