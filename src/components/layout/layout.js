@@ -14,14 +14,10 @@ const Layout = ({ children, title, subtitle, imgRelativePath }) => (
     />
     <Container fluid>
       <Row>
-        <Col />
-        <Col xs={10}>
-          {children}
-          <LayoutFooter />
-        </Col>
-        <Col />
+        <Col xs={{ span: 10, offset: 1 }}>{children}</Col>
       </Row>
     </Container>
+    <LayoutFooter />
   </div>
 )
 
