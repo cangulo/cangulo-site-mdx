@@ -1,9 +1,3 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
-
 module.exports = {
   /* Your site config here */
   plugins: [
@@ -13,6 +7,13 @@ module.exports = {
       options: {
         name: `posts`,
         path: `${__dirname}/posts/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pageContent`,
+        path: `${__dirname}/pageContent/`,
       },
     },
     `gatsby-transformer-sharp`,

@@ -6,7 +6,7 @@ import PostTags from "../components/posts/post-tags"
 import PostReferences from "../components/posts/post-references"
 import MdxProvider from "../components/mdRenders/mdx-provider"
 import PaginationPost from "../components/pagination/pagination-post"
-import AboutMeArea from "../components/aboutme"
+import AboutMeArea from "../components/aboutme/aboutme-area"
 
 export default function PageTemplate({ data: { mdx }, pageContext }) {
   return (
@@ -18,10 +18,10 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
         featuredimage={mdx.frontmatter.img}
       />
       <MdxProvider mdxContent={mdx.body} />
-
-      <PostTags tags={mdx.frontmatter?.tags} />
       <hr></hr>
       <AboutMeArea />
+      <hr></hr>
+      <PostTags tags={mdx.frontmatter?.tags} />
       <PostReferences references={mdx.frontmatter?.references} />
       <hr></hr>
       <PaginationPost
@@ -35,7 +35,6 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
 export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
     mdx(id: { eq: $id }) {
-      id
       body
       frontmatter {
         title

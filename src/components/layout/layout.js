@@ -15,11 +15,13 @@ const Layout = ({ children, title, subtitle, imgRelativePath }) => (
     <Container fluid>
       <Row>
         <Col />
-        <Col xs={10}>{children}</Col>
+        <Col xs={10}>
+          {children}
+          <LayoutFooter />
+        </Col>
         <Col />
       </Row>
     </Container>
-    <LayoutFooter />
   </div>
 )
 

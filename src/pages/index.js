@@ -1,11 +1,11 @@
 import React from "react"
-import AboutMeArea from "../components/aboutme"
+import AboutMeArea from "../components/aboutme/aboutme-area"
 import Layout from "../components/layout/layout"
 import PostList from "../components/posts/post-list"
 import { postType } from "../models/postType"
 import OutlineButton from "../components/buttons/outline-btn"
 
-export default () => (
+const IndexPage = () => (
   <Layout
     title="Hi! I'm Carlos Angulo"
     subtitle="Welcome to my blog"
@@ -29,3 +29,5 @@ export default () => (
     <AboutMeArea />
   </Layout>
 )
+
+export default IndexPage

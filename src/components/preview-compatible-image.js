@@ -1,10 +1,11 @@
-import React from 'react'
-import Img from 'gatsby-image'
+import React from "react"
+import Img from "gatsby-image"
 
-const PreviewCompatibleImage = ({ image, alt, width }) => (
-    image && <div style={{ width: width ?? '120px' }}>
-        <Img fluid={image.childImageSharp.fluid} alt={alt && ``} />
+const PreviewCompatibleImage = ({ image, alt, width }) =>
+  image && (
+    <div style={{ width: width ?? "120px" }}>
+      <Img fluid={image.childImageSharp.fluid} alt={alt && ``} />
     </div>
-)
+  )
 
 export default PreviewCompatibleImage
