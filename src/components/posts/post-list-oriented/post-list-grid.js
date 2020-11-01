@@ -1,6 +1,6 @@
 import React from "react"
 import { Row, Col, Container } from "react-bootstrap"
-import PostCardForGrid from "../post-card-for-grid"
+import PostCardForGrid from "../post-card/post-card-for-grid"
 
 const PostGridList = ({ posts, numColumns }) => (
   <Container fluid>

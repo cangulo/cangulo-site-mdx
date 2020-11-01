@@ -1,6 +1,6 @@
 import React from "react"
 import { Row, Col, Container } from "react-bootstrap"
-import PostCardVertical from "../post-card-vertical"
+import PostCardVertical from "../post-card/post-card-vertical"
 
 const PostRowList = ({ posts }) => (
   <Container fluid>

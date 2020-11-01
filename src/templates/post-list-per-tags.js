@@ -1,7 +1,7 @@
 import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import Layout from "../components/layout/layout"
-import PostCardVertical from "../components/posts/post-card-vertical"
+import PostCardVertical from "../components/posts/post-card/post-card-vertical"
 import { graphql } from "gatsby"
 
 export default function PageTemplate({ data, pageContext }) {
