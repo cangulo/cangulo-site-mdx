@@ -17,7 +17,7 @@ import {
 
 const PostShare = ({ slug, title, description, tags }) => {
   const { siteUrl, twitterHandle } = siteShareMetadata()
-  const fullUrl = `${siteUrl}${slug}`
+  const fullUrl = `${siteUrl}/${slug}`
   return (
     <div>
       <h3>Did you like it? Share it:</h3>
