@@ -20,15 +20,15 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
         featuredimage={mdx.frontmatter.img}
       />
       <MdxProvider mdxContent={mdx.body} />
-      <hr></hr>
+      <hr />
       <AboutMeArea />
-      <hr></hr>
+      <hr style={{ margin: 0 }} />
       <Container fluid>
         <Row>
-          <Col>
+          <Col style={{ marginTop: "10px" }} md>
             <PostTags tags={mdx.frontmatter?.tags} />
           </Col>
-          <Col>
+          <Col style={{ marginTop: "10px" }} md>
             <PostShare
               slug={mdx.slug}
               title={mdx.frontmatter.title}
@@ -39,7 +39,7 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
         </Row>
       </Container>
       <PostReferences references={mdx.frontmatter?.references} />
-      <hr></hr>
+      <hr />
       <PaginationPost
         previousPostSlug={pageContext.nextPostSlug}
         nextPostSlug={pageContext.previousPostSlug}
