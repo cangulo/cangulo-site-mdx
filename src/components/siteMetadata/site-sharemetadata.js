@@ -1,16 +1,14 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
-const siteMetadata = () => {
+const siteShareMetadata = () => {
   const { site } = useStaticQuery(
     graphql`
-      query SITE_METADATA_QUERY {
+      query getSiteShareInformation {
         site {
           siteMetadata {
-            title
-            description
             siteUrl
-            shareProfilePicture
+            twitterHandle
           }
         }
       }
@@ -19,4 +17,4 @@ const siteMetadata = () => {
   return site.siteMetadata
 }
 
-export default siteMetadata
+export default siteShareMetadata
