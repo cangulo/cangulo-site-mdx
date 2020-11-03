@@ -14,7 +14,7 @@ const AboutMeArea = () => (
             title
             img {
               childImageSharp {
-                fluid(maxWidth: 120, quality: 100) {
+                fluid(maxWidth: 300, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -32,10 +32,12 @@ const AboutMeArea = () => (
               <MdxProvider mdxContent={data.mdx.body} />
             </Col>
             <Col xs={7} sm={5} md={3} lg={2}>
-              <Img
-                fluid={data.mdx.frontmatter.img.childImageSharp.fluid}
-                alt=""
-              />
+              {data.mdx.frontmatter.img?.childImageSharp?.fluid && (
+                <Img
+                  fluid={data.mdx.frontmatter.img.childImageSharp.fluid}
+                  alt=""
+                />
+              )}
             </Col>
           </Row>
         </Container>
