@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
+import { withPrefix } from "gatsby"
 
 const SEO = ({ title, description, image, article }) => {
   const { pathname } = useLocation()
@@ -52,6 +53,29 @@ const SEO = ({ title, description, image, article }) => {
       )}
 
       {seo.image && <meta name="twitter:image" content={seo.image} />}
+
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href={`${withPrefix("/")}apple-touch-icon.png`}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        href={`${withPrefix("/")}favicon-32x32.png`}
+        sizes="32x32"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        href={`${withPrefix("/")}favicon-16x16.png`}
+        sizes="16x16"
+      />
+      <link
+        rel="mask-icon"
+        href={`${withPrefix("/")}img/safari-pinned-tab.svg`}
+        color="#ff4400"
+      />
     </Helmet>
   )
 }
@@ -80,7 +104,7 @@ const query = graphql`
         titleTemplate
         defaultDescription: description
         siteUrl
-        defaultImage: image
+        defaultImage: shareProfilePicture
         twitterHandle
       }
     }

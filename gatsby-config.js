@@ -12,7 +12,8 @@ module.exports = {
     HyvorTalkWebsiteId: 1142,
   },
   plugins: [
-    { resolve: "gatsby-plugin-sass", options: {} },
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
