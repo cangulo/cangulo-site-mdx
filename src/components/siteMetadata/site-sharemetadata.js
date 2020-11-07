@@ -9,6 +9,7 @@ const siteShareMetadata = () => {
           siteMetadata {
             siteUrl
             twitterHandle
+            HyvorTalkWebsiteId
           }
         }
       }

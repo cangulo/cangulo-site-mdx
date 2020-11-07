@@ -9,6 +9,7 @@ import PaginationPost from "../components/pagination/pagination-post"
 import AboutMeArea from "../components/aboutme/aboutme-area"
 import PostShare from "../components/posts/post-share"
 import { Col, Container, Row } from "react-bootstrap"
+import PostComments from "../components/posts/post-comments"
 
 export default function PageTemplate({ data: { mdx }, pageContext }) {
   return (
@@ -22,13 +23,13 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
       <MdxProvider mdxContent={mdx.body} />
       <hr />
       <AboutMeArea />
-      <hr style={{ margin: 0 }} />
+      <hr style={{ margin: "10px 0" }} />
       <Container fluid>
         <Row>
-          <Col style={{ marginTop: "10px" }} md>
+          <Col md>
             <PostTags tags={mdx.frontmatter?.tags} />
           </Col>
-          <Col style={{ marginTop: "10px" }} md>
+          <Col md>
             <PostShare
               slug={mdx.slug}
               title={mdx.frontmatter.title}
@@ -38,8 +39,15 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
           </Col>
         </Row>
       </Container>
-      <PostReferences references={mdx.frontmatter?.references} />
-      <hr />
+      {mdx.frontmatter?.references && (
+        <div>
+          <hr style={{ margin: "15x 0" }} />
+          <PostReferences references={mdx.frontmatter.references} />
+        </div>
+      )}
+      <hr style={{ margin: "10px 0" }} />
+      <PostComments slug={mdx.slug} />
+      <hr style={{ margin: "10px 0" }} />
       <PaginationPost
         previousPostSlug={pageContext.nextPostSlug}
         nextPostSlug={pageContext.previousPostSlug}

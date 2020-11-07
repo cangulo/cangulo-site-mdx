@@ -4,7 +4,6 @@ const PostReferences = ({ references }) => {
   if (references && references.length > 0) {
     return (
       <section>
-        <hr></hr>
         <h2>References</h2>
         <div style={{ marginTop: "10px" }}>
           {references.map((refPairValue, index) => (
