@@ -4,7 +4,7 @@ import Layout from "../components/layout/layout"
 
 const ContactPage = () => (
   <div>
-    <Layout title="About" sameTitleAsSEO="true">
+    <Layout title="About">
       <AboutMeArea />
     </Layout>
   </div>

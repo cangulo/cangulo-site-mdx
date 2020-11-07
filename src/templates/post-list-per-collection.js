@@ -11,7 +11,6 @@ export default function PageTemplate({ data, pageContext }) {
     <Layout
       title={collection && `Collection ${_.startCase(collection)}`}
       imgRelativePath="./collections.jpg"
-      sameTitleAsSEO="true"
     >
       <Container fluid>
         <Row sm={2} md={3}>

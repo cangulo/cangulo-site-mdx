@@ -34,7 +34,7 @@ const ContactMeArea = () => (
 )
 
 const ContactPage = () => (
-  <Layout title="Contact" imgRelativePath="./contact.jpg" sameTitleAsSEO="true">
+  <Layout title="Contact" imgRelativePath="./contact.jpg">
     <ContactMeArea />
   </Layout>
 )

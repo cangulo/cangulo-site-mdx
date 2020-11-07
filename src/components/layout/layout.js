@@ -5,21 +5,14 @@ import LayoutHeader from "./layout-header"
 import PageTitle from "../page-title"
 import SEO from "../seo"
 
-const Layout = ({
-  children,
-  title,
-  sameTitleAsSEO,
-  seoTitle,
-  subtitle,
-  imgRelativePath,
-}) => (
+const Layout = ({ children, title, seoData, subtitle, imgRelativePath }) => (
   <div>
     <LayoutHeader />
     <SEO
-      title={sameTitleAsSEO ? title : seoTitle}
-      // description={}
-      // image={imgRelativePath}
-      article="false"
+      title={seoData?.title ?? title}
+      description={seoData?.description}
+      image={seoData?.image}
+      article={seoData?.article}
     />
     <PageTitle
       title={title}
