@@ -10,6 +10,7 @@ const IndexPage = () => (
     title="Hi! I'm Carlos Angulo"
     subtitle="Welcome to my blog"
     imgRelativePath="./index-page4.jpg"
+    seoTitle="Index"
   >
     <h1>Cheatsheets</h1>
     <PostList postType={postType.cheatsheets} numColumns={3} limit={6} />

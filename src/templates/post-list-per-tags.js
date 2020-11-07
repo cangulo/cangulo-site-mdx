@@ -10,6 +10,7 @@ export default function PageTemplate({ data, pageContext }) {
     <Layout
       title={tag && `Posts tagged with ${tag}`}
       imgRelativePath="./page-tags.jpg"
+      sameTitleAsSEO="true"
     >
       <Container fluid>
         <Row sm={2} md={3}>

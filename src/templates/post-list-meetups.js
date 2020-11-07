@@ -4,7 +4,7 @@ import Layout from "../components/layout/layout"
 import PostRowList from "../components/posts/post-list-oriented/post-list-rows"
 
 const PostListMeetups = ({ data }) => (
-  <Layout title="Meetups" imgRelativePath="./meetups.jpg">
+  <Layout title="Meetups" imgRelativePath="./meetups.jpg" sameTitleAsSEO="true">
     <PostRowList posts={data.allMdx.edges.map(x => x.node)} />
   </Layout>
 )

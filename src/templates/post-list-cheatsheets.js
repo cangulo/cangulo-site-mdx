@@ -9,6 +9,7 @@ const PostListCheatsheets = props => (
     title="Cheatsheets"
     subtitle="Use them to save you time 😁️"
     imgRelativePath="./cheatsheet.jpg"
+    sameTitleAsSEO="true"
   >
     <PostGridList
       posts={props.data.allMdx.edges.map(x => x.node)}

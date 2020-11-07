@@ -9,7 +9,7 @@ import PostRowList from "../components/posts/post-list-oriented/post-list-rows"
 import PaginationList from "../components/pagination/pagination-list"
 
 const PostListBlog = props => (
-  <Layout title="Posts" imgRelativePath="./blog.jpg">
+  <Layout title="Posts" imgRelativePath="./blog.jpg" sameTitleAsSEO="true">
     <Container fluid>
       <Row>
         <Col xs={12} sm={12} md={8} lg={8}>

@@ -3,10 +3,24 @@ import LayoutFooter from "./layout-footer"
 import { Col, Container, Row } from "react-bootstrap"
 import LayoutHeader from "./layout-header"
 import PageTitle from "../page-title"
+import SEO from "../seo"
 
-const Layout = ({ children, title, subtitle, imgRelativePath }) => (
+const Layout = ({
+  children,
+  title,
+  sameTitleAsSEO,
+  seoTitle,
+  subtitle,
+  imgRelativePath,
+}) => (
   <div>
     <LayoutHeader />
+    <SEO
+      title={sameTitleAsSEO ? title : seoTitle}
+      // description={}
+      // image={imgRelativePath}
+      article="false"
+    />
     <PageTitle
       title={title}
       subtitle={subtitle}

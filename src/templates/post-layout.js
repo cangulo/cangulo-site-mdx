@@ -13,7 +13,7 @@ import PostComments from "../components/posts/post-comments"
 
 export default function PageTemplate({ data: { mdx }, pageContext }) {
   return (
-    <Layout>
+    <Layout seoTitle={mdx.frontmatter.title}>
       <PostHeader
         title={mdx.frontmatter.title}
         collection={mdx.fields?.postSerie}
