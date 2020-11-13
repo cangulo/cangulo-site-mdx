@@ -30,3 +30,10 @@ tags:
 <!-- Ctrl + Shift + V -->
 <!-- Use Visual Studio Toolbox to save most used classes -->
 <!-- https://stackoverflow.com/questions/4872563/where-does-visual-studio-save-code-blocks-that-are-dragged-on-the-toolbox -->
+
+<!-- New Git Expirience in VS -->
+<!-- https://devblogs.microsoft.com/visualstudio/announcing-the-release-of-the-git-experience-in-visual-studio/ -->
+<!-- 1. New Git Changes Windows git-changes-windows.png -->
+<!-- 2. Check Git Operations, specially rebase and git force push full-screen-repositories-operation.png -->
+<!-- https://devblogs.microsoft.com/visualstudio/exciting-new-updates-to-the-git-experience-in-visual-studio/ -->
+<!-- 1. Check Branches branches-git.png -->
