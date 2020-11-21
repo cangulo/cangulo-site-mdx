@@ -8,7 +8,7 @@ const PostCardForGrid = ({ title, date, description, img, link }) => (
       <Container fluid>
         <Row>
           <Col md="auto">
-            <PreviewCompatibleImage image={img} alt={title} width={"100px"} />
+            <PreviewCompatibleImage image={img} alt={title} width={"110px"} />
           </Col>
           <Col>
             <Card.Title>{title}</Card.Title>
