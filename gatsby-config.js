@@ -1,3 +1,5 @@
+var _ = require("lodash")
+
 module.exports = {
   siteMetadata: {
     title: "Welcome!",
@@ -42,6 +44,22 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        fields: [`title`, `tags`, `postType`, `postSerie`, `slug`],
+        resolvers: {
+          Mdx: {
+            title: node => node.frontmatter.title,
+            tags: node => node.frontmatter.tags,
+            postType: node => node.fields.postType,
+            postSerie: node => node.fields.postSerie,
+            slug: node => node.fields.slugForSearch,
+          },
+        },
+        filter: (node, getNode) => node.frontmatter.tags,
       },
     },
   ],

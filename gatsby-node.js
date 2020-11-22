@@ -32,6 +32,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: "postType",
       value: postType,
     })
+    createNodeField({
+      node,
+      name: "slugForSearch",
+      value: slug,
+    })
 
     if (postType === "blog") {
       const postSerie = getPostCollection(slug)
