@@ -5,12 +5,13 @@ import PostList from "../components/posts/post-list"
 import { postType } from "../models/postType"
 import OutlineButton from "../components/buttons/outline-btn"
 
-const IndexPage = () => (
+const IndexPage = ({ location }) => (
   <Layout
     title="Hi! I'm Carlos Angulo"
     subtitle="Welcome to my blog"
     imgRelativePath="./index-page4.jpg"
     seoData={{ title: `Home` }}
+    location={location}
   >
     <h1>Cheatsheets</h1>
     <PostList postType={postType.cheatsheets} numColumns={3} limit={6} />

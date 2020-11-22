@@ -20,6 +20,7 @@ const SearchPage = ({ location }) => {
             title="Search"
             imgRelativePath="./page-search.jpg"
             hideSearchForm={true}
+            location={location}
           >
             <SearchArea
               searchIndex={data.siteSearchIndex.index}

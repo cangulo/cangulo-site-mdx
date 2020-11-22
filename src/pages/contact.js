@@ -33,8 +33,8 @@ const ContactMeArea = () => (
   />
 )
 
-const ContactPage = () => (
-  <Layout title="Contact" imgRelativePath="./contact.jpg">
+const ContactPage = ({ location }) => (
+  <Layout title="Contact" imgRelativePath="./contact.jpg" location={location}>
     <ContactMeArea />
   </Layout>
 )

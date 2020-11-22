@@ -5,9 +5,16 @@ import LayoutHeader from "./layout-header"
 import PageTitle from "../page-title"
 import SEO from "../seo"
 
-const Layout = ({ children, title, seoData, subtitle, imgRelativePath }) => (
+const Layout = ({
+  children,
+  title,
+  seoData,
+  subtitle,
+  imgRelativePath,
+  location,
+}) => (
   <div>
-    <LayoutHeader />
+    <LayoutHeader location={location} />
     <SEO
       title={seoData?.title ?? title}
       description={seoData?.description}
