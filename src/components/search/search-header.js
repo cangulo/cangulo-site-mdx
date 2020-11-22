@@ -1,6 +1,6 @@
 import React from "react"
 import { navigate } from "gatsby"
-import { Button, Form, FormControl } from "react-bootstrap"
+import { Form, FormControl } from "react-bootstrap"
 import _ from "lodash"
 
 const SearchFormHeader = () => (
@@ -26,9 +26,6 @@ const SearchFormHeader = () => (
       name="queryText"
       className="mr-sm-2"
     />
-    <Button variant="outline-light" type="submit">
-      Search
-    </Button>
   </Form>
 )
 
