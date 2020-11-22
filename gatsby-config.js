@@ -54,6 +54,7 @@ module.exports = {
           Mdx: {
             title: node => node.frontmatter.title,
             tags: node => node.frontmatter.tags,
+            description: node => node.frontmatter.description,
             postType: node => node.fields.postType,
             postSerie: node => node.fields.postSerie,
             slug: node => node.fields.slugForSearch,

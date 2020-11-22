@@ -13,7 +13,7 @@ export default function PageTemplate({ data, pageContext }) {
       imgRelativePath="./collections.jpg"
     >
       <Container fluid>
-        <Row sm={2} md={3}>
+        <Row sm={2} md={2} lg={3}>
           {data.allMdx.edges.map(({ node }) => (
             <Col style={{ padding: "15px" }}>
               <PostCardVertical

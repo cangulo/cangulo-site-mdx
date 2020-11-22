@@ -5,9 +5,9 @@ import PreviewCompatibleImage from "../../preview-compatible-image"
 const PostCardVertical = ({ title, date, description, img, link }) => (
   <Card>
     <Card.Body>
-      <Container fluid>
+      <Container fluid="xs">
         <Row>
-          <Col md="auto">
+          <Col lg="auto">
             <PreviewCompatibleImage image={img} alt={title} width={"110px"} />
           </Col>
           <Col>

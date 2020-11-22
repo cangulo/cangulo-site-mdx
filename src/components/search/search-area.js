@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import { Index } from "elasticlunr"
-import { Link } from "gatsby"
+import SearchResultCard from "./searchresult-card"
+import SearchResultList from "./searchresult-grid"
 
-// Search component
 export default class SearchArea extends Component {
   constructor(props) {
     super(props)
@@ -16,14 +16,19 @@ export default class SearchArea extends Component {
     return (
       <div>
         <input type="text" value={this.state.query} onChange={this.search} />
-        <ul>
-          {this.state.results.map(page => (
-            <li key={page.id}>
-              <Link to={page.slug}>{page.title}</Link>
-              {": Tags: " + page.tags.join(`,`)}
-            </li>
+        <SearchResultList>
+          {this.state.results.map(result => (
+            <SearchResultCard
+              title={result.title}
+              slug={result.slug}
+              id={result.id}
+              tags={result.tags}
+              description={result.description}
+              postType={result.postType}
+              postSerie={result.postSerie}
+            />
           ))}
-        </ul>
+        </SearchResultList>
       </div>
     )
   }

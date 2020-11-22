@@ -11,8 +11,8 @@ export default function PageTemplate({ data, pageContext }) {
       title={tag && `Posts tagged with ${tag}`}
       imgRelativePath="./page-tags.jpg"
     >
-      <Container fluid>
-        <Row sm={2} md={3}>
+      <Container fluid="xs">
+        <Row sm={2} md={2} lg={3}>
           {data.allMdx.edges.map(({ node }) => (
             <Col style={{ padding: "15px" }}>
               <PostCardVertical
