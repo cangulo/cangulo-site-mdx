@@ -7,7 +7,6 @@ import TagArea from "../tags/tags-area"
 const SearchResultCard = ({
   title,
   slug,
-  id,
   tags,
   description,
   postType,
@@ -15,7 +14,7 @@ const SearchResultCard = ({
 }) => {
   return (
     <Col style={{ padding: "15px" }}>
-      <Card key={id}>
+      <Card>
         <Card.Body>
           <Container fluid>
             <Row>

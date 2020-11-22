@@ -2,12 +2,13 @@ import React, { Component } from "react"
 import { Index } from "elasticlunr"
 import SearchResultCard from "./searchresult-card"
 import SearchResultList from "./searchresult-grid"
+import _ from "lodash"
 
 export default class SearchArea extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      query: ``,
+      query: this.props.searchQuery ?? ``,
       results: [],
     }
   }
@@ -15,17 +16,22 @@ export default class SearchArea extends Component {
   render() {
     return (
       <div>
-        <input type="text" value={this.state.query} onChange={this.search} />
+        <input
+          type="text"
+          value={this.state.query}
+          onChange={this.search}
+          onLoad={this.search}
+        />
         <SearchResultList>
           {this.state.results.map(result => (
             <SearchResultCard
               title={result.title}
               slug={result.slug}
-              id={result.id}
               tags={result.tags}
               description={result.description}
               postType={result.postType}
               postSerie={result.postSerie}
+              Key={result.id}
             />
           ))}
         </SearchResultList>
@@ -33,20 +39,15 @@ export default class SearchArea extends Component {
     )
   }
   getOrCreateIndex = () =>
-    this.index
-      ? this.index
-      : // Create an elastic lunr index and hydrate with graphql query results
-        Index.load(this.props.searchIndex)
+    this.index ? this.index : Index.load(this.props.searchIndex)
 
   search = evt => {
     const query = evt.target.value
     this.index = this.getOrCreateIndex()
     this.setState({
       query,
-      // Query the index with search string to get an [] of IDs
       results: this.index
-        .search(query, { expand: true }) // Accept partial matches
-        // Map over each ID and return the full document
+        .search(query, { expand: true })
         .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     })
   }

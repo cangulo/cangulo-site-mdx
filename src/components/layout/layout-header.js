@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import React, { Component } from "react"
 import { Button, Navbar, Nav, Form, FormControl } from "react-bootstrap"
 import styles from "./layout-header.module.scss"
@@ -8,8 +9,7 @@ export default class LayoutHeader extends Component {
   }
 
   onSubmit = () => {
-    this.props.history.push(`/test`)
-    // console.log(this.state.val)
+    console.log(this.state.val)
     console.log(` tes`)
   }
 
@@ -44,7 +44,7 @@ export default class LayoutHeader extends Component {
               />
             </Nav.Link>
           </Nav>
-          {/* <Form inline>
+          <Form action="/search" method="GET" inline>
             <FormControl
               type="text"
               placeholder="Search"
@@ -52,10 +52,11 @@ export default class LayoutHeader extends Component {
               onChange={e => this.setState({ val: e.target.value })}
               className="mr-sm-2"
             />
-            <Button variant="outline-light" onClick={this.onSubmit}>
+            <input type="hidden" name="s" value={this.state.val} />
+            <Button variant="outline-light" type="submit">
               Search
             </Button>
-          </Form> */}
+          </Form>
         </Navbar.Collapse>
       </Navbar>
     )
