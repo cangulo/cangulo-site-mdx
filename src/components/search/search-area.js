@@ -8,8 +8,15 @@ export default class SearchArea extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      query: this.props.searchQuery ?? ``,
+      query: ``,
       results: [],
+    }
+    if (!_.isEmpty(this.props.searchQuery)) {
+      this.index = this.getOrCreateIndex()
+      this.state.query = this.props.searchQuery
+      this.state.results = this.index
+        .search(this.props.searchQuery, { expand: true })
+        .map(({ ref }) => this.index.documentStore.getDoc(ref))
     }
   }
 
@@ -23,7 +30,7 @@ export default class SearchArea extends Component {
           onLoad={this.search}
         />
         <SearchResultList>
-          {this.state.results.map(result => (
+          {this.state.results.map((result, index) => (
             <SearchResultCard
               title={result.title}
               slug={result.slug}
@@ -31,7 +38,7 @@ export default class SearchArea extends Component {
               description={result.description}
               postType={result.postType}
               postSerie={result.postSerie}
-              Key={result.id}
+              key={index}
             />
           ))}
         </SearchResultList>
