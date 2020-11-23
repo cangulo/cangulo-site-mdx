@@ -4,7 +4,7 @@ import styles from "./layout-footer.module.scss"
 
 const LayoutFooter = () => (
   <footer className={styles.footer}>
-    <Container fluid="xs">
+    <Container fluid>
       <Row>
         <Col md={{ span: 3, offset: 1 }}>
           <ListGroup variant="flush" className={styles.customListgroup}>
