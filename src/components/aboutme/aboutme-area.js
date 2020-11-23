@@ -25,7 +25,7 @@ const AboutMeArea = () => (
     `}
     render={data => {
       return (
-        <Container style={{ margin: "1rem 0 0.5rem 0", padding: 0 }} fluid>
+        <Container style={{ padding: "1rem 0 0.5rem 0" }} fluid>
           <Row className="justify-content-center">
             <Col xs={10} sm={7} md={9} lg={10}>
               <h1>{data.mdx.frontmatter.title}</h1>

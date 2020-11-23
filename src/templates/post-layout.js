@@ -17,7 +17,7 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
       seoData={{
         title: mdx.frontmatter.title,
         description: mdx.frontmatter.description,
-        image: mdx.frontmatter.img,
+        image: mdx.frontmatter.img?.childImageSharp.fluid.src,
         article: true,
       }}
     >
