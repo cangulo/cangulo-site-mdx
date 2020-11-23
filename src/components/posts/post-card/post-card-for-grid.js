@@ -13,7 +13,7 @@ const PostCardForGrid = ({ title, date, description, img, link }) => (
               <Card.Subtitle className="mb-2 text-muted">{date}</Card.Subtitle>
             )}
           </Col>
-          <Col className="d-none d-lg-block" md={"auto"}>
+          <Col className="d-none d-md-block" md={"auto"}>
             <PreviewCompatibleImage image={img} alt={title} />
           </Col>
         </Row>

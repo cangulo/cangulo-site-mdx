@@ -20,7 +20,6 @@ const PostCardVertical = ({ title, date, description, img, link }) => (
         <Row>
           <Col>
             <hr></hr>
-
             <Card.Text>{description}</Card.Text>
             <Card.Link href={`/${link}`}>
               <Button variant="primary">Read it</Button>
