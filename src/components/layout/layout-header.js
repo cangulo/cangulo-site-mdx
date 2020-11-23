@@ -1,8 +1,8 @@
 import React from "react"
-import { Navbar, Nav, Container, Row, Col } from "react-bootstrap"
+import { Navbar, Nav } from "react-bootstrap"
 import SearchFormHeader from "../search/search-header"
 import styles from "./layout-header.module.scss"
-import _, { round } from "lodash"
+import _ from "lodash"
 
 const LayoutHeader = ({ location }) => (
   <Navbar bg="primary" variant="dark" expand="md" collapseOnSelect>
@@ -19,13 +19,6 @@ const LayoutHeader = ({ location }) => (
         <Nav.Link href="/contact/">Contact</Nav.Link>
       </Nav>
       <Nav>
-        <Nav.Link href="https://www.linkedin.com/in/angulomascarell">
-          <img
-            alt="LinkedIn"
-            src="/social-media/linkedin.svg"
-            className={styles.icons}
-          />
-        </Nav.Link>
         {!_.includes(location?.pathname, "/search") && <SearchFormHeader />}
       </Nav>
     </Navbar.Collapse>

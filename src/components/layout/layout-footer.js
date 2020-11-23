@@ -39,28 +39,34 @@ const LayoutFooter = () => (
             </ListGroup.Item>
             <ListGroup.Item href="/contact" variant="primary" action>
               Contact
-              <a
-                href="https://github.com/cangulo"
-                style={{ marginLeft: "10px" }}
-              >
-                <img
-                  alt="Github"
-                  src="/social-media/github.svg"
-                  className={styles.icons}
-                />
-              </a>
-              <a
-                href="https://twitter.com/angulomascarell"
-                style={{ marginLeft: "10px" }}
-              >
-                <img
-                  alt="Github"
-                  src="/social-media/twitter.svg"
-                  className={styles.icons}
-                />
-              </a>
             </ListGroup.Item>
           </ListGroup>
+          <div style={{ paddingLeft: "1.25rem", paddingTop: "0.75rem" }}>
+            <a href="https://www.linkedin.com/in/angulomascarell">
+              <img
+                alt="LinkedIn"
+                src="/social-media/linkedin.svg"
+                className={styles.icons}
+              />
+            </a>
+            <a href="https://github.com/cangulo" style={{ marginLeft: "10px" }}>
+              <img
+                alt="Github"
+                src="/social-media/github.svg"
+                className={styles.icons}
+              />
+            </a>
+            <a
+              href="https://twitter.com/angulomascarell"
+              style={{ marginLeft: "10px" }}
+            >
+              <img
+                alt="Github"
+                src="/social-media/twitter.svg"
+                className={styles.icons}
+              />
+            </a>
+          </div>
         </Col>
       </Row>
     </Container>
