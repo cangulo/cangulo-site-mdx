@@ -1,5 +1,5 @@
 import React from "react"
-import { Navbar, Nav } from "react-bootstrap"
+import { Navbar, Nav, Container, Row, Col } from "react-bootstrap"
 import SearchFormHeader from "../search/search-header"
 import styles from "./layout-header.module.scss"
 import _ from "lodash"
@@ -17,9 +17,14 @@ const LayoutHeader = ({ location }) => (
         <Nav.Link href="/meetups/">Meetups</Nav.Link>
         <Nav.Link href="/about/">About</Nav.Link>
         <Nav.Link href="/contact/">Contact</Nav.Link>
+        <Nav.Link href="/search/" className="d-none d-md-block d-lg-none">
+          Search
+        </Nav.Link>
       </Nav>
       <Nav>
-        {!_.includes(location?.pathname, "/search") && <SearchFormHeader />}
+        <div className="d-sm-block d-md-none d-lg-block">
+          {!_.includes(location?.pathname, "/search") && <SearchFormHeader />}
+        </div>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
