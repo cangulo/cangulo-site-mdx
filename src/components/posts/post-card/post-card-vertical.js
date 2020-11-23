@@ -5,16 +5,20 @@ import PreviewCompatibleImage from "../../preview-compatible-image"
 const PostCardVertical = ({ title, date, description, img, link }) => (
   <Card>
     <Card.Body>
-      <Container fluid="xs">
+      <Container fluid>
         <Row>
-          <Col lg="auto">
-            <PreviewCompatibleImage image={img} alt={title} width={"110px"} />
-          </Col>
           <Col>
             <Card.Title>{title}</Card.Title>
             {date && (
               <Card.Subtitle className="mb-2 text-muted">{date}</Card.Subtitle>
             )}
+          </Col>
+          <Col className="d-none d-md-block" md={"auto"}>
+            <PreviewCompatibleImage image={img} alt={title} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <hr></hr>
 
             <Card.Text>{description}</Card.Text>

@@ -7,16 +7,19 @@ const PostCardForGrid = ({ title, date, description, img, link }) => (
     <Card.Body>
       <Container fluid>
         <Row>
-          <Col md="auto">
-            <PreviewCompatibleImage image={img} alt={title} width={"110px"} />
-          </Col>
           <Col>
             <Card.Title>{title}</Card.Title>
             {date && (
               <Card.Subtitle className="mb-2 text-muted">{date}</Card.Subtitle>
             )}
+          </Col>
+          <Col className="d-none d-lg-block" md={"auto"}>
+            <PreviewCompatibleImage image={img} alt={title} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <hr></hr>
-
             <Card.Text>{description}</Card.Text>
             <Card.Link href={`/${link}`}>
               <Button variant="primary">Read it</Button>
