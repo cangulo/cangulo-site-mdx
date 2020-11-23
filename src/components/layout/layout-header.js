@@ -18,7 +18,7 @@ const LayoutHeader = ({ location }) => (
         <Nav.Link href="/contact/">Contact</Nav.Link>
       </Nav>
       <Nav>
-        <Navbar.Brand href="">
+        <Navbar.Brand href="https://www.linkedin.com/in/angulomascarell">
           <img
             alt=""
             src="/social-media/linkedin.svg"
