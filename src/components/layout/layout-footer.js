@@ -37,9 +37,6 @@ const LayoutFooter = () => (
             <ListGroup.Item href="/contact" variant="primary" action>
               Contact
             </ListGroup.Item>
-            <ListGroup.Item href="/contact" variant="primary" action>
-              Contact
-            </ListGroup.Item>
           </ListGroup>
           <div style={{ paddingLeft: "1.25rem", paddingTop: "0.75rem" }}>
             <a href="https://www.linkedin.com/in/angulomascarell">
