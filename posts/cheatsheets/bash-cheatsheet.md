@@ -1,0 +1,201 @@
+---
+title: Bash Terminal Cheatsheet
+description: This post explains the bash commands I use most as well as some
+  customizations like alias
+img: ./resources/bash/bash-logo.png
+tags:
+  - bash
+  - linux
+  - terminal
+  - alias
+---
+
+# Commands
+## Basics 2
+
+| Command | Options                           | Remarks                                                                                                                                                       |
+| ------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `alias` | `alias NAME=VALUE`                | `VALUE` should include characters escaped                                                                                                                     |
+| `cheat` | `cheat COMMAND`                   | `COMMAND` you would like to get a cheatsheet                                                                                                                  |
+| `grep`  | `[COMMAND] \| grep [WORD]`        | Filters the output lines of `[COMMAND]` that contains `[WORD]`                                                                                                |
+| `grep`  | `[COMMAND] \| grep -E [Regex]`    | Filters the output lines of `[COMMAND]` by the `[Regex]` Check this  [cheatsheet for Regex](RegexCheatSheet.md)                                               |
+| `grep`  | `[COMMAND] \| grep -v [WORD]`     | `-v` filters the not matching lines                                                                                                                           |
+| `trail` | `[COMMAND] \| trail -n [NUM]`     | filters the previous command output to the latest `[NUM]` lines                                                                                               |
+| `touch` | `touch [FILE]`                    | creates the file `[FILE]`                                                                                                                                     |
+| `tee`   | `[COMMAND] \| tee [FILE]`         | Overwrites the `[FILE]` content with the `[COMMAND]` output (**stdout**).To Include the **stderr** concatenate `&` after `\|`                                 |
+| `tee`   | `[COMMAND] \| tee -a [FILE]`      | Appends the `[COMMAND]` output (**stdout**) to the `[FILE]` content.To Include the **stderr** concatenate `&` after `\|`                                      |
+| `vim`   | `vim [FILE]`                      | [Vim Cheatsheet](https://vim.rtorr.com)                                                                                                                       |
+| `vim`   | `[COMMAND] \| vim -`              | Sends `[COMMAND]` output directly into **vim**. To copy a line to the system clipboard you should:1. Go to the line2. Type `:y+`                              |
+| `vim`   | copy a text line in the clipboard | 1. Verify you have vim-gnome and copyQ (try to install it both with `sudo apt-get install`2. Enter in vim 3. Go to the line4. Type `:y+` 5. Paste it anywhere |
+| `more`  | `[COMMAND] \| more -[N]`          | Display only the `[N]` lines of the `[COMMAND]` output and allows you to navigate line be line by pressing `[ENTER]` or `[N]` lines by pressing `[SPACE]`     |
+| `more`  | `[COMMAND] \| more -[N] -d`       | Display only the `[N]` lines of the `[COMMAND]` output and display instructions to navigate through the text                                                  |
+| `less`  |                                   |                                                                                                                                                               |
+| `most`  |                                   |                                                                                                                                                               |
+| `jq`    | `[COMMAND] \| jq`                 | [Json text handler in terminal](https://linuxhint.com/bash_jq_command/)                                                                                       |
+| `sed`   | `sed [OPTIONS] [FILE]`            | Stream editor for filtering and transformt text, modify text                                                                                                  |
+
+### Redirect output to a file
+
+There are two standard [outputs](https://en.wikipedia.org/wiki/Standard_streams#Standard_error_.28stderr.29):
+* **stdout**: output when any command is executed successfully.
+* **stderr**: output with the error message when a command throw errors.
+
+| Example                | Remark                                                                                                                                                                              |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `[COMMAND] > [FILE]`   | **Overwrites** the `[FILE]` content  with the `[COMMAND]` **stdout**. It only works if the `[COMMAND]` is executed successfully                                                     |
+| `[COMMAND] >> [FILE]`  | **Appends** the `[COMMAND]` **stdout** to the `[FILE]` content. It only works if the `[COMMAND]` is executed successfully                                                           |
+| `[COMMAND] &> [FILE]`  | **Overwrites** the `[FILE]` content  with the `[COMMAND]` **stdout** and **stderr**                                                                                                 |
+| `[COMMAND] >> [FILE]`  | **Appends** the `[COMMAND]` **stdout** and **stderr** to the `[FILE]` content                                                                                                       |
+| `[COMMAND] 2> [FILE]`  | Display the `[COMMAND]` **stdout** in the terminal and overwrites the `[FILE]` content with the **stderr**.Please note if there is no error the `[FILE]` content would result empty |
+| `[COMMAND] 2>> [FILE]` | Display the `[COMMAND]` **stdout** in the terminal and append the **stderr**  to the `[FILE]` content                                                                               |
+
+### Text Modifiers
+
+#### Sed
+
+
+| Command model             | Description                                            |
+| ------------------------- | ------------------------------------------------------ |
+| `sed -i [OPTIONS] [FILE]` | Execute the `[OPTIONS]` directly in the `[FILE]`       |
+| `sed '[X],[Y]d' [FILE]`   | delete the lines from the line `[X]` to the line `[Y]` |
+
+
+
+<!-- TODO: ### Navigate through a command output -->
+
+<!-- #### More -->
+<!-- #### Less -->
+<!-- #### Most -->
+
+<!-- TODO: Check next references** -->
+<!-- * List real user cases
+* Solve each one with each command option
+https://helpdeskgeek.com/linux-tips/more-less-command-linux-unix/
+https://www.ostechnix.com/the-difference-between-more-less-and-most-commands/
+https://unix.stackexchange.com/questions/31/list-of-useful-less-functions
+https://www.thegeekstuff.com/2010/02/unix-less-command-10-tips-for-effective-navigation/
+https://www.tecmint.com/linux-more-command-and-less-command-examples/
+https://unix.stackexchange.com/questions/81129/what-are-the-differences-between-most-more-and-less -->
+
+### Other Commands
+
+| Command | Options                        | Remarks                                                      |
+| ------- | ------------------------------ | ------------------------------------------------------------ |
+| `xclip` | `[COMMAND] \| xclip`           | Sends the `[COMMAND]` output to the **xclip clipboard**      |
+| `xclip` | `[COMMAND] \| xclip -sel clip` | Sends the `[COMMAND]` output to the **system clipboard**     |
+| `xclip` | `xclip -o`                     | Print the last text in the **xclip clipboard**               |
+| `xclip` | `xclip -o -sel clip`           | Print the last text in the **system clipboard**              |
+| `xclip` | `xclip -i [FILE]`              | Save in the **xclip clipboard** the content of the `[File]`  |
+| `xclip` | `xclip -i [FILE] -sel clip`    | Save in the **system clipboard** the content of the `[File]` |
+
+#### Back up Commands
+
+If you use Gnome, next are some useful commands to save and restore its settings:
+
+| Command                  | Description                                     |
+| ------------------------ | ----------------------------------------------- |
+| `dconf reset -f /`       | Restore default Elementary Config               |
+| `dconf dump / > [File]`  | Save the current settings to the `[File]` file. |
+| `dconf load  / < [File]` | Restore the  settings store in the  `[File]`.   |
+
+
+Next is a code for creating a quick backup with the current date:
+<!-- TODO: Please, avoid the first line with !/bin/bash -->
+<!-- CODE_START ./resources/bash/backup_config_elementary.sh bash -->
+```bash
+#!/bin/bash
+#   Backup Config using dconf
+
+current_date=$(date +%Y%m%d)
+dconf dump / >backup-elementary-$current_date
+```
+<!-- CODE_END -->
+
+<p align="center">
+  <a href="./resources/bash/backup_config_elementary.sh"><i>backup_config_elementary.sh</i></a>
+</p>
+
+## Alias
+
+An alias is a shortcut we can defined in terminal to avoid type an specific command. For example, the command to clear all the terminal output is `clear`, we can set `cls` as its alias and save us typing some characters.
+Please note I provide `cls` because it is the clear output command for Windows Command Prompt, in case you are use to that cmd you can make your self comfortable in Linux terminal by defining this alias.
+
+### Commands
+
+Configure them manually via command line:
+
+| Command                       | Example           | Description                                                                                                    |
+| :---------------------------- | ----------------- | :------------------------------------------------------------------------------------------------------------- |
+| `alias`                       |                   | List all the alias configured                                                                                  |
+| `alias [AliasName]=[Command]` | `alias cls=clear` | Please note the **alias will only be available per sesion**, as soon as you close the terminal it will be lost |
+
+### Save persistent alias in your bash profile
+
+The alias are stored in the file `.bashrc`, this one stored your bash profile and it is located in your home folder. Any alias you add there will be persistent, I  recommend you to create a script which add your alias at the end of the file as next:
+
+```bash
+#!/bin/bash
+#   Add The next list of alias to the bash profile
+
+cd #Move to the home folder
+alias_commands="\n\n\
+# START: Personal Aliases Carlos Angulo\n\
+\n\
+alias hist=\"history | tail -n 20 | grep -v \"hist*\"\";\n\
+alias cls=clear;                                        \n\
+\n\
+# END: Personal Aliases Carlos Angulo\n"
+echo -e $alias_commands >>.bashrc
+```
+
+
+### Personal Aliases 
+
+Next is the list of alias I use:
+
+
+| Alias    | Command                                                          | Description                                                                                                        |
+| -------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `hist`   | `history \| tail -n 20 \| grep -v \"hist\" `                     | List the last 20 commands and remove the ones that has the `hist` word                                             |
+| `clear`  | `cls`                                                            | Clean the terminal                                                                                                 |
+| `gedit`  | `io.elementary.code`                                             | Open any file with the Elementary text editor**(Only works on Elementary OS)**                                     |
+| `open_f` | `currentFolder=$(pwd);``io.elementary.files $currentFolder -n &` | Open a new windows (`-n` of the Elementary file explorer in the current directory**(Only works on Elementary OS)** |
+| `copy`   | `xclip -sel clipboard`                                           | Copy text to the system clipboard                                                                                  |
+| `past`   | `xclip -sel clipboard -o`                                        | Read text from the system clipboard                                                                                |
+
+
+  
+Next is the script I use to add them to the bash profile:
+
+<!-- TODO: Improve script, create an array with all the alias command -->
+<!-- CODE_START ./resources/bash/add_alias_to_bash_profile.sh bash -->
+```bash
+#!/bin/bash
+#   Add The next list of alias to the bash profile
+
+cd #Move to the home folder
+alias_commands="\n\n\
+# START: Personal Aliases Carlos Angulo\n\
+\n\
+alias hist=\"history | tail -n 20 | grep -v \"hist*\"\";\n\
+alias cls=clear;                                        \n\
+alias gedit=io.elementary.code;                         \n\
+alias copy=\"xclip -sel clipboard\";                    \n\
+alias paste_=\"xclip -sel clipboard -o\";               \n\
+alias open_f=\"io.elementary.files -n\";\n\
+\n\
+# END: Personal Aliases Carlos Angulo\n"
+echo -e $alias_commands >>.bashrc
+```
+<!-- CODE_END -->
+
+<p align="center">
+  <a href="./resources/bash/add_alias_to_bash_profile.sh"><i>add_alias_to_bash_profile.sh</i></a>
+</p>
+
+<!-- TODO: Add how to add alias to the git bash profile in windows https://superuser.com/questions/602872/how-do-i-modify-my-git-bash-profile-in-windows#:~:text=You can put .,%3A\Users\. -->
+
+
+<!-- TODO: Create a shortcut to print your personal shortcuts -->
+<!-- TODO: Improve alias with https://stackoverflow.com/questions/4060880/passing-argument-to-alias-in-bash -->
+<!-- TODO: Add a custom command that convert a video tot a gif https://davidwalsh.name/convert-video-gif -->
