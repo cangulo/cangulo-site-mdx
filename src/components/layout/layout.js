@@ -31,7 +31,7 @@ const Layout = ({
     {postHeaderData && (
       <PostHeader
         title={postHeaderData.title}
-        collection={postHeaderData.postSerie}
+        collection={postHeaderData.collection}
         date={postHeaderData.date}
         featuredimage={postHeaderData.img}
       />

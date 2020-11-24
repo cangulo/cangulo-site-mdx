@@ -8,7 +8,7 @@ const PostHeader = ({ title, subtitle, collection, date, featuredimage }) => (
   <Jumbotron fluid>
     <Container fluid>
       <Row>
-        <Col>
+        <Col sm={12} md={{ offset: 1, span: 10 }}>
           <h1>{title}</h1>
           {subtitle && <h2>{subtitle}</h2>}
           {date && (
