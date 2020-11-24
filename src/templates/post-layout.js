@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout/layout"
-import PostHeader from "../components/posts/post-header"
 import PostTags from "../components/posts/post-tags"
 import PostReferences from "../components/posts/post-references"
 import MdxProvider from "../components/mdRenders/mdx-provider"
@@ -14,6 +13,12 @@ import PostComments from "../components/posts/post-comments"
 export default function PageTemplate({ data: { mdx }, pageContext }) {
   return (
     <Layout
+      postHeaderData={{
+        title: mdx.frontmatter.title,
+        collection: mdx.fields?.postSerie,
+        date: mdx.frontmatter.date,
+        featuredimage: mdx.frontmatter.img,
+      }}
       seoData={{
         title: mdx.frontmatter.title,
         description: mdx.frontmatter.description,
@@ -21,12 +26,6 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
         article: true,
       }}
     >
-      <PostHeader
-        title={mdx.frontmatter.title}
-        collection={mdx.fields?.postSerie}
-        date={mdx.frontmatter.date}
-        featuredimage={mdx.frontmatter.img}
-      />
       <MdxProvider mdxContent={mdx.body} />
       <hr />
       <AboutMeArea />

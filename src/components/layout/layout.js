@@ -4,11 +4,13 @@ import { Col, Container, Row } from "react-bootstrap"
 import LayoutHeader from "./layout-header"
 import PageTitle from "../page-title"
 import SEO from "../seo"
+import PostHeader from "../posts/post-header"
 
 const Layout = ({
   children,
   title,
   seoData,
+  postHeaderData,
   subtitle,
   imgRelativePath,
   location,
@@ -26,9 +28,19 @@ const Layout = ({
       subtitle={subtitle}
       imgRelativePath={imgRelativePath}
     />
+    {postHeaderData && (
+      <PostHeader
+        title={postHeaderData.title}
+        collection={postHeaderData.postSerie}
+        date={postHeaderData.date}
+        featuredimage={postHeaderData.img}
+      />
+    )}
     <Container fluid>
       <Row>
-        <Col xs={{ span: 10, offset: 1 }}>{children}</Col>
+        <Col xs={12} md={{ span: 10, offset: 1 }}>
+          {children}
+        </Col>
       </Row>
     </Container>
     <LayoutFooter />
