@@ -8,7 +8,7 @@ const PostHeader = ({ title, subtitle, collection, date, featuredimage }) => (
   <Jumbotron fluid>
     <Container fluid>
       <Row>
-        <Col md={10}>
+        <Col>
           <h1>{title}</h1>
           {subtitle && <h2>{subtitle}</h2>}
           {date && (
@@ -24,7 +24,7 @@ const PostHeader = ({ title, subtitle, collection, date, featuredimage }) => (
             </Link>
           )}
         </Col>
-        <Col md={2}>
+        <Col md="auto" className="d-none d-md-block">
           <div style={{ float: "right" }}>
             {featuredimage && (
               <PreviewCompatibleImage image={featuredimage} alt={title} />

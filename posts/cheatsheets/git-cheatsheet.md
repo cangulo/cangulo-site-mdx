@@ -13,6 +13,7 @@ references:
 
 ## Git Commands
 
+
 | Command                            | Description                                                                                                                                                               |
 | :--------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `git checkout --track origin/NAME` | Create a local branch that tracks the remote one                                                                                                                          |
@@ -61,7 +62,7 @@ Next are my personal alias:
 
 ## Alias configured
 
-```bash {1,2,3-4}
+```bash
 [alias]
 	b = branch
 	bd = branch -D
