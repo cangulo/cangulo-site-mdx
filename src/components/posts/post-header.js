@@ -8,20 +8,20 @@ const PostHeader = ({ title, subtitle, collection, date, featuredimage }) => (
   <Jumbotron fluid>
     <Container fluid>
       <Row>
-        <Col sm={12} md={{ offset: 1, span: 10 }}>
+        <Col sm={12} md={{ offset: 1, span: 9 }}>
           <h1>{title}</h1>
           {subtitle && <h2>{subtitle}</h2>}
-          {date && (
-            <i>
-              <p>{date}</p>
-            </i>
-          )}
           {collection && (
             <Link to={`/collections/${collection}`}>
               <i>
                 <h5>{`Serie ${_.startCase(collection)}`}</h5>
               </i>
             </Link>
+          )}
+          {date && (
+            <i>
+              <p>{date}</p>
+            </i>
           )}
         </Col>
         <Col md="auto" className="d-none d-md-block">

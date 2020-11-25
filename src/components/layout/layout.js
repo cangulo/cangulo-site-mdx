@@ -33,7 +33,7 @@ const Layout = ({
         title={postHeaderData.title}
         collection={postHeaderData.collection}
         date={postHeaderData.date}
-        featuredimage={postHeaderData.img}
+        featuredimage={postHeaderData.featuredimage}
       />
     )}
     <Container fluid>
