@@ -4,9 +4,11 @@ import AboutMeCertificationsBadges from "../components/aboutme/aboutme-certifica
 import LayoutPage from "../components/layout/layout-page"
 import AboutMeIntroduction from "../components/aboutme/aboutme-introduction"
 import LayoutContainer from "../components/layout/layout-container"
+import PageTitle from "../components/page-title"
 
 const ContactPage = ({ location }) => (
-  <LayoutPage title="About" location={location}>
+  <LayoutPage location={location}>
+    <PageTitle title="About" />
     <LayoutContainer>
       <AboutMeIntroduction />
       <AboutMeCertificationsDescription />

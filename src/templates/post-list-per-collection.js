@@ -5,14 +5,18 @@ import PostCardVertical from "../components/posts/post-card/post-card-vertical"
 import { graphql } from "gatsby"
 import _ from "lodash"
 import LayoutContainer from "../components/layout/layout-container"
+import PageTitle from "../components/page-title"
 
 export default function PageTemplate({ data, pageContext }) {
   const collection = pageContext.collection
   return (
     <LayoutPage
-      title={collection && `Collection ${_.startCase(collection)}`}
-      imgRelativePath="./collections.jpg"
+      seoData={{ title: collection && `Collection ${_.startCase(collection)}` }}
     >
+      <PageTitle
+        title={collection && `Collection ${_.startCase(collection)}`}
+        imgRelativePath="./collections.jpg"
+      />
       <LayoutContainer>
         <Container fluid>
           <Row sm={2} md={2} lg={3}>

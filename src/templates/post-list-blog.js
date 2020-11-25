@@ -8,13 +8,11 @@ import CollectionsList from "../components/series/collection-list"
 import PostRowList from "../components/posts/post-list-oriented/post-list-rows"
 import PaginationList from "../components/pagination/pagination-list"
 import LayoutContainer from "../components/layout/layout-container"
+import PageTitle from "../components/page-title"
 
 const PostListBlog = props => (
-  <LayoutPage
-    title="Posts"
-    imgRelativePath="./blog.jpg"
-    location={props.location}
-  >
+  <LayoutPage location={props.location}>
+    <PageTitle title="Posts" imgRelativePath="./blog.jpg" />
     <LayoutContainer>
       <Container fluid>
         <Row>

@@ -2,14 +2,12 @@ import { graphql } from "gatsby"
 import React from "react"
 import LayoutContainer from "../components/layout/layout-container"
 import LayoutPage from "../components/layout/layout-page"
+import PageTitle from "../components/page-title"
 import PostRowList from "../components/posts/post-list-oriented/post-list-rows"
 
 const PostListMeetups = ({ data, location }) => (
-  <LayoutPage
-    title="Meetups"
-    imgRelativePath="./meetups.jpg"
-    location={location}
-  >
+  <LayoutPage location={location}>
+    <PageTitle title="Meetups" imgRelativePath="./meetups.jpg" />
     <LayoutContainer>
       <PostRowList posts={data.allMdx.edges.map(x => x.node)} />
     </LayoutContainer>

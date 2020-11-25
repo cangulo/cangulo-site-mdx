@@ -3,6 +3,7 @@ import { graphql, StaticQuery } from "gatsby"
 import LayoutPage from "../components/layout/layout-page"
 import SearchArea from "../components/search/search-area"
 import LayoutContainer from "../components/layout/layout-container"
+import PageTitle from "../components/page-title"
 
 const SearchPage = ({ location }) => {
   const queryTextFromQueryString = location.search.split("?s=")[1]
@@ -17,12 +18,8 @@ const SearchPage = ({ location }) => {
       `}
       render={data => (
         <header>
-          <LayoutPage
-            title="Search"
-            imgRelativePath="./page-search.jpg"
-            hideSearchForm={true}
-            location={location}
-          >
+          <LayoutPage location={location}>
+            <PageTitle title="Search" imgRelativePath="./page-search.jpg" />
             <LayoutContainer>
               <SearchArea
                 searchIndex={data.siteSearchIndex.index}

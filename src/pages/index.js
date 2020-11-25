@@ -5,15 +5,15 @@ import PostList from "../components/posts/post-list"
 import { postType } from "../models/postType"
 import OutlineButton from "../components/buttons/outline-btn"
 import LayoutContainer from "../components/layout/layout-container"
+import PageTitle from "../components/page-title"
 
 const IndexPage = ({ location }) => (
-  <LayoutPage
-    title="Hi! I'm Carlos Angulo"
-    subtitle="Welcome to my blog"
-    imgRelativePath="./index-page4.jpg"
-    seoData={{ title: `Home` }}
-    location={location}
-  >
+  <LayoutPage seoData={{ title: `Home` }} location={location}>
+    <PageTitle
+      title="Hi! I'm Carlos Angulo"
+      subtitle="Welcome to my blog"
+      imgRelativePath="./index-page4.jpg"
+    />
     <LayoutContainer>
       <h1>Cheatsheets</h1>
       <PostList postType={postType.cheatsheets} numColumns={3} limit={6} />

@@ -11,6 +11,9 @@ import { Col, Container, Row } from "react-bootstrap"
 import PostComments from "../components/posts/post-comments"
 import LayoutContainer from "../components/layout/layout-container"
 import PostHeader from "../components/posts/post-header"
+import PostResources from "../components/posts/post-resources"
+
+const HrLineSeparation = () => <hr style={{ margin: "10px 0" }} />
 
 export default function PageTemplate({ data: { mdx }, pageContext }) {
   return (
@@ -27,13 +30,15 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
         collection={mdx.fields?.postSerie}
         date={mdx.frontmatter.date}
         featuredimage={mdx.frontmatter.img}
+        resources={mdx.frontmatter.resources}
       />
       <LayoutContainer>
         <MdxProvider mdxContent={mdx.body} />
         <hr />
         <AboutMeArea />
-        <hr style={{ margin: "10px 0" }} />
+
         <Container fluid>
+          <HrLineSeparation />
           <Row>
             <Col md>
               <PostTags tags={mdx.frontmatter?.tags} />
@@ -48,15 +53,28 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
             </Col>
           </Row>
         </Container>
-        {mdx.frontmatter?.references && (
-          <div>
-            <hr style={{ margin: "15x 0" }} />
-            <PostReferences references={mdx.frontmatter.references} />
-          </div>
-        )}
-        <hr style={{ margin: "10px 0" }} />
+
+        <Container style={{ paddingBottom: "1rem" }} fluid>
+          {mdx.frontmatter?.references && mdx.frontmatter?.resources && (
+            <HrLineSeparation />
+          )}
+          <Row>
+            {mdx.frontmatter?.references && (
+              <Col md>
+                <PostReferences references={mdx.frontmatter.references} />
+              </Col>
+            )}
+            {mdx.frontmatter?.resources && (
+              <Col md>
+                <PostResources resources={mdx.frontmatter.resources} />
+              </Col>
+            )}
+          </Row>
+        </Container>
+
+        <HrLineSeparation />
         <PostComments slug={mdx.slug} />
-        <hr style={{ margin: "10px 0" }} />
+        <HrLineSeparation />
         <PaginationPost
           previousPostSlug={pageContext.nextPostSlug}
           nextPostSlug={pageContext.previousPostSlug}
@@ -84,6 +102,12 @@ export const pageQuery = graphql`
           }
         }
         references
+        resources {
+          type
+          title
+          description
+          link
+        }
       }
       fields {
         postType
