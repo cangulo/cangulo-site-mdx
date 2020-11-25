@@ -1,27 +1,17 @@
 import React from "react"
-import AboutMeArea from "../components/aboutme/aboutme-area"
+import AboutMeCertificationsDescription from "../components/aboutme/aboutme-certifications-description"
+import AboutMeCertificationsBadges from "../components/aboutme/aboutme-certifications-badges"
 import Layout from "../components/layout/layout"
+import AboutMeIntroduction from "../components/aboutme/aboutme-introduction"
 
 const ContactPage = ({ location }) => (
-  <div>
-    <Layout title="About" location={location}>
-      <AboutMeArea />
-      {/* <div>
-        HOLA
-        <div
-          data-iframe-width="150"
-          data-iframe-height="270"
-          data-share-badge-id="80e4c7dd-56c7-451a-8e76-d138e1158e75"
-          data-share-badge-host="https://www.youracclaim.com"
-        ></div>
-        <script
-          type="text/javascript"
-          async
-          src="https://cdn.youracclaim.com/assets/utilities/embed.js"
-        ></script>
-      </div> */}
-    </Layout>
-  </div>
+  <Layout title="About" location={location}>
+    <AboutMeIntroduction />
+    <AboutMeCertificationsDescription />
+    <div style={{ padding: "10px 0" }}>
+      <AboutMeCertificationsBadges />
+    </div>
+  </Layout>
 )
 
 export default ContactPage
