@@ -54,23 +54,18 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
           </Row>
         </Container>
 
-        <Container style={{ paddingBottom: "1rem" }} fluid>
-          {mdx.frontmatter?.references && mdx.frontmatter?.resources && (
+        {mdx.frontmatter?.references && (
+          <div>
             <HrLineSeparation />
-          )}
-          <Row>
-            {mdx.frontmatter?.references && (
-              <Col md>
-                <PostReferences references={mdx.frontmatter.references} />
-              </Col>
-            )}
-            {mdx.frontmatter?.resources && (
-              <Col md>
-                <PostResources resources={mdx.frontmatter.resources} />
-              </Col>
-            )}
-          </Row>
-        </Container>
+            <PostReferences references={mdx.frontmatter.references} />
+          </div>
+        )}
+        {mdx.frontmatter?.resources && (
+          <div>
+            <HrLineSeparation />
+            <PostResources resources={mdx.frontmatter.resources} />
+          </div>
+        )}
 
         <HrLineSeparation />
         <PostComments slug={mdx.slug} />

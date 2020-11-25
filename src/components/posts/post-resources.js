@@ -9,7 +9,7 @@ const PostResources = ({ resources }) => {
     const videoEntries = resourcesEntries.filter(x => x.type === "video")
     if (codeEntries.length > 0 || videoEntries.length > 0) {
       return (
-        <section style={{ marginTop: "10px" }}>
+        <section style={{ marginTop: "10px" }} id="#post-resources">
           <h2>Resources</h2>
           <Container fluid>
             <Row>

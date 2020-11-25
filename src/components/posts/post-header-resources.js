@@ -12,9 +12,9 @@ const PostHeaderResources = resources => {
         <section>
           {codeEntries.length === 1 && (
             <div>
-              Code:{" "}
               {codeEntries.map(x => (
                 <a href={x.link} style={{ marginLeft: "10px" }}>
+                  Code:
                   <img
                     alt="Github"
                     src="/social-media/github.svg"

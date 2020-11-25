@@ -40,12 +40,13 @@ const PostHeader = ({
           </div>
         </Col>
       </Row>
-      <Row>
-        {/* <Col sm={12} md={{ offset: 1, span: 9 }}></Col>
+      {/* Area for putting a shortcut for the source code */}
+      {/* <Row>
+        <Col sm={12} md={{ offset: 1, span: 9 }}></Col>
         <Col md="auto">
           {resources && <PostHeaderResources {...resources} />}
-        </Col> */}
-      </Row>
+        </Col>
+      </Row> */}
     </Container>
   </Jumbotron>
 )
