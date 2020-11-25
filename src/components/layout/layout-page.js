@@ -3,13 +3,11 @@ import LayoutFooter from "./layout-footer"
 import LayoutHeader from "./layout-header"
 import PageTitle from "../page-title"
 import SEO from "../seo"
-import PostHeader from "../posts/post-header"
 
 const LayoutPage = ({
   children,
   title,
   seoData,
-  postHeaderData,
   subtitle,
   imgRelativePath,
   location,
@@ -27,14 +25,6 @@ const LayoutPage = ({
       subtitle={subtitle}
       imgRelativePath={imgRelativePath}
     />
-    {postHeaderData && (
-      <PostHeader
-        title={postHeaderData.title}
-        collection={postHeaderData.collection}
-        date={postHeaderData.date}
-        featuredimage={postHeaderData.featuredimage}
-      />
-    )}
     {children}
     <LayoutFooter />
   </div>

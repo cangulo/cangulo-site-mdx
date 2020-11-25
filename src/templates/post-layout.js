@@ -10,16 +10,11 @@ import PostShare from "../components/posts/post-share"
 import { Col, Container, Row } from "react-bootstrap"
 import PostComments from "../components/posts/post-comments"
 import LayoutContainer from "../components/layout/layout-container"
+import PostHeader from "../components/posts/post-header"
 
 export default function PageTemplate({ data: { mdx }, pageContext }) {
   return (
     <LayoutPage
-      postHeaderData={{
-        title: mdx.frontmatter.title,
-        collection: mdx.fields?.postSerie,
-        date: mdx.frontmatter.date,
-        featuredimage: mdx.frontmatter.img,
-      }}
       seoData={{
         title: mdx.frontmatter.title,
         description: mdx.frontmatter.description,
@@ -27,6 +22,12 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
         article: true,
       }}
     >
+      <PostHeader
+        title={mdx.frontmatter.title}
+        collection={mdx.fields?.postSerie}
+        date={mdx.frontmatter.date}
+        featuredimage={mdx.frontmatter.img}
+      />
       <LayoutContainer>
         <MdxProvider mdxContent={mdx.body} />
         <hr />
