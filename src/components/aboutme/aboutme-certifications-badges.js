@@ -13,10 +13,10 @@ const AboutMeCertificationsBadges = () => (
         className="justify-content-md-center"
         style={{ textAlign: "center" }}
       >
-        <Col>
+        <Col style={{ padding: "10px 0" }}>
           <AwsCertifiedDeveloperAssociate />
         </Col>
-        <Col>
+        <Col style={{ padding: "10px 0" }}>
           <ScrumtMasterPUE2019 />
         </Col>
       </Row>
