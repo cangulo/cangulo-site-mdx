@@ -1,33 +1,36 @@
 import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
-import Layout from "../components/layout/layout"
+import LayoutPage from "../components/layout/layout-page"
 import PostCardVertical from "../components/posts/post-card/post-card-vertical"
 import { graphql } from "gatsby"
 import _ from "lodash"
+import LayoutContainer from "../components/layout/layout-container"
 
 export default function PageTemplate({ data, pageContext }) {
   const collection = pageContext.collection
   return (
-    <Layout
+    <LayoutPage
       title={collection && `Collection ${_.startCase(collection)}`}
       imgRelativePath="./collections.jpg"
     >
-      <Container fluid>
-        <Row sm={2} md={2} lg={3}>
-          {data.allMdx.edges.map(({ node }) => (
-            <Col style={{ padding: "15px" }}>
-              <PostCardVertical
-                title={node.frontmatter.title}
-                date={node.frontmatter.date}
-                description={node.frontmatter.description}
-                img={node.frontmatter.img}
-                link={node.slug}
-              />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </Layout>
+      <LayoutContainer>
+        <Container fluid>
+          <Row sm={2} md={2} lg={3}>
+            {data.allMdx.edges.map(({ node }) => (
+              <Col style={{ padding: "15px" }}>
+                <PostCardVertical
+                  title={node.frontmatter.title}
+                  date={node.frontmatter.date}
+                  description={node.frontmatter.description}
+                  img={node.frontmatter.img}
+                  link={node.slug}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </LayoutContainer>
+    </LayoutPage>
   )
 }
 

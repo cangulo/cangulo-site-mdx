@@ -1,11 +1,14 @@
 import React from "react"
-import Layout from "../components/layout/layout"
+import LayoutContainer from "../components/layout/layout-container"
+import LayoutPage from "../components/layout/layout-page"
 import CollectionsList from "../components/series/collection-list"
 
 const collectionPage = () => (
-  <Layout title="Collections" imgRelativePath="./page-tags.jpg">
-    <CollectionsList />
-  </Layout>
+  <LayoutPage title="Collections" imgRelativePath="./page-tags.jpg">
+    <LayoutContainer>
+      <CollectionsList />
+    </LayoutContainer>
+  </LayoutPage>
 )
 
 export default collectionPage

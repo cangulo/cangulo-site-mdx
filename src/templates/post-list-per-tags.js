@@ -1,32 +1,35 @@
 import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
-import Layout from "../components/layout/layout"
+import LayoutPage from "../components/layout/layout-page"
 import PostCardVertical from "../components/posts/post-card/post-card-vertical"
 import { graphql } from "gatsby"
+import LayoutContainer from "../components/layout/layout-container"
 
 export default function PageTemplate({ data, pageContext }) {
   const tag = pageContext.tag
   return (
-    <Layout
+    <LayoutPage
       title={tag && `Posts tagged with ${tag}`}
       imgRelativePath="./page-tags.jpg"
     >
-      <Container fluid="xs">
-        <Row sm={2} md={2} lg={3}>
-          {data.allMdx.edges.map(({ node }) => (
-            <Col style={{ padding: "15px" }}>
-              <PostCardVertical
-                title={node.frontmatter.title}
-                date={node.frontmatter.date}
-                description={node.frontmatter.description}
-                img={node.frontmatter.img}
-                link={node.slug}
-              />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </Layout>
+      <LayoutContainer>
+        <Container fluid="xs">
+          <Row sm={2} md={2} lg={3}>
+            {data.allMdx.edges.map(({ node }) => (
+              <Col style={{ padding: "15px" }}>
+                <PostCardVertical
+                  title={node.frontmatter.title}
+                  date={node.frontmatter.date}
+                  description={node.frontmatter.description}
+                  img={node.frontmatter.img}
+                  link={node.slug}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </LayoutContainer>
+    </LayoutPage>
   )
 }
 

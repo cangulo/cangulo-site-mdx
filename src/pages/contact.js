@@ -1,7 +1,8 @@
 import React from "react"
-import Layout from "../components/layout/layout"
+import LayoutPage from "../components/layout/layout-page"
 import { graphql, StaticQuery } from "gatsby"
 import MdxProvider from "../components/mdRenders/mdx-provider"
+import LayoutContainer from "../components/layout/layout-container"
 
 const ContactMeArea = () => (
   <StaticQuery
@@ -27,9 +28,15 @@ const ContactMeArea = () => (
 )
 
 const ContactPage = ({ location }) => (
-  <Layout title="Contact" imgRelativePath="./contact.jpg" location={location}>
-    <ContactMeArea />
-  </Layout>
+  <LayoutPage
+    title="Contact"
+    imgRelativePath="./contact.jpg"
+    location={location}
+  >
+    <LayoutContainer>
+      <ContactMeArea />
+    </LayoutContainer>
+  </LayoutPage>
 )
 
 export default ContactPage

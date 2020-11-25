@@ -1,12 +1,19 @@
 import { graphql } from "gatsby"
 import React from "react"
-import Layout from "../components/layout/layout"
+import LayoutContainer from "../components/layout/layout-container"
+import LayoutPage from "../components/layout/layout-page"
 import PostRowList from "../components/posts/post-list-oriented/post-list-rows"
 
 const PostListMeetups = ({ data, location }) => (
-  <Layout title="Meetups" imgRelativePath="./meetups.jpg" location={location}>
-    <PostRowList posts={data.allMdx.edges.map(x => x.node)} />
-  </Layout>
+  <LayoutPage
+    title="Meetups"
+    imgRelativePath="./meetups.jpg"
+    location={location}
+  >
+    <LayoutContainer>
+      <PostRowList posts={data.allMdx.edges.map(x => x.node)} />
+    </LayoutContainer>
+  </LayoutPage>
 )
 
 export default PostListMeetups

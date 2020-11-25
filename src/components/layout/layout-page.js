@@ -1,12 +1,11 @@
 import React from "react"
 import LayoutFooter from "./layout-footer"
-import { Col, Container, Row } from "react-bootstrap"
 import LayoutHeader from "./layout-header"
 import PageTitle from "../page-title"
 import SEO from "../seo"
 import PostHeader from "../posts/post-header"
 
-const Layout = ({
+const LayoutPage = ({
   children,
   title,
   seoData,
@@ -36,15 +35,9 @@ const Layout = ({
         featuredimage={postHeaderData.featuredimage}
       />
     )}
-    <Container fluid>
-      <Row>
-        <Col xs={12} md={{ span: 10, offset: 1 }}>
-          {children}
-        </Col>
-      </Row>
-    </Container>
+    {children}
     <LayoutFooter />
   </div>
 )
 
-export default Layout
+export default LayoutPage
