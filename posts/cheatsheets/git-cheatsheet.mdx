@@ -14,10 +14,19 @@ references:
 ## Git Commands
 
 
-| Command                            | Description                                                                                                                                                               |
-| :--------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `git checkout --track origin/NAME` | Create a local branch that tracks the remote one                                                                                                                          |
-| `git checkout -`                   | Checkout the previous branch, this can be useful if you go from your feature branch to dev, you update it, and you want to come back to your feature branch to rebase dev |
+| Command                                 | Description                                                                                                                                                                                                                          |
+| :-------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `git checkout --track origin/NAME`      | Create a local branch that tracks the remote one                                                                                                                                                                                     |
+| `git checkout -`                        | Checkout the previous branch, this can be useful if you go from your feature branch to dev, you update it, and you want to come back to your feature branch to rebase dev                                                            |
+| `git branch --list [<pattern>]`         | List all the branches that match the `<pattern>`. e.g. `*-1234` list all the branches that end `1234`                                                                                                                                |
+| `gitk`                                  | Check Last commits using a GUI                                                                                                                                                                                                       |
+| `gitk <filePath>`                       | Check `<fielPath>` last commits using a GUI                                                                                                                                                                                          |
+| `git gui blame <filePath>`              | Check `<fielPath>` last commits using a GUI                                                                                                                                                                                          |
+| `gitk`                                  | Check Last commits using a GUI                                                                                                                                                                                                       |
+| `git switch`                            | New git command to change between branches to avoid using checkout. Currently is in status experimental. Check this [link](https://git-scm.com/docs/git-switch/2.23.0) and this [one](https://bluecast.tech/blog/git-switch-branch/) |
+| `git cherry-pick -n <commit>`           | Let's you inspect the files modified in the commit before cherry pick them. [Reference](https://stackoverflow.com/questions/5717026/how-to-git-cherry-pick-only-changes-to-certain-files)                                            |
+| `git diff [target-branch] -name-status` | List the files modified and what kind of modification (Added, Deleted, Modified) in your branch using the target branch as reference                                                                                                 |
+| `git diff [target-branch] -name-only`   | List the files modified in your branch using the target branch as reference                                                                                                                                                          |
 
 <!-- TODO: list how to undo change in only one file using: -->
 <!-- git show some_commit_sha1 |-|- some_file.c | git apply -R  (remove |) -->
@@ -44,7 +53,7 @@ using Command line:
 
 1. Open your `.gitconfig` file, it is located at your home folder
 2. In a new line, add the tag `[alias]`
-3. In the next lines add your alias following the format `[TAB space]AliasName = AliasValue`. 
+3. In the next lines add your alias following the format `[TAB space]AliasName = AliasValue`.
 
 Please note this config file is space/tab sensitive so be sure no spaces are added at the end of each line
 
@@ -65,6 +74,7 @@ Next are my personal alias:
 ```bash
 [alias]
 	b = branch
+	bl = branch --list
 	bd = branch -D
 	co = checkout
 	cob = checkout -b
@@ -74,15 +84,18 @@ Next are my personal alias:
 	cp-a = cherry-pick --abort
 	re = rebase -i
 	re-a = rebase --abort
+	pushf = push --force
 	st = status
 	l = "!f() { git log --oneline -n ${1-15}; }; f"
 	lg = "!f() { git log --oneline --grep=${1-No Argument Provided}; }; f"
+	pushr = "!f() { currentBranch=$(git branch --show-current);git push --set-upstream origin $currentBranch; }; f"
 	settings = config --global --edit
 ```
 
 <CaptionRender label="Check the file here" link="posts/cheatsheets/resources/git/git-alias"/>
 
 <!-- TODO: Add a alias to push and open the PR link automatically -->
+<!-- TODO: Add a alias to push to a new branch   git push --set-upstream origin NAME-BRANCH -->
 <!-- you pass a boolean parameter depending depending on which the PR link will be open  -->
 
 The `l` and `lg` are alias with input parameters defined as Bash functions
@@ -101,7 +114,6 @@ In my case, I want to make sure that all my markdown files has any code referenc
 ### Solution
 
 Create a githook that is executed before doing a commit.
-
 
 By default, git create the next set of samples in  `.git/hooks`.
 
@@ -126,7 +138,6 @@ git config --local core.hooksPath ./githooks
 ```
 
 In case we want to set a global policy, it could be done with the same command but adding `--global` as parameter. In my case, all my repositories contains markdown files with reference to code that I want to update 
-
 
 ```bash
 git config --global core.hooksPath ./githooks
@@ -177,3 +188,4 @@ exit $executionResult
 <!-- TODO: https://kurtdowswell.com/software-development/git-bash-aliases/  -->
 <!-- TODO: https://jondavidjohn.com/git-aliases-parameters/  -->
 <!-- https://emmanuelbernard.com/blog/2014/04/14/split-a-commit-in-two-with-git/ -->
+<!-- https://stackoverflow.com/questions/2545602/git-ignore-sub-folders  git rm --cached FUCKKKK -->
