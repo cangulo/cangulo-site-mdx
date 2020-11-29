@@ -1,0 +1,91 @@
+---
+title: Powershell Cheatsheet
+description: This is a basic Powersheel with tips for navigation, set alias,
+  configure profiles and the most common actions
+img: ./resources/powershell/powershell-logo.png
+tags:
+  - powershell
+  - terminal
+  - console
+  - ps
+  - alias
+references:
+- ['Powershell Cheatsheet by Warren F','http://ramblingcookiemonster.github.io/images/Cheat-Sheets/powershell-basic-cheat-sheet2.pdf']
+- ['Powershell Cheatsheet by Trevor Sullivan','https://gist.github.com/pcgeek86/336e08d1a09e3dd1a8f0a30a9fe61c8a']
+---
+# Navigation
+
+when navigating via command line you can type partially the names and use * for autcomplete. All the options will be available pressing `tab`
+
+<!-- TODO: Paste gif -->
+
+# Commands
+
+## Filter string
+
+| Command                                       | Description                                                                                                                  |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `Select-String -Pattern [REGEX]`              | Filter the input passed with a pipe \|                                                                                               |
+| `Select-String -Path [PATH] -Pattern [REGEX]` | Search the _Pattern_ specified inside the files provided in the path. You could provide a wildcard in the `[PATH]` as `*.cs` |
+
+<!-- TODO: print matching groups https://stackoverflow.com/questions/33913878/how-to-get-the-captured-groups-from-select-string -->
+
+## Navigation commands
+
+| Command                      | Description                                                                                                                                                     |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tree /f`                    | Print the tree file structure from the current directory. The parameter `/f` show the file extensions in the list.                                                        |
+| `ii .`                       | Open a windows explorer in the current path                                                                                                                     |
+| `pushd`                      | Save the current path in a memory stack. If you provide a path as an argument, the current one will still be saved but, after it will move to the one provided. |
+| `popd`                       | change the current directory to the last one saved using `pushd` (yes, you can build a path stack using it more than one time)                                  |
+| `start *.sln`                | Open the solution file in Visual Studio (not VSCode)                                                                                                            |
+| `Invoke-Expression $command` | Execute the parameter `$command`, this is useful when you have to build complex commands with parameters                                                        |
+    
+<!-- TODO: List of commands to add -->
+<!-- 1. Create Alias  -->
+
+## Profile Tips
+
+* Register commands with no parameters as alias
+* Register commands with parameters as custom functions
+  * In case you want to provide dynamic parameters construct the command as a string and execute it using the `Invoke-Expression $command`
+
+
+profile example:
+```shell
+# Variables
+$localRepo = $HOME + '\source\repos'
+
+# Functions
+function goToRepos { cd $localRepo }
+
+function funtionWithPameters(
+    [string]$user,
+    [string]$remote_ip
+) { 
+    $command = "ssh $user@$remote_ip"
+    echo $command
+    Invoke-Expression $command
+}
+
+# Alias
+New-Alias -Name startTaskManagerAPI -Value $localRepo\TaskManager\PostmanTesting\startTaskManagerScript.ps1
+
+# Register Modules
+$personalModules = @(
+    $localRepo + "\courses-notes\aws-cert-developer\awsModule.psm1"
+);
+foreach ($modulePath in $personalModules ) { Import-Module $modulePath }
+
+# Initial State
+goToRepos
+```
+
+<!-- TODO: Create areas for how to create a profile -->
+<!-- 1. Create a list of alias -->
+<!-- 2. How to print the list of alias -->
+<!-- 2a. Print the alias name and the alias parameters https://stackoverflow.com/questions/33913878/how-to-get-the-captured-groups-from-select-string -->
+
+<!-- TODO: How to print quickly without Write-HOST -->
+<!-- https://stackoverflow.com/questions/9015138/looping-through-a-hash-or-using-an-array-in-powershell -->
+<!-- $hash.Keys | % { "key = $_ , value = " + $hash.Item($_) } -->

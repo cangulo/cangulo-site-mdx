@@ -6,7 +6,8 @@ img: ./resources/2020-08-02-setting-hot-corners-in-windows-10-with-autohoykey/au
 resources:
   - {
       type: code,
-      title: AutoHotKey script to activate hotcoerners,
+      title: hot-corners-w10.ahk ,
+      description: AutoHotKey script to activate hotcorners,
       link: https://raw.githubusercontent.com/cangulo/cangulo-site-mdx/master/posts/blog/productivity/resources/2020-08-02-setting-hot-corners-in-windows-10-with-autohoykey/hot-corners-w10.ahk,
     }
 tags:
@@ -227,7 +228,7 @@ HotCorners:
     }
 ```
 
-[Here](./resources/2020-08-02-setting-hot-corners-in-windows-10-with-autohoykey/hot-corners-w10.ahk) is the result file, we have to compile it to generate the `.exe` file, right-click on the `ahk` file and select _Compile Script)_. Click on the generated file to activate the hot corners. if you found it goes faster than you expected, keep the sleep lines I mention before.
+[Here](./resources/2020-08-02-setting-hot-corners-in-windows-10-with-autohoykey/hot-corners-w10.ahk) is the result file, we have to compile it to generate a `.exe` file. For that, right-click on the `ahk` file and select _Compile Script_. Click on the generated file to activate the hot corners. if you found it goes faster than you expected, keep the sleep lines I mention before.
 
 The last step is to create a Task in Windows 10 to execute the `.exe` file when we log in. This is simpler, just open the Task Scheduler app and select _Create a Basic Task_:
 
@@ -237,7 +238,7 @@ Follow the steps and make sure to select `When I log on` as a trigger option, an
 
 ![Task Start Hot Corners](./resources/2020-08-02-setting-hot-corners-in-windows-10-with-autohoykey/task-start-hot-corners.png)
 
-Them, the last step is to make sure the task will be executed always no matter some default conditions Windows set up by default. Please Select the task we just created, right click on it, open _Properties_ and go to the \_Conditions \_tab. Make sure the next checkbox is unselected:
+Them, the last step is to make sure the task will be executed always no matter some default conditions Windows set up by default. Please Select the task we just created, right click on it, open _Properties_ and go to the _Conditions_ tab. Make sure the next checkbox is unselected:
 
 ![Task Conditions](./resources/2020-08-02-setting-hot-corners-in-windows-10-with-autohoykey/task-scheduler-conditions.png)
 
