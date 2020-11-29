@@ -3,9 +3,9 @@ import React from "react"
 const PostReferences = ({ references }) => {
   if (references && references.length > 0) {
     return (
-      <section>
+      <section id="post-references">
         <h2>References</h2>
-        <div style={{ marginTop: "10px" }}>
+        <div style={{ paddingTop: "10px 0" }}>
           {references.map((refPairValue, index) => (
             <div key={index}>
               <p>
