@@ -1,16 +1,18 @@
 import React from "react"
 import { Container, Row } from "react-bootstrap"
-import AboutMeEducationCard from "./aboutme-education-card"
+import AboutMeExperienceCard from "./aboutme-experience-card"
 
-const AboutMeEducationList = ({ degrees }) => (
+const AboutMeExperienceList = ({ works }) => (
   <Container fluid>
     <Row>
-      {degrees.map((x, index) => (
-        <AboutMeEducationCard
+      {works.map((x, index) => (
+        <AboutMeExperienceCard
           title={x.frontmatter.title}
           subtitle={x.frontmatter.subtitle}
-          centers={x.frontmatter.centers}
+          company={x.frontmatter.company}
+          location={x.frontmatter.location}
           startDate={x.frontmatter.startDate}
+          currentlyWorking={x.frontmatter.currentlyWorking}
           endDate={x.frontmatter.endDate}
           body={x.body}
           key={index}
@@ -20,4 +22,4 @@ const AboutMeEducationList = ({ degrees }) => (
   </Container>
 )
 
-export default AboutMeEducationList
+export default AboutMeExperienceList

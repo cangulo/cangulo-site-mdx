@@ -1,13 +1,13 @@
 import { graphql, StaticQuery } from "gatsby"
 import React from "react"
-import AboutMeEducationList from "./aboutme-education-list"
+import AboutMeExperienceList from "./aboutme-experience-list"
 
-const AboutMeEducation = () => (
+const AboutMeExperience = () => (
   <StaticQuery
     query={graphql`
-      query GetAboutMeEducation {
+      query GetAboutMeExperience {
         allMdx(
-          filter: { slug: { regex: "/aboutme/sections/education/" } }
+          filter: { slug: { regex: "/aboutme/sections/experience/" } }
           sort: { fields: [frontmatter___endDate], order: DESC }
         ) {
           edges {
@@ -16,13 +16,14 @@ const AboutMeEducation = () => (
               frontmatter {
                 title
                 subtitle
-                centers {
-                  acronym
-                  fullname
+                company {
+                  name
                   link
                   img
                 }
+                location
                 startDate(formatString: "MM/YYYY")
+                currentlyWorking
                 endDate(formatString: "MM/YYYY")
               }
             }
@@ -33,12 +34,12 @@ const AboutMeEducation = () => (
     render={data => {
       return (
         <div>
-          <h1>Education</h1>
-          <AboutMeEducationList degrees={data.allMdx.edges.map(x => x.node)} />
+          <h1>Experience</h1>
+          <AboutMeExperienceList works={data.allMdx.edges.map(x => x.node)} />
         </div>
       )
     }}
   />
 )
 
-export default AboutMeEducation
+export default AboutMeExperience

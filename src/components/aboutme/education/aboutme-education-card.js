@@ -7,6 +7,7 @@ import {
   Tooltip,
   Image,
 } from "react-bootstrap"
+import MdxProvider from "../../mdRenders/mdx-provider"
 
 const CenterDiv = ({ index, link, acronym, fullname }) => (
   <OverlayTrigger
@@ -25,12 +26,13 @@ const AboutMeEducationCard = ({
   centers,
   startDate,
   endDate,
+  body,
 }) => {
   return (
     <Container style={{ padding: "10px 0" }} fluid>
       <Row>
         <Col>
-          <h6>{title}</h6>
+          <h5>{title}</h5>
           {subtitle && (
             <span>
               <i>{subtitle}</i>
@@ -65,9 +67,9 @@ const AboutMeEducationCard = ({
             {startDate} - {endDate}
           </p>
         </Col>
-        <Col md="auto">
+        <Col md="3">
           <Container style={{ padding: "0" }} fluid>
-            <Row style={{ justifyContent: "flex-end" }}>
+            <Row style={{ justifyContent: "flex-start" }}>
               {centers.map((x, index) => (
                 <Col md="auto">
                   <a href={x.link}>
@@ -78,6 +80,11 @@ const AboutMeEducationCard = ({
             </Row>
           </Container>
         </Col>
+      </Row>
+      <Row>
+        <Container fluid>
+          <MdxProvider mdxContent={body} />
+        </Container>
       </Row>
     </Container>
   )
