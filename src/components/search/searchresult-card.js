@@ -41,7 +41,7 @@ const SearchResultCard = ({
                   </span>
                 )}
 
-                <Card.Text style={{ marginTop: "10px" }}>
+                <Card.Text style={{ marginTop: "10px", textAlign: "justify" }}>
                   {description}
                 </Card.Text>
 

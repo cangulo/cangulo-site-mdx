@@ -13,9 +13,11 @@ const PostCardForGrid = ({ title, date, description, img, link }) => (
         <Card.Text style={{ color: "black", textAlign: "justify" }}>
           {description}
         </Card.Text>
-        <Button variant="primary">Read it</Button>
       </Card.Link>
     </Card.Body>
+    <Card.Footer style={{background:""}}>
+      <Button variant="primary">Read it</Button>
+    </Card.Footer>
   </Card>
 )
 

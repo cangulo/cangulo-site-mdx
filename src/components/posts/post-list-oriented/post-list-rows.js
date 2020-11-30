@@ -5,7 +5,7 @@ import PostCardVertical from "../post-card/post-card-vertical"
 const PostRowList = ({ posts }) => (
   <Container fluid>
     <Row>
-      <Col>
+      <Col className="d-flex align-items-stretch" style={{flexDirection:"column"}}>
         {posts.map((post, index) => (
           <div style={{ marginBottom: "20px" }} key={index}>
             <PostCardVertical
