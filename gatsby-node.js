@@ -16,12 +16,9 @@ function getPostType(slug) {
 }
 
 function getPostCollection(slug) {
-  return (
-    slug
-      .split("/")
-      .filter(x => x.toLowerCase().includes("-serie"))[0]
-      ?.replace("-serie", "") ?? ``
-  )
+  const slugWithSerie =
+    slug.split("/").filter(x => x.toLowerCase().includes("-serie"))[0] ?? ``
+  return slugWithSerie.replace("-serie", "")
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
