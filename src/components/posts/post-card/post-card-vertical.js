@@ -17,11 +17,17 @@ const PostCardVertical = ({ title, date, description, img, link }) => (
             <PreviewCompatibleImage image={img} alt={title} />
           </Col>
         </Row>
-        <hr></hr>
-        <Card.Text style={{ textAlign: "justify" }}>{description}</Card.Text>
-        <Card.Link href={`/${link}`}>
-          <Button variant="primary">Read it</Button>
-        </Card.Link>
+        <Row>
+          <Col>
+            <hr></hr>
+            <Card.Text style={{ textAlign: "justify" }}>
+              {description}
+            </Card.Text>
+            <Card.Link href={`/${link}`}>
+              <Button variant="primary">Read it</Button>
+            </Card.Link>
+          </Col>
+        </Row>
       </Container>
     </Card.Body>
   </Card>
