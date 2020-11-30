@@ -5,15 +5,15 @@ import PreviewCompatibleImage from "../../preview-compatible-image"
 const PostCardVertical = ({ title, date, description, img, link }) => (
   <Card>
     <Card.Body>
-      <Container fluid>
-        <Row>
+      <Container style={{ padding: "0" }} fluid>
+        <Row style={{ flexWrap: "nowrap" }}>
           <Col>
             <Card.Title>{title}</Card.Title>
             {date && (
               <Card.Subtitle className="mb-2 text-muted">{date}</Card.Subtitle>
             )}
           </Col>
-          <Col className="d-none d-md-block" md={"auto"}>
+          <Col className="d-none d-sm-block" sm={"auto"}>
             <PreviewCompatibleImage image={img} alt={title} />
           </Col>
         </Row>
@@ -23,13 +23,15 @@ const PostCardVertical = ({ title, date, description, img, link }) => (
             <Card.Text style={{ textAlign: "justify" }}>
               {description}
             </Card.Text>
-            <Card.Link href={`/${link}`}>
-              <Button variant="primary">Read it</Button>
-            </Card.Link>
           </Col>
         </Row>
       </Container>
     </Card.Body>
+    <Card.Footer style={{ textAlign: "center" }}>
+      <Card.Link href={`/${link}`}>
+        <Button variant="primary">Read it</Button>
+      </Card.Link>
+    </Card.Footer>
   </Card>
 )
 
