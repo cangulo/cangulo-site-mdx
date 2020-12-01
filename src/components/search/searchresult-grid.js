@@ -3,9 +3,7 @@ import { Col, Container, Row } from "react-bootstrap"
 
 const SearchResultList = ({ children }) => (
   <Container fluid>
-    <Row xs={1} sm={2} md={2} lg={3}>
-      {children}
-    </Row>
+    <Row style={{ flexDirection: "column" }}>{children}</Row>
   </Container>
 )
 
