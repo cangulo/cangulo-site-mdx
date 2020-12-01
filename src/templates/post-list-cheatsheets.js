@@ -17,6 +17,7 @@ const PostListCheatsheets = props => (
       <PostGridList
         posts={props.data.allMdx.edges.map(x => x.node)}
         numColumns={3}
+        showCardImage={true}
       />
       <PaginationList
         pageNumber={props.pageContext.pageNumber}

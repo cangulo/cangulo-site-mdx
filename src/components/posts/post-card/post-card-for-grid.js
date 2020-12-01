@@ -2,7 +2,14 @@ import React from "react"
 import { Button, Card, Col, Container, Image, Row } from "react-bootstrap"
 import Img from "gatsby-image"
 
-const PostCardForGrid = ({ title, date, description, img, link }) => (
+const PostCardForGrid = ({
+  title,
+  date,
+  description,
+  showCardImage,
+  img,
+  link,
+}) => (
   <Card>
     <Card.Body>
       <Card.Title>{title}</Card.Title>
@@ -29,7 +36,9 @@ const PostCardForGrid = ({ title, date, description, img, link }) => (
       </Card.Link>
     </Card.Body>
     <Card.Footer style={{ textAlign: "center" }}>
-      <Button variant="primary">Read it</Button>
+      <Card.Link href={`/${link}`}>
+        <Button variant="primary">Read it</Button>
+      </Card.Link>
     </Card.Footer>
   </Card>
 )

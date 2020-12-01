@@ -7,6 +7,7 @@ module.exports = {
     description:
       "This is my personal blog where you can find all my post as well as my cheatsheet. Feel free to contact me.",
     siteUrl: "https://carlosangulo.es",
+    // siteUrl: "http://localhost:8000/",
     image: "/og-image.jpg",
     shareProfilePicture: "/profile-picture-preview-link.jpg",
     twitterHandle: "@AnguloMascarell",
