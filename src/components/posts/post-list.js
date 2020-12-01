@@ -22,6 +22,9 @@ const PostList = ({ postType, orientation, numColumns, limit }) => {
                       fluid(maxWidth: 120, quality: 100) {
                         ...GatsbyImageSharpFluid
                       }
+                      fixed(width: 100, quality: 100) {
+                        ...GatsbyImageSharpFixed
+                      }
                     }
                   }
                 }
