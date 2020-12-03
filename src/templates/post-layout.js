@@ -34,11 +34,11 @@ export default function PageTemplate({ data: { mdx }, pageContext }) {
       />
       <LayoutContainer>
         <MdxProvider mdxContent={mdx.body} />
-        <hr />
+        <HrLineSeparation />
         <AboutMeArea />
 
-        <Container fluid>
-          <HrLineSeparation />
+        <HrLineSeparation />
+        <Container style={{ padding: 0 }} fluid>
           <Row>
             <Col md>
               <PostTags tags={mdx.frontmatter?.tags} />
