@@ -1,5 +1,5 @@
 import React from "react"
-import { kebabCase } from "lodash"
+import { kebabCase, startCase } from "lodash"
 import { Link } from "gatsby"
 import { Badge } from "react-bootstrap"
 
@@ -8,7 +8,7 @@ const TagArea = ({ tags, showBrowseAll }) => (
     {tags.map((tag, index) => (
       <Badge key={index} pill variant="info" style={{ marginRight: "15px" }}>
         <Link to={`/tags/${kebabCase(tag)}/`} style={{ color: "white" }}>
-          {tag}
+          {startCase(tag)}
         </Link>
       </Badge>
     ))}

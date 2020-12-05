@@ -25,7 +25,7 @@ const AboutMeExperienceCard = ({
             </span>
           )}
           <p>
-            {startDate} {currentlyWorking ? `` : ` - ${endDate}`}
+            {`${startDate} - ${currentlyWorking ? `Present` : `${endDate}`}`}
             <div>{location}</div>
           </p>
         </Col>

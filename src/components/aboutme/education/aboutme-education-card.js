@@ -63,9 +63,7 @@ const AboutMeEducationCard = ({
               }
             })}
           </div>
-          <p>
-            {startDate} - {endDate}
-          </p>
+          <p>{`${startDate} - ${endDate ?? `Present`}`}</p>
         </Col>
         <Col md="3">
           <Container style={{ padding: "0" }} fluid>

@@ -1,6 +1,6 @@
 import { graphql, StaticQuery } from "gatsby"
 import React from "react"
-import _ from "lodash"
+import { kebabCase, startCase } from "lodash"
 import styles from "./tags-list.module.scss"
 import Card from "../cards/card"
 import CardBrowseAll from "../cards/card-browse-all"
@@ -32,8 +32,8 @@ const TagsList = ({ maxTagsToList, showBrowseAll }) => {
           <div className={styles.container}>
             {tagsSliced.map((tag, index) => (
               <Card
-                link={`/tags/${_.kebabCase(tag.fieldValue)}/`}
-                label={tag.fieldValue}
+                link={`/tags/${kebabCase(tag.fieldValue)}/`}
+                label={startCase(tag.fieldValue)}
                 numPosts={tag.totalCount}
                 key={index}
               />
