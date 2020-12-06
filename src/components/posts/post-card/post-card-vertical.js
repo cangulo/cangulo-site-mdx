@@ -1,16 +1,31 @@
 import React from "react"
 import { Button, Card, Col, Container, Row } from "react-bootstrap"
 import PreviewCompatibleImage from "../../preview-compatible-image"
+import { startCase } from "lodash"
 
-const PostCardVertical = ({ title, date, description, img, link }) => (
+const PostCardVertical = ({
+  title,
+  postType,
+  date,
+  description,
+  img,
+  link,
+}) => (
   <Card>
     <Card.Body>
       <Container style={{ padding: "0" }} fluid>
         <Row style={{ flexWrap: "nowrap" }}>
           <Col>
             <Card.Title>{title}</Card.Title>
-            {date && (
-              <Card.Subtitle className="mb-2 text-muted">{date}</Card.Subtitle>
+            {date && postType && (
+              <Card.Subtitle className="mb-2 text-muted">
+                {date} - {startCase(postType)}
+              </Card.Subtitle>
+            )}
+            {!date && postType && (
+              <Card.Subtitle className="mb-2 text-muted">
+                {startCase(postType)}
+              </Card.Subtitle>
             )}
           </Col>
           <Col className="d-none d-sm-block" sm={"auto"}>

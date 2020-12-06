@@ -5,6 +5,7 @@ import PostCardVertical from "../components/posts/post-card/post-card-vertical"
 import { graphql } from "gatsby"
 import LayoutContainer from "../components/layout/layout-container"
 import PageTitle from "../components/page-title"
+import CardBrowseAll from "../components/cards/card-browse-all"
 
 export default function PageTemplate({ data, pageContext }) {
   const tag = pageContext.tag
@@ -24,6 +25,7 @@ export default function PageTemplate({ data, pageContext }) {
               >
                 <PostCardVertical
                   title={node.frontmatter.title}
+                  postType={node.fields.postType}
                   date={node.frontmatter.date}
                   description={node.frontmatter.description}
                   img={node.frontmatter.img}
@@ -31,6 +33,11 @@ export default function PageTemplate({ data, pageContext }) {
                 />
               </Col>
             ))}
+          </Row>
+          <Row>
+            <Col style={{ textAlign: "center" }}>
+              <CardBrowseAll link={`/tags`} label={`Browse All`} />
+            </Col>
           </Row>
         </Container>
       </LayoutContainer>
@@ -44,6 +51,9 @@ export const pageQuery = graphql`
       edges {
         node {
           slug
+          fields {
+            postType
+          }
           frontmatter {
             title
             description

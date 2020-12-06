@@ -4,7 +4,7 @@ import styles from "./tags-list.module.scss"
 import Card from "../cards/card"
 import CardBrowseAll from "../cards/card-browse-all"
 
-const TagsList = ({ maxTagsToList, showBrowseAll }) => {
+const TagsFullList = ({ maxTagsToList, showBrowseAll }) => {
   const sortTagsBytotalCount = tags => {
     return tags.sort((x, y) => (x.totalCount < y.totalCount ? 1 : -1))
   }
@@ -46,4 +46,4 @@ const TagsList = ({ maxTagsToList, showBrowseAll }) => {
     />
   )
 }
-export default TagsList
+export default TagsFullList

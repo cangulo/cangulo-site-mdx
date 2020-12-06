@@ -2,13 +2,13 @@ import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import LayoutPage from "../components/layout/layout-page"
 import { graphql } from "gatsby"
-import TagsList from "../components/tags/tags-list"
 import HeaderLink from "../components/headers/header-link"
 import CollectionsList from "../components/series/collection-list"
 import PostRowList from "../components/posts/post-list-oriented/post-list-rows"
 import PaginationList from "../components/pagination/pagination-list"
 import LayoutContainer from "../components/layout/layout-container"
 import PageTitle from "../components/page-title"
+import BlogTagsList from "../components/tags/blog-tags-list"
 
 const PostListBlog = props => (
   <LayoutPage location={props.location}>
@@ -26,7 +26,7 @@ const PostListBlog = props => (
           </Col>
           <Col xs={12} sm={12} md={4} lg={4}>
             <HeaderLink to={`/tags`} title={"Tags"} />
-            <TagsList maxTagsToList={10} showBrowseAll={true} />
+            <BlogTagsList maxTagsToList={10} showBrowseAll={true} />
 
             <HeaderLink to={`/collections`} title={"Collections"} />
             <CollectionsList maxCollectionsToList={10} showBrowseAll={true} />
