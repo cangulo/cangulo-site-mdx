@@ -1,40 +1,18 @@
 import React from "react"
-import { Col, Container, Row } from "react-bootstrap"
-import LayoutPage from "../components/layout/layout-page"
-import PostCardVertical from "../components/posts/post-card/post-card-vertical"
 import { graphql } from "gatsby"
 import _ from "lodash"
-import LayoutContainer from "../components/layout/layout-container"
-import PageTitle from "../components/page-title"
+import BasePostListPer from "./base-post-list-per"
 
 export default function PageTemplate({ data, pageContext }) {
   const collection = pageContext.collection
   return (
-    <LayoutPage
-      seoData={{ title: collection && `Collection ${_.startCase(collection)}` }}
-    >
-      <PageTitle
-        title={collection && `Collection ${_.startCase(collection)}`}
-        imgRelativePath="./collections.jpg"
-      />
-      <LayoutContainer>
-        <Container fluid>
-          <Row sm={2} md={2} lg={3}>
-            {data.allMdx.edges.map(({ node }) => (
-              <Col style={{ padding: "15px" }}>
-                <PostCardVertical
-                  title={node.frontmatter.title}
-                  date={node.frontmatter.date}
-                  description={node.frontmatter.description}
-                  img={node.frontmatter.img}
-                  link={node.slug}
-                />
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </LayoutContainer>
-    </LayoutPage>
+    <BasePostListPer
+      posts={data.allMdx.edges.map(x => x.node)}
+      pageTitle={`Collection ${_.startCase(collection)}`}
+      imgRelativePath="./collections.jpg"
+      browseAllLink="/collections"
+      browseAllMessage="Browse all the collections"
+    />
   )
 }
 
@@ -44,6 +22,9 @@ export const pageQuery = graphql`
       edges {
         node {
           slug
+          fields {
+            postType
+          }
           frontmatter {
             title
             description
