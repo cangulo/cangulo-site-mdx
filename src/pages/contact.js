@@ -4,6 +4,8 @@ import { graphql, StaticQuery } from "gatsby"
 import MdxProvider from "../components/mdRenders/mdx-provider"
 import LayoutContainer from "../components/layout/layout-container"
 import PageTitle from "../components/page-title"
+import Contactform from "../components/contact/contact-form"
+import { Col, Container, Row } from "react-bootstrap"
 
 const ContactMeArea = () => (
   <StaticQuery
@@ -32,7 +34,18 @@ const ContactPage = ({ location }) => (
   <LayoutPage location={location}>
     <PageTitle title="Contact" imgRelativePath="./contact.jpg" />
     <LayoutContainer>
-      <ContactMeArea />
+      <Container fluid>
+        <Row>
+          <Col xs={12} md={6}>
+            <h2>Send me a message here</h2>
+            <Contactform />
+          </Col>
+          <Col>
+            <h2>Social Networks</h2>
+            <ContactMeArea />
+          </Col>
+        </Row>
+      </Container>
     </LayoutContainer>
   </LayoutPage>
 )
