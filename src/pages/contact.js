@@ -36,13 +36,14 @@ const ContactPage = ({ location }) => (
     <LayoutContainer>
       <Container fluid>
         <Row>
-          <Col xs={12} md={6}>
-            <h2>Send me a message here</h2>
-            <Contactform />
-          </Col>
-          <Col>
+          <Col xs={12} md={4}>
             <h2>Social Networks</h2>
             <ContactMeArea />
+          </Col>
+          <Col>
+            <h2>Contact Form</h2>
+            <p>You can also contact me using this form.</p>
+            <Contactform />
           </Col>
         </Row>
       </Container>
