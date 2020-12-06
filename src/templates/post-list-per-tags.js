@@ -5,16 +5,13 @@ import PostCardVertical from "../components/posts/post-card/post-card-vertical"
 import { graphql } from "gatsby"
 import LayoutContainer from "../components/layout/layout-container"
 import PageTitle from "../components/page-title"
-import { startCase } from "lodash"
 
 export default function PageTemplate({ data, pageContext }) {
   const tag = pageContext.tag
   return (
-    <LayoutPage
-      seoData={{ title: tag && `Posts tagged with ${startCase(tag)}` }}
-    >
+    <LayoutPage seoData={{ title: tag && `Posts tagged with ${tag}` }}>
       <PageTitle
-        title={tag && `Posts tagged with ${startCase(tag)}`}
+        title={tag && `Posts tagged with ${tag}`}
         imgRelativePath="./page-tags.jpg"
       />
       <LayoutContainer>
