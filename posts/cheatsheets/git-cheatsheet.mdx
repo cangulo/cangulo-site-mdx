@@ -73,23 +73,27 @@ Next are my personal alias:
 
 ```bash
 [alias]
-	b = branch
-	bl = branch --list
-	bd = branch -D
-	co = checkout
-	cob = checkout -b
-	cor = checkout --track
-	cp = cherry-pick
-	cp-c = cherry-pick --continue
-	cp-a = cherry-pick --abort
-	re = rebase -i
-	re-a = rebase --abort
-	pushf = push --force
-	st = status
-	l = "!f() { git log --oneline -n ${1-15}; }; f"
-	lg = "!f() { git log --oneline --grep=${1-No Argument Provided}; }; f"
-	pushr = "!f() { currentBranch=$(git branch --show-current);git push --set-upstream origin $currentBranch; }; f"
-	settings = config --global --edit
+  b = branch
+  bl = branch --list
+  bd = branch -D
+  co = checkout
+  cob = checkout -b
+  cor = checkout --track
+  cp = cherry-pick
+  cp-c = cherry-pick --continue
+  cp-a = cherry-pick --abort
+  re = rebase -i
+  re-c = rebase --continue
+  re-a = rebase --abort
+  re-m = rebase -i --rebase-merges
+  pushf = push --force
+  st = status
+  l = "!f() { git log --oneline -n ${1-15}; }; f"
+  lg = "!f() { git log --oneline --grep=${1-No Argument Provided}; }; f"
+  pushr = "!f() { currentBranch=$(git branch --show-current);git push --set-upstream origin $currentBranch; }; f"
+  settings = config --global --edit
+[fetch]
+  prune = true
 ```
 
 <CaptionRender label="Check the file here" link="posts/cheatsheets/resources/git/git-alias"/>
