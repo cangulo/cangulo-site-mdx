@@ -25,7 +25,7 @@ when navigating via command line you can type partially the names and use * for 
 
 | Command                                       | Description                                                                                                                  |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `Select-String -Pattern [REGEX]`              | Filter the input passed with a pipe \|                                                                                               |
+| `Select-String -Pattern [REGEX]`              | Filter the input passed with a pipe \|                                                                                       |
 | `Select-String -Path [PATH] -Pattern [REGEX]` | Search the _Pattern_ specified inside the files provided in the path. You could provide a wildcard in the `[PATH]` as `*.cs` |
 
 <!-- TODO: print matching groups https://stackoverflow.com/questions/33913878/how-to-get-the-captured-groups-from-select-string -->
@@ -34,7 +34,7 @@ when navigating via command line you can type partially the names and use * for 
 
 | Command                      | Description                                                                                                                                                     |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tree /f`                    | Print the tree file structure from the current directory. The parameter `/f` show the file extensions in the list.                                                        |
+| `tree /f`                    | Print the tree file structure from the current directory. The parameter `/f` show the file extensions in the list.                                              |
 | `ii .`                       | Open a windows explorer in the current path                                                                                                                     |
 | `pushd`                      | Save the current path in a memory stack. If you provide a path as an argument, the current one will still be saved but, after it will move to the one provided. |
 | `popd`                       | change the current directory to the last one saved using `pushd` (yes, you can build a path stack using it more than one time)                                  |
@@ -89,3 +89,9 @@ goToRepos
 <!-- TODO: How to print quickly without Write-HOST -->
 <!-- https://stackoverflow.com/questions/9015138/looping-through-a-hash-or-using-an-array-in-powershell -->
 <!-- $hash.Keys | % { "key = $_ , value = " + $hash.Item($_) } -->
+
+<!-- TODO: Add string interpolation example -->
+<!-- https://stackoverflow.com/questions/60323111/powershell-string-interpolation-syntax -->
+
+<!-- TODO: Add multiline string -->
+<!-- https://riptutorial.com/powershell/example/20568/multiline-string -->
