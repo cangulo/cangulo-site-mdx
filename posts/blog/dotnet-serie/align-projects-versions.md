@@ -1,10 +1,4 @@
-# Create nugget package
-
-```ps
-dotnet pack -c Release -o $localNuget
-```
-
-Align version for packages:
+# Align version for packages:
 
 1. Create `Build` in all the projects you want to align
 2. insert a xml file called version.props only in the main project:
@@ -22,14 +16,11 @@ Align version for packages:
 </Project>
 ```
 
-3. Add the next import statement in the _.csproj_ project:
+3. Add the next import statement in the main _.csproj_ project:
 
 ```xml
 <Import Project=".\Build\version.props" />
 ```
-
-4. 
-
 
 csproj file example:
 
@@ -54,7 +45,16 @@ csproj file example:
 
 ```
 
-# Aling version in all projects: 
+4. In case you have other projects dependent, (e.g. `Abstractions`, `Contracts`), add also the Import statement and the include as link, as next:
+
+```xml
+<Import Project="..\MainProject\Build\version.props" />
+<ItemGroup>
+<None Include="..\MainProject\Build\version.props" Link="Build\version.props">
+</ItemGroup>
+```
+
+# Align version in all projects: 
 
 https://stackoverflow.com/questions/22276561/how-to-sync-nuget-packages-across-multiple-shared-projects-solutions
 
