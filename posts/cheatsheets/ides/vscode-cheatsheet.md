@@ -28,6 +28,11 @@ tags:
    1. `ctrl + p `
    2. type `term`
 
+
+
+It exists a Screencast mode! 
+https://twitter.com/davidpine7/status/1362436467042189314?s=20
+
 <!-- ## References -->
 <!-- TODO: Create Navigation article -->
 <!-- Example: navigation by symbols  -->
