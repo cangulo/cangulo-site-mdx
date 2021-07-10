@@ -51,3 +51,42 @@ https://twitter.com/davidpine7/status/1362436467042189314?s=20
 <!-- Git Lens -->
 <!-- 1. Compare files between branches -->
 <!-- 2. Enable Filter on typing feature-->
+
+
+<!-- Create a task -->
+<!-- https://code.visualstudio.com/docs/editor/tasks
+
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Execute Postman Request per client number",
+            "type": "shell",
+            "command": "newman run CBDP-Performabashnce-Requests.postman_collection.json -e ${input:numberOfClients}Clients-CBDP-Performance.postman_environment.json --insecure",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Execute Postman Request to all programs",
+            "type": "shell",
+            "command": "newman run CBDP-Performance-Requests.postman_collection.json -e 6Clients-CBDP-Performance.postman_environment.json 10Clients-CBDP-Performance.postman_environment.json --insecure",
+            "group": "build"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "numberOfClients",
+            "description": "Number of clients: Available 6, 10,15 and 20",
+            "default": "6",
+            "type": "promptString"
+        },
+    ]
+}
+ -->
+
+
+

@@ -95,3 +95,35 @@ goToRepos
 
 <!-- TODO: Add multiline string -->
 <!-- https://riptutorial.com/powershell/example/20568/multiline-string -->
+
+
+<!-- Create Alias
+
+Set-Alias
+
+https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-7 -->
+
+<!-- Create Function and save in the profiel
+
+Precondition:
+Have a profile
+
+echo "function setenv {D:\repos\ofs\Scripts\setupenv.bat}">>$profile
+
+
+https://stackoverflow.com/questions/4166370/how-can-i-write-a-powershell-alias-with-arguments-in-the-middle -->
+
+
+<!-- Create a profile
+
+new-item -type file -path $profile -force
+
+$profile points to 
+D:\Users\CAngulo\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+
+https://stackoverflow.com/questions/8997316/powershell-profile-is-pointing-to-a-path-that-i-cant-find-and-setting-permane/8997378#8997378 -->
+
+<!-- 
+Get Version
+
+ Get-Host | Select-Object Version -->
